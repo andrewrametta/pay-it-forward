@@ -6,6 +6,7 @@ import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import Dashboard from "./components/Dashboard/Dashboard";
 import NewDonation from "./components/NewDonation/NewDonation";
+import About from "./components/About/About";
 import "./App.css";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
       <Route path="/login" component={Login} />
       <Route path="/newdonation" component={NewDonation} />
       <Route path="/dashboard" component={Dashboard} />
+      <Route path="/about" component={About} />
     </div>
   );
 }
