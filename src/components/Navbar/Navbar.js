@@ -10,7 +10,8 @@ function Navbar() {
       <Link to="/register">Register</Link>
       <Link to="/login">Login</Link>
       <Link to="/about">About</Link>
-      <Link to="/about">Dashboard</Link>
+      <Link to="/dashboard">Dashboard</Link>
+      <Link to="/newdonation">New Donation</Link>
     </div>
   );
 }

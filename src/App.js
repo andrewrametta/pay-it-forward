@@ -17,7 +17,7 @@ function App() {
       <Route exact path="/" component={Landing} />
       <Route path="/register" component={Register} />
       <Route path="/login" component={Login} />
-      <Route path="/new-donation" component={NewDonation} />
+      <Route path="/newdonation" component={NewDonation} />
       <Route path="/dashboard" component={Dashboard} />
     </div>
   );
