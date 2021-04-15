@@ -1,1 +1,36 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  list-style: none;
+  padding: 0;
+}
 
+main {
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+div .app-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+.app-header {
+  background-color: grey;
+  position: sticky;
+  top: 0;
+  border-bottom: 3px solid black;
+  padding: 5px 10px;
+}
+
+footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+  border-top: 3px solid black;
+  background-color: grey;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}

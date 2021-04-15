@@ -1,33 +1,53 @@
 import React from "react";
+import "./Register.css";
 
 function Register() {
   return (
     <div className="register-wrapper">
-      <h1>Register</h1>
-      <form className="register form">
-        <label className="label" htmlFor="username">
-          Username
-        </label>
-        <input
-          type="text"
-          name="username"
-          id="username"
-          defaultValue="username"
-        />
-        <label className="label" htmlFor="email">
-          Email
-        </label>
-        <input type="email" name="email" id="email" defaultValue="email" />
-        <label className="label" htmlFor="password">
-          Password
-        </label>
-        <input
-          type="text"
-          name="password"
-          id="password"
-          defaultValue="password"
-        />
-      </form>
+      <section className="register-section">
+        <header className="register-header">
+          <h1>Register</h1>
+        </header>
+        <article>
+          <div>
+            <form className="register form">
+              <div>
+                <label className="label" htmlFor="username">
+                  Username
+                </label>
+                <input
+                  type="text"
+                  name="username"
+                  id="username"
+                  defaultValue="username"
+                />
+              </div>
+              <div>
+                <label className="label" htmlFor="email">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  defaultValue="email"
+                />
+              </div>
+              <div>
+                <label className="label" htmlFor="password">
+                  Password
+                </label>
+                <input
+                  type="text"
+                  name="password"
+                  id="password"
+                  defaultValue="password"
+                />
+              </div>
+            </form>
+          </div>
+        </article>
+      </section>
     </div>
   );
 }
