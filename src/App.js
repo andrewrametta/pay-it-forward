@@ -7,6 +7,7 @@ import Register from "./components/Register/Register";
 import DonorDashboard from "./components/DonorDashboard/DonorDashboard";
 import OrganizationDashboard from "./components/OrganizationDashboard/OrganizationDashboard";
 import NewDonation from "./components/NewDonation/NewDonation";
+import Messages from "./components/Messages/Messages";
 import About from "./components/About/About";
 import "./App.css";
 
@@ -21,6 +22,7 @@ function App() {
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
         <Route path="/newdonation" component={NewDonation} />
+        <Route path="/messages" component={Messages} />
         <Route path="/donordashboard" component={DonorDashboard} />
         <Route
           path="/organizationdashboard"

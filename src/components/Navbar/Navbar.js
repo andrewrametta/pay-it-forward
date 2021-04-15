@@ -14,6 +14,7 @@ function Navbar() {
       <Link to="/donordashboard">Donor Dashboard</Link>
       <Link to="/organizationdashboard">Organization Dashboard</Link>
       <Link to="/newdonation">New Donation</Link>
+      <Link to="/messages">Messages</Link>
     </div>
   );
 }

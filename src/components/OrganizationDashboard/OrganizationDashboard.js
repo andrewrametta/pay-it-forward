@@ -1,4 +1,5 @@
 import React from "react";
+import "./OrganizationDashboard.css";
 
 function OrganizationDashboard() {
   return (
