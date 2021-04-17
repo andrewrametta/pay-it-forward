@@ -53,6 +53,9 @@ function Register() {
                   defaultValue="password"
                 />
               </div>
+              <div className="register-button">
+                <button>Register</button>
+              </div>
             </form>
           </div>
         </article>

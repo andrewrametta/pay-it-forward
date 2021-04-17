@@ -44,6 +44,9 @@ function NewDonation() {
                   defaultValue="couch image"
                 />
               </div>
+              <div className="submit-button">
+                <button>Submit</button>
+              </div>
             </form>
           </div>
         </article>

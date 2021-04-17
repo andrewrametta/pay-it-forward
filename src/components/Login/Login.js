@@ -33,6 +33,9 @@ function Login() {
                   defaultValue="password"
                 />
               </div>
+              <div className="login-button">
+                <button>Login</button>
+              </div>
             </form>
           </div>
         </article>
