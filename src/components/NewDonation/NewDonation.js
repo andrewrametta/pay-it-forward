@@ -27,7 +27,7 @@ function NewDonation() {
                   Description
                 </label>
                 <input
-                  type="description"
+                  type="text"
                   name="description"
                   id="description"
                   defaultValue="a brown leather couch"
