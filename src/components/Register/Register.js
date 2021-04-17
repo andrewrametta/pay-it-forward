@@ -10,6 +10,15 @@ function Register() {
         </header>
         <article>
           <div>
+            <label className="label" htmlFor="usertype">
+              User Type
+            </label>
+            <select id="usertype" name="usertype">
+              <option value="donor">Donor</option>
+              <option value="organization">Organization</option>
+            </select>
+          </div>
+          <div>
             <form className="register form">
               <div>
                 <label className="label" htmlFor="username">

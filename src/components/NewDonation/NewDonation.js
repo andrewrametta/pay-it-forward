@@ -19,7 +19,7 @@ function NewDonation() {
                   type="text"
                   name="donation"
                   id="donation"
-                  defaultValue="new donation"
+                  defaultValue="furniture"
                 />
               </div>
               <div>
@@ -30,7 +30,7 @@ function NewDonation() {
                   type="description"
                   name="description"
                   id="description"
-                  defaultValue="description"
+                  defaultValue="a brown leather couch"
                 />
               </div>
               <div>
@@ -41,7 +41,7 @@ function NewDonation() {
                   type="text"
                   name="image"
                   id="image"
-                  defaultValue="image"
+                  defaultValue="couch image"
                 />
               </div>
             </form>
