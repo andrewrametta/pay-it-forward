@@ -4,8 +4,50 @@ import "./NewDonation.css";
 function NewDonation() {
   return (
     <div className="newdonation-wrapper">
-      <h1>New Donation</h1>
-      <p>This is where a new donation form will live</p>
+      <section className="newdonation-section">
+        <header className="newdonation-header">
+          <h1>New Donation</h1>
+        </header>
+        <article>
+          <div>
+            <form className="newdonation form">
+              <div>
+                <label className="label" htmlFor="donation">
+                  Donation Type
+                </label>
+                <input
+                  type="text"
+                  name="donation"
+                  id="donation"
+                  defaultValue="new donation"
+                />
+              </div>
+              <div>
+                <label className="label" htmlFor="description">
+                  Description
+                </label>
+                <input
+                  type="description"
+                  name="description"
+                  id="description"
+                  defaultValue="description"
+                />
+              </div>
+              <div>
+                <label className="label" htmlFor="image">
+                  Image
+                </label>
+                <input
+                  type="text"
+                  name="image"
+                  id="image"
+                  defaultValue="image"
+                />
+              </div>
+            </form>
+          </div>
+        </article>
+      </section>
     </div>
   );
 }
