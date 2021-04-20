@@ -1,7 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
+import TokenService from "../../services/token-service";
 import "./Login.css";
 
-function Login() {
+function Login(props) {
+  const { error, setError } = useState("null");
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const { username, password } = e.target;
+    const user = { username: username.value, password: password.value };
+    //setError({ error: null });
+    TokenService.saveAuthToken("hfdjshfds027cdkjs0");
+    props.history.push("/dashboard");
+  };
+
   return (
     <div className="login-wrapper">
       <section className="login-section">
@@ -10,7 +22,11 @@ function Login() {
         </header>
         <article>
           <div>
-            <form className="login form">
+            <form
+              className="login form"
+              aria-label="login-form"
+              onSubmit={handleLogin}
+            >
               <div>
                 <label className="label" htmlFor="username">
                   Username
@@ -27,7 +43,7 @@ function Login() {
                   Password
                 </label>
                 <input
-                  type="text"
+                  type="password"
                   name="password"
                   id="password"
                   defaultValue="password"

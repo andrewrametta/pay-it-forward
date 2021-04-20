@@ -28,7 +28,7 @@ function Register() {
                   type="text"
                   name="username"
                   id="username"
-                  defaultValue="username"
+                  placeholder="username"
                 />
               </div>
               <div>
@@ -39,7 +39,7 @@ function Register() {
                   type="email"
                   name="email"
                   id="email"
-                  defaultValue="email"
+                  placeholder="email"
                 />
               </div>
               <div>
@@ -50,7 +50,7 @@ function Register() {
                   type="text"
                   name="password"
                   id="password"
-                  defaultValue="password"
+                  placeholder="password"
                 />
               </div>
               <div className="register-button">
