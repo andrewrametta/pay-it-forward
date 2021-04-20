@@ -10,6 +10,7 @@ import NewDonation from "./components/NewDonation/NewDonation";
 import Messages from "./components/Messages/Messages";
 import About from "./components/About/About";
 import "./App.css";
+import Dashboard from "./components/Dashboard/Dashboard";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/login" component={Login} />
         <Route path="/newdonation" component={NewDonation} />
         <Route path="/messages" component={Messages} />
+        <Route path="/dashboard" component={Dashboard} />
         <Route path="/donordashboard" component={DonorDashboard} />
         <Route
           path="/organizationdashboard"
