@@ -26,4 +26,26 @@ export default {
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
+  uploadImg(img) {
+    return fetch(`${config.API_ENDPOINT}/api/uploads`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+      //body: JSON.stringify(img),
+    }).then((res) =>
+      !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+    );
+  },
+  getImg(img) {
+    return fetch(`${config.API_ENDPOINT}/api/img/:id`, {
+      method: "GET",
+      headers: {
+        Content_type: "multipart/form-data",
+      },
+      body: JSON.stringify(img),
+    }).then((res) =>
+      !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+    );
+  },
 };

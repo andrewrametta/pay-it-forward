@@ -1,5 +1,6 @@
 import React from "react";
 import "./NewDonation.css";
+import Upload from "../Upload/Upload";
 
 function NewDonation() {
   return (
@@ -9,6 +10,7 @@ function NewDonation() {
           <h1>New Donation</h1>
         </header>
         <article>
+          <Upload />
           <div>
             <form className="newdonation form">
               <div>
