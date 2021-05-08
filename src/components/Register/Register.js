@@ -1,7 +1,49 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import "./Register.css";
+import AuthAPIService from "../../services/auth-api-service";
+import AppContext from "../../AppContext";
 
-function Register() {
+function Register(props) {
+  const [error, setError] = useState(null);
+  const context = useContext(AppContext);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const {
+      username,
+      password,
+      email,
+      usertype,
+      address,
+      city,
+      state,
+      zipcode,
+    } = e.target;
+    setError({ error: null });
+    if (password.value) {
+      // create user
+      AuthAPIService.postUser({
+        username: username.value,
+        password: password.value,
+        email: email.value,
+        user_type: usertype.value,
+        address: address.value,
+        city: city.value,
+        state: state.value,
+        zip: zipcode.value,
+      })
+        .then((user) => {
+          context.setType(usertype);
+          props.history.push("/login");
+        })
+        .catch((res) => {
+          setError({ error: res.error });
+        });
+    } else {
+      alert("Passwords do not match");
+    }
+  };
+
   return (
     <div className="register-wrapper">
       <section className="register-section">
@@ -10,14 +52,14 @@ function Register() {
         </header>
         <article>
           <div>
-            <form className="register form">
+            <form className="register form" onSubmit={handleSubmit}>
               <div>
                 <label className="label" htmlFor="usertype">
                   User Type
                 </label>
                 <select id="usertype" name="usertype">
-                  <option value="donor">Donor</option>
-                  <option value="organization">Organization</option>
+                  <option value="user">User</option>
+                  <option value="org">Organization</option>
                 </select>
               </div>
               <div>
@@ -71,10 +113,10 @@ function Register() {
                 <input type="text" name="city" id="city" placeholder="city" />
               </div>
               <div>
-                <label className="label" htmlFor="ST">
-                  ST
+                <label className="label" htmlFor="state">
+                  state
                 </label>
-                <input type="text" name="ST" id="ST" placeholder="ST" />
+                <input type="text" name="state" id="state" placeholder="ST" />
               </div>
               <div>
                 <label className="label" htmlFor="zipcode">
@@ -90,7 +132,7 @@ function Register() {
                 />
               </div>
               <div className="register-button">
-                <button>Register</button>
+                <button type="submit">Register</button>
               </div>
             </form>
           </div>

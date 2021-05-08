@@ -5,7 +5,7 @@ import AppContext from "../../AppContext";
 import "./Login.css";
 
 function Login(props) {
-  const { error, setError } = useState("null");
+  const [error, setError] = useState("null");
   const context = useContext(AppContext);
 
   const handleLogin = (e) => {
@@ -17,7 +17,7 @@ function Login(props) {
       .then((loginResponse) => {
         // store auth token in local storage
         TokenService.saveAuthToken(loginResponse.authToken);
-        context.setUserType(loginResponse.authToken.type);
+        //context.setUserType(loginResponse.authToken);
         props.history.push("/dashboard");
       })
       .catch((res) => {
@@ -60,9 +60,8 @@ function Login(props) {
                   defaultValue="password"
                 />
               </div>
-              <div className="login-button">
-                <button>Login</button>
-              </div>
+
+              <button type="submit">Login</button>
             </form>
           </div>
         </article>
