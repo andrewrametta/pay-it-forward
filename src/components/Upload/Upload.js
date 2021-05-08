@@ -4,24 +4,26 @@ import AuthApiService from "../../services/auth-api-service";
 export default function Upload(props) {
   const [file, setFile] = useState("");
   const [filename, setFilename] = useState("Choose File");
-  const [filedata, setFiledata] = useState("");
   const [uploadedFile, setUploadedFile] = useState({});
 
   const onChange = (e) => {
     setFile(e.target.files[0]);
     setFilename(e.target.files[0].name);
-    setFiledata(e.target.files[0].data);
   };
 
   const handleUpload = (e) => {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append("file", file);
-    console.log(file);
-    console.log(formData);
+    console.log("is this working?");
+    console.log(e.target);
+    const formData = new FormData(e.target.files);
+    console.log(formData.append("file", file));
+    // const formData = new FormData(e.target);
+    // formData.append("pic", file);
+    // console.log(file.name);
+    // console.log(formData);
     // AuthApiService.uploadImg(formData, {
-    //   name: name,
-    //   img: data,
+    //   name: filename,
+    //   img: file.data,
     // })
     //   .then((img) => {
     //     props.history.push("/dashboard");

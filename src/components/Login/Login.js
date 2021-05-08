@@ -1,17 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import TokenService from "../../services/token-service";
+import AuthApiService from "../../services/auth-api-service";
+import AppContext from "../../AppContext";
 import "./Login.css";
 
 function Login(props) {
   const { error, setError } = useState("null");
+  const context = useContext(AppContext);
 
   const handleLogin = (e) => {
     e.preventDefault();
     const { username, password } = e.target;
     const user = { username: username.value, password: password.value };
-    //setError({ error: null });
-    TokenService.saveAuthToken("hfdjshfds027cdkjs0");
-    props.history.push("/dashboard");
+    setError({ error: null });
+    AuthApiService.loginUser(user)
+      .then((loginResponse) => {
+        // store auth token in local storage
+        TokenService.saveAuthToken(loginResponse.authToken);
+        context.setUserType(loginResponse.authToken.type);
+        props.history.push("/dashboard");
+      })
+      .catch((res) => {
+        setError({ error: res.error });
+      });
   };
 
   return (

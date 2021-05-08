@@ -10,16 +10,16 @@ function Register() {
         </header>
         <article>
           <div>
-            <label className="label" htmlFor="usertype">
-              User Type
-            </label>
-            <select id="usertype" name="usertype">
-              <option value="donor">Donor</option>
-              <option value="organization">Organization</option>
-            </select>
-          </div>
-          <div>
             <form className="register form">
+              <div>
+                <label className="label" htmlFor="usertype">
+                  User Type
+                </label>
+                <select id="usertype" name="usertype">
+                  <option value="donor">Donor</option>
+                  <option value="organization">Organization</option>
+                </select>
+              </div>
               <div>
                 <label className="label" htmlFor="username">
                   Username
@@ -51,6 +51,42 @@ function Register() {
                   name="password"
                   id="password"
                   placeholder="password"
+                />
+              </div>
+              <div>
+                <label className="label" htmlFor="address">
+                  Address
+                </label>
+                <input
+                  type="text"
+                  name="address"
+                  id="address"
+                  placeholder="address"
+                />
+              </div>
+              <div>
+                <label className="label" htmlFor="city">
+                  City
+                </label>
+                <input type="text" name="city" id="city" placeholder="city" />
+              </div>
+              <div>
+                <label className="label" htmlFor="ST">
+                  ST
+                </label>
+                <input type="text" name="ST" id="ST" placeholder="ST" />
+              </div>
+              <div>
+                <label className="label" htmlFor="zipcode">
+                  zipcode
+                </label>
+                <input
+                  type="text"
+                  name="zipcode"
+                  id="zipcode"
+                  placeholder="zipcode"
+                  pattern="[0-9]{5}"
+                  title="Five digit zip code"
                 />
               </div>
               <div className="register-button">

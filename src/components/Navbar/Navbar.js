@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import TokenService from "../../services/token-service";
+import AppContext from "../../AppContext";
 import "./Navbar.css";
 
 function Navbar(props) {
+  const context = useContext(AppContext);
   const logout = () => {
     TokenService.clearAuthToken();
     props.history.push("/");
@@ -17,17 +19,23 @@ function Navbar(props) {
       <Link to="/about">
         <button>About</button>
       </Link>
-      {TokenService.hasAuthToken() ? (
+      {context.isLogged ? (
         <>
-          <Link to="/donordashboard">
-            <button>Donor Dashboard</button>
-          </Link>
-          <Link to="/organizationdashboard">
-            <button>OrganizationDashboard</button>
-          </Link>
-          <Link to="/newdonation">
-            <button>New Donation</button>
-          </Link>
+          {context.type == "organization" ? (
+            <Link to="/organizationdashboard">
+              <button>OrganizationDashboard</button>
+            </Link>
+          ) : (
+            <>
+              <Link to="/donordashboard">
+                <button>Donor Dashboard</button>
+              </Link>
+              <Link to="/newdonation">
+                <button>New Donation</button>
+              </Link>
+            </>
+          )}
+
           <Link to="/messages">
             <button>Messages</button>
           </Link>

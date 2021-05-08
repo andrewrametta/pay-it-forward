@@ -1,6 +1,7 @@
 import config from "../config";
+import jwtDecode from "jwt-decode";
 
-export default {
+const TokenService = {
   // create auth token
   saveAuthToken(token) {
     window.localStorage.setItem(config.TOKEN_KEY, token);
@@ -12,4 +13,12 @@ export default {
   clearAuthToken() {
     return window.localStorage.removeItem(config.TOKEN_KEY);
   },
+  parseJwt(jwt) {
+    return jwtDecode(jwt);
+  },
+  readJwtToken() {
+    return TokenService.parseJwt(TokenService.hasAuthToken());
+  },
 };
+
+export default TokenService;
