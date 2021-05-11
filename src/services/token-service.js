@@ -19,6 +19,12 @@ const TokenService = {
   readJwtToken() {
     return TokenService.parseJwt(TokenService.hasAuthToken());
   },
+  saveUserType(type) {
+    window.localStorage.setItem("user_type", type);
+  },
+  hasUserType() {
+    return window.localStorage.getItem("user_type");
+  },
 };
 
 export default TokenService;

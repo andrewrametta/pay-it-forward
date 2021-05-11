@@ -1,47 +1,85 @@
 import React, { useState } from "react";
-import AuthApiService from "../../services/auth-api-service";
 
-export default function Upload(props) {
-  const [file, setFile] = useState("");
-  const [filename, setFilename] = useState("Choose File");
-  const [uploadedFile, setUploadedFile] = useState({});
+function Upload() {
+  const [fileInputState, setFileInputState] = useState("");
+  const [previewSource, setPreviewSource] = useState("");
+  const [imgurl, setImgurl] = useState("");
 
-  const onChange = (e) => {
-    setFile(e.target.files[0]);
-    setFilename(e.target.files[0].name);
+  const handleFileInputChange = (e) => {
+    const file = e.target.files[0];
+    console.log(file.name);
+    previewFile(file);
+    //setFileInputState(file.name);
   };
 
-  const handleUpload = (e) => {
+  const previewFile = (file) => {
+    const reader = new FileReader();
+    //convert img to url
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setPreviewSource(reader.result);
+    };
+  };
+
+  const handleSubmitFile = (e) => {
     e.preventDefault();
-    console.log("is this working?");
-    console.log(e.target);
-    const formData = new FormData(e.target.files);
-    console.log(formData.append("file", file));
-    // const formData = new FormData(e.target);
-    // formData.append("pic", file);
-    // console.log(file.name);
-    // console.log(formData);
-    // AuthApiService.uploadImg(formData, {
-    //   name: filename,
-    //   img: file.data,
-    // })
-    //   .then((img) => {
-    //     props.history.push("/dashboard");
-    //     console.log({ img });
-    //   })
-    //   .catch((res) => {
-    //     console.log({ error: res.error });
-    //   });
+    if (!previewSource) return;
+    fetchImgJSON(previewSource)
+      .then((img) => {
+        console.log(img);
+        setImgurl(img.secure_url);
+      })
+      .catch((error) => console.error(error));
   };
 
+  // const uploadImg = async (base64EncodedImage) => {
+  //   console.log(base64EncodedImage);
+  //   try {
+  //     const response = await fetch("http://localhost:8000/api/upload", {
+  //       method: "POST",
+  //       body: JSON.stringify({ data: (base64EncodedImage) }),
+  //       headers: { "Content-type": "application/json" },
+  //     });
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+
+  async function fetchImgJSON(base64EncodedImage) {
+    const response = await fetch("http://localhost:8080/api/uploads", {
+      method: "POST",
+      body: JSON.stringify({ data: base64EncodedImage }),
+      headers: { "Content-type": "application/json" },
+    });
+    const itemImg = await response.json();
+    return itemImg;
+  }
   return (
-    <div>
-      <form onSubmit={handleUpload}>
-        <div className="input-container">
-          <input name="pic" type="file" onChange={onChange} />
+    <div className="App">
+      <form onSubmit={handleSubmitFile}>
+        <input
+          type="file"
+          name="image"
+          onChange={handleFileInputChange}
+          className="form-input"
+        />
+
+        <div>
+          {previewSource && (
+            <img
+              src={previewSource}
+              alt="chosen-img"
+              style={{ height: "200px" }}
+            />
+          )}
         </div>
-        <input type="submit" value="Upload" className="input-submit" />
+
+        <button className="form-btn" type="submit">
+          Submit
+        </button>
       </form>
     </div>
   );
 }
+
+export default Upload;

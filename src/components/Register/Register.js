@@ -89,7 +89,7 @@ function Register(props) {
                   Password
                 </label>
                 <input
-                  type="text"
+                  type="password"
                   name="password"
                   id="password"
                   placeholder="password"

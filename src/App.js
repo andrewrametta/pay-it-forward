@@ -15,8 +15,8 @@ import AppContext from "./AppContext";
 import TokenService from "./services/token-service";
 
 function App() {
-  const [type, setType] = useState("");
-  const [isLogged, setIsLogged] = useState(TokenService.hasAuthToken());
+  const [type, setType] = useState(TokenService.hasAuthToken());
+  const [isLogged, setIsLogged] = useState(TokenService.hasUserType());
   const contextValue = {
     type,
     setType,

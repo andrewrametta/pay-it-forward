@@ -3,25 +3,32 @@ import TokenService from "../../services/token-service";
 import AuthApiService from "../../services/auth-api-service";
 import AppContext from "../../AppContext";
 import "./Login.css";
+import jwtDecode from "jwt-decode";
 
 function Login(props) {
-  const [error, setError] = useState("null");
-  const context = useContext(AppContext);
+  const [error, setError] = useState(null);
+  const { type, setType, isLogged, setIsLogged } = useContext(AppContext);
 
   const handleLogin = (e) => {
     e.preventDefault();
     const { username, password } = e.target;
     const user = { username: username.value, password: password.value };
-    setError({ error: null });
+    setError(null);
     AuthApiService.loginUser(user)
       .then((loginResponse) => {
         // store auth token in local storage
         TokenService.saveAuthToken(loginResponse.authToken);
-        //context.setUserType(loginResponse.authToken);
+        setIsLogged(loginResponse.authToken);
+        console.log(loginResponse);
+        const jwt = TokenService.readJwtToken(loginResponse);
+        console.log(jwt.user_type);
+        setType(jwt.user_type);
+        TokenService.saveUserType(jwt.user_type);
         props.history.push("/dashboard");
       })
       .catch((res) => {
         setError({ error: res.error });
+        console.log(error);
       });
   };
 
@@ -32,6 +39,7 @@ function Login(props) {
           <h1>Login</h1>
         </header>
         <article>
+          {error ? <h2>{error}</h2> : null}
           <div>
             <form
               className="login form"

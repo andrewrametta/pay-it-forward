@@ -5,9 +5,11 @@ import AppContext from "../../AppContext";
 import "./Navbar.css";
 
 function Navbar(props) {
-  const context = useContext(AppContext);
+  const { type, setType, isLogged, setIsLogged } = useContext(AppContext);
   const logout = () => {
     TokenService.clearAuthToken();
+    setIsLogged(null);
+    setType(null);
     props.history.push("/");
   };
 
@@ -19,9 +21,9 @@ function Navbar(props) {
       <Link to="/about">
         <button>About</button>
       </Link>
-      {context.isLogged ? (
+      {isLogged ? (
         <>
-          {context.type == "organization" ? (
+          {type == "org" ? (
             <Link to="/organizationdashboard">
               <button>OrganizationDashboard</button>
             </Link>
