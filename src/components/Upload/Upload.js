@@ -21,6 +21,8 @@ function Upload(props) {
     reader.onloadend = () => {
       console.log(reader.result);
       setPreviewSource(reader.result);
+      setShowButton(true);
+      setShowForm(false);
     };
   };
 
