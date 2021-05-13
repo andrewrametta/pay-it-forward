@@ -1,15 +1,17 @@
 import React, { useState } from "react";
+import AuthApiService from "../../services/auth-api-service";
 
-function Upload() {
-  const [fileInputState, setFileInputState] = useState("");
-  const [previewSource, setPreviewSource] = useState("");
-  const [imgurl, setImgurl] = useState("");
+function Upload(props) {
+  const [uploadError, setUploadError] = useState("");
+  const [showButton, setShowButton] = useState(true);
+  //const [previewSource, setPreviewSource] = useState("");
+  const { setImgUrl, setPreviewSource, previewSource, setShowForm } = props;
 
   const handleFileInputChange = (e) => {
     const file = e.target.files[0];
     console.log(file.name);
+    console.log(file);
     previewFile(file);
-    //setFileInputState(file.name);
   };
 
   const previewFile = (file) => {
@@ -17,6 +19,7 @@ function Upload() {
     //convert img to url
     reader.readAsDataURL(file);
     reader.onloadend = () => {
+      console.log(reader.result);
       setPreviewSource(reader.result);
     };
   };
@@ -25,11 +28,14 @@ function Upload() {
     e.preventDefault();
     if (!previewSource) return;
     fetchImgJSON(previewSource)
+      //AuthApiService.uploadImg(previewSource)
       .then((img) => {
         console.log(img);
-        setImgurl(img.secure_url);
+        setImgUrl(img.secure_url);
+        setShowForm(true);
+        setShowButton(false);
       })
-      .catch((error) => console.error(error));
+      .catch((error) => setUploadError(error));
   };
 
   // const uploadImg = async (base64EncodedImage) => {
@@ -73,10 +79,12 @@ function Upload() {
             />
           )}
         </div>
-
-        <button className="form-btn" type="submit">
-          Submit
-        </button>
+        {uploadError && <h3 className="error">{uploadError}</h3>}
+        {showButton ? (
+          <button className="form-btn" type="submit">
+            Submit
+          </button>
+        ) : null}
       </form>
     </div>
   );

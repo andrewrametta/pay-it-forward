@@ -26,8 +26,8 @@ function Login(props) {
         TokenService.saveUserType(jwt.user_type);
         props.history.push("/dashboard");
       })
-      .catch((res) => {
-        setError({ error: res.error });
+      .catch((error) => {
+        //setError(error);
         console.log(error);
       });
   };

@@ -48,4 +48,17 @@ export default {
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
+  postItem(item) {
+    const token = "bearer " + TokenService.hasAuthToken();
+    return fetch(`${config.API_ENDPOINT}/api/items`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token,
+      },
+      body: JSON.stringify(item),
+    }).then((res) =>
+      !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+    );
+  },
 };
