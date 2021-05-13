@@ -13,6 +13,9 @@ const TokenService = {
   clearAuthToken() {
     return window.localStorage.removeItem(config.TOKEN_KEY);
   },
+  clearUserType() {
+    return window.localStorage.removeItem("user_type");
+  },
   parseJwt(jwt) {
     return jwtDecode(jwt);
   },

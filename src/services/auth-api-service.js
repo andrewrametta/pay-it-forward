@@ -26,24 +26,24 @@ export default {
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
-  uploadImg(img) {
+  uploadImg(base64EncodedImage) {
     return fetch(`${config.API_ENDPOINT}/api/uploads`, {
       method: "POST",
       headers: {
-        "Content-Type": "multipart/form-data",
+        "Content-Type": "application/json",
       },
-      //body: JSON.stringify(img),
+      body: JSON.stringify({ data: base64EncodedImage }),
     }).then((res) =>
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
-  getImg(img) {
-    return fetch(`${config.API_ENDPOINT}/api/img/:id`, {
+  getItems(item) {
+    return fetch(`${config.API_ENDPOINT}/api/items`, {
       method: "GET",
       headers: {
-        Content_type: "multipart/form-data",
+        Content_type: "application/json",
       },
-      body: JSON.stringify(img),
+      body: JSON.stringify(item),
     }).then((res) =>
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );

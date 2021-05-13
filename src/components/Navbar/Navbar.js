@@ -8,6 +8,7 @@ function Navbar(props) {
   const { type, setType, isLogged, setIsLogged } = useContext(AppContext);
   const logout = () => {
     TokenService.clearAuthToken();
+    TokenService.clearUserType();
     setIsLogged(null);
     setType(null);
     props.history.push("/");

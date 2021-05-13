@@ -17,11 +17,14 @@ import TokenService from "./services/token-service";
 function App() {
   const [type, setType] = useState(TokenService.hasAuthToken());
   const [isLogged, setIsLogged] = useState(TokenService.hasUserType());
+  const [items, setItems] = useState([]);
   const contextValue = {
     type,
     setType,
     isLogged,
     setIsLogged,
+    items,
+    setItems,
   };
   return (
     <AppContext.Provider value={contextValue}>
