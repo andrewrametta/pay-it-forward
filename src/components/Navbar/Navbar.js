@@ -24,20 +24,14 @@ function Navbar(props) {
       </Link>
       {isLogged ? (
         <>
-          {type == "org" ? (
-            <Link to="/organizationdashboard">
-              <button>OrganizationDashboard</button>
+          <Link to="/dashboard">
+            <button>Dashboard</button>
+          </Link>
+          {type == "user" ? (
+            <Link to="/newdonation">
+              <button>New Donation</button>
             </Link>
-          ) : (
-            <>
-              <Link to="/donordashboard">
-                <button>Donor Dashboard</button>
-              </Link>
-              <Link to="/newdonation">
-                <button>New Donation</button>
-              </Link>
-            </>
-          )}
+          ) : null}
 
           <Link to="/messages">
             <button>Messages</button>
