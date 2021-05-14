@@ -16,7 +16,7 @@ export default function Dashboard(props) {
       .catch((res) => {
         setError(error);
       });
-  });
+  }, []);
 
   return (
     <div className="dashboard-container">
