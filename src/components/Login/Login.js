@@ -7,7 +7,14 @@ import jwtDecode from "jwt-decode";
 
 function Login(props) {
   const [error, setError] = useState(null);
-  const { type, setType, isLogged, setIsLogged } = useContext(AppContext);
+  const {
+    type,
+    setType,
+    isLogged,
+    setIsLogged,
+    userId,
+    setUserId,
+  } = useContext(AppContext);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -23,6 +30,8 @@ function Login(props) {
         const jwt = TokenService.readJwtToken(loginResponse);
         console.log(jwt.user_type);
         setType(jwt.user_type);
+        setUserId(jwt.user_id);
+
         TokenService.saveUserType(jwt.user_type);
         props.history.push("/dashboard");
       })

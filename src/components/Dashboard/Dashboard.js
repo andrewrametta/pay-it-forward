@@ -1,7 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import DonorDashboard from "../DonorDashboard/DonorDashboard";
 import OrganizationDashboard from "../OrganizationDashboard/OrganizationDashboard";
+import Donation from "../Donation/Donation";
 import AppContext from "../../AppContext";
+import { Link } from "react-router-dom";
 import AuthAPIService from "../../services/auth-api-service";
 
 export default function Dashboard(props) {
@@ -25,9 +27,12 @@ export default function Dashboard(props) {
         <ul className="ul-items">
           {items.map((item, indx) => (
             <li key={indx} className="items-div-container">
-              <img className="item-img" src={item.item_url}></img>
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
+              <Link to={`donation/${item.id}`}>
+                <img className="item-img" src={item.item_url}></img>
+
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </Link>
             </li>
           ))}
         </ul>

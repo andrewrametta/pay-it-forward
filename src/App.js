@@ -12,11 +12,13 @@ import About from "./components/About/About";
 import "./App.css";
 import Dashboard from "./components/Dashboard/Dashboard";
 import AppContext from "./AppContext";
+import Donation from "./components/Donation/Donation";
 import TokenService from "./services/token-service";
 
 function App() {
   const [type, setType] = useState(TokenService.hasUserType());
   const [isLogged, setIsLogged] = useState(TokenService.hasAuthToken());
+  const [userId, setUserId] = useState("");
   const [items, setItems] = useState([]);
   const contextValue = {
     type,
@@ -25,6 +27,8 @@ function App() {
     setIsLogged,
     items,
     setItems,
+    userId,
+    setUserId,
   };
   return (
     <AppContext.Provider value={contextValue}>
@@ -37,6 +41,7 @@ function App() {
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
           <Route path="/newdonation" component={NewDonation} />
+          <Route exact path="/donation/:donationId" component={Donation} />
           <Route path="/messages" component={Messages} />
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/donordashboard" component={DonorDashboard} />

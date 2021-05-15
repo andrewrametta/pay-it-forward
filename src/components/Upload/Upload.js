@@ -23,6 +23,7 @@ function Upload(props) {
       setPreviewSource(reader.result);
       setShowButton(true);
       setShowForm(false);
+      setUploadError("");
     };
   };
 
@@ -36,6 +37,7 @@ function Upload(props) {
         setImgUrl(img.secure_url);
         setShowForm(true);
         setShowButton(false);
+        setUploadError("");
       })
       .catch((error) => setUploadError(error));
   };
@@ -54,13 +56,17 @@ function Upload(props) {
   // };
 
   async function fetchImgJSON(base64EncodedImage) {
-    const response = await fetch("http://localhost:8080/api/uploads", {
-      method: "POST",
-      body: JSON.stringify({ data: base64EncodedImage }),
-      headers: { "Content-type": "application/json" },
-    });
-    const itemImg = await response.json();
-    return itemImg;
+    try {
+      const response = await fetch("http://localhost:8800/api/uploads", {
+        method: "POST",
+        body: JSON.stringify({ data: base64EncodedImage }),
+        headers: { "Content-type": "application/json" },
+      });
+      const itemImg = await response.json();
+      return itemImg;
+    } catch (error) {
+      setUploadError(error);
+    }
   }
   return (
     <div className="App">
@@ -81,10 +87,12 @@ function Upload(props) {
             />
           )}
         </div>
-        {uploadError && <h3 className="error">{uploadError}</h3>}
+        {uploadError ? (
+          <h3 className="error">{"Error uploading file, image too big"}</h3>
+        ) : null}
         {showButton ? (
           <button className="form-btn" type="submit">
-            Submit
+            Next
           </button>
         ) : null}
       </form>
