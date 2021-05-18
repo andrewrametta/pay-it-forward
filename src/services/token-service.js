@@ -28,6 +28,15 @@ const TokenService = {
   hasUserType() {
     return window.localStorage.getItem("user_type");
   },
+  saveUserId(userId) {
+    window.localStorage.setItem("user_id", userId);
+  },
+  hasUserId() {
+    return window.localStorage.getItem("user_id");
+  },
+  clearUserId() {
+    return window.localStorage.removeItem("user_id");
+  },
 };
 
 export default TokenService;

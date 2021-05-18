@@ -33,6 +33,7 @@ function Login(props) {
         setUserId(jwt.user_id);
 
         TokenService.saveUserType(jwt.user_type);
+        TokenService.saveUserId(jwt.user_id);
         props.history.push("/dashboard");
       })
       .catch((error) => {

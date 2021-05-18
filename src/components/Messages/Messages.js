@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import io from "socket.io-client";
 import "./Messages.css";
 
+let socket;
+const CONNECTION_PORT = "localhost:8800";
+
 function Messages() {
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [room, setRoom] = useState("");
+  const [userName, setUserName] = "";
+  useEffect(() => {
+    socket = io(CONNECTION_PORT);
+  }, [CONNECTION_PORT]);
+
+  const connectToRoom = () => {
+    socket.emit("join_room", room);
+  };
   return (
     <div className="messages-wrapper">
       <section>
@@ -19,6 +33,7 @@ function Messages() {
           Sunshine Church: I can pick up the couch this Saturday, is it still
           avaliable?
         </p>
+        <button onClick={connectToRoom}>Connect</button>
       </section>
     </div>
   );

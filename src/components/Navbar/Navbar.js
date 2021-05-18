@@ -5,12 +5,21 @@ import AppContext from "../../AppContext";
 import "./Navbar.css";
 
 function Navbar(props) {
-  const { type, setType, isLogged, setIsLogged } = useContext(AppContext);
+  const {
+    type,
+    setType,
+    isLogged,
+    setIsLogged,
+    userId,
+    setUserId,
+  } = useContext(AppContext);
   const logout = () => {
     TokenService.clearAuthToken();
     TokenService.clearUserType();
+    TokenService.clearUserId();
     setIsLogged(null);
     setType(null);
+    setUserId(null);
     props.history.push("/");
   };
 
