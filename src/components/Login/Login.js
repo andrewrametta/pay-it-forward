@@ -31,6 +31,7 @@ function Login(props) {
         console.log(jwt.user_type);
         setType(jwt.user_type);
         setUserId(jwt.user_id);
+        setIsLogged(true);
 
         TokenService.saveUserType(jwt.user_type);
         TokenService.saveUserId(jwt.user_id);

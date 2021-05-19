@@ -12,7 +12,9 @@ function Navbar(props) {
     setIsLogged,
     userId,
     setUserId,
+    messages,
   } = useContext(AppContext);
+
   const logout = () => {
     TokenService.clearAuthToken();
     TokenService.clearUserType();
@@ -20,6 +22,7 @@ function Navbar(props) {
     setIsLogged(null);
     setType(null);
     setUserId(null);
+    setIsLogged(false);
     props.history.push("/");
   };
 
@@ -41,10 +44,17 @@ function Navbar(props) {
               <button>New Donation</button>
             </Link>
           ) : null}
+          {messages.length === 0 ? (
+            <Link to="/messages">
+              <button>No Messages</button>
+            </Link>
+          ) : (
+            <Link to="/messages">
+              <button>Messages</button>
+              <p>{messages.length}</p>
+            </Link>
+          )}
 
-          <Link to="/messages">
-            <button>Messages</button>
-          </Link>
           <button
             className="button"
             aria-label="logout-button"

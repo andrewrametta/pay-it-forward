@@ -61,4 +61,30 @@ export default {
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
+  postConversation(conversation) {
+    const token = "bearer " + TokenService.hasAuthToken();
+    return fetch(`${config.API_ENDPOINT}/api/conversations`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token,
+      },
+      body: JSON.stringify(conversation),
+    }).then((res) =>
+      !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+    );
+  },
+  postMessage(message) {
+    const token = "bearer " + TokenService.hasAuthToken();
+    return fetch(`${config.API_ENDPOINT}/api/messages`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token,
+      },
+      body: JSON.stringify(message),
+    }).then((res) =>
+      !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+    );
+  },
 };
