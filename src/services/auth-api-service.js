@@ -87,4 +87,17 @@ export default {
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
+  getConversation(conversations) {
+    const token = "bearer " + TokenService.hasAuthToken();
+    return fetch(`${config.API_ENDPOINT}/api/conversations`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token,
+      },
+      body: JSON.stringify(conversations),
+    }).then((res) =>
+      !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+    );
+  },
 };

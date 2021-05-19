@@ -1,15 +1,27 @@
 import React, { useEffect, useState, useContext } from "react";
 import AppContext from "../../AppContext";
+import AuthAPIService from "../../services/auth-api-service";
 //import io from "socket.io-client";
 import "./Messages.css";
 
-let socket;
-const CONNECTION_PORT = "localhost:8800";
+// let socket;
+// const CONNECTION_PORT = "localhost:8800";
 
-function Messages() {
+export default function Messages(props) {
+  const [error, setError] = useState("");
   const { conversations, setConversations, messages, setMessages } = useContext(
     AppContext
   );
+
+  useEffect(() => {
+    AuthAPIService.getConversation()
+      .then((conversations) => {
+        setConversations(conversations);
+      })
+      .catch((res) => {
+        setError(error);
+      });
+  }, []);
 
   // const [loggedIn, setLoggedIn] = useState(false);
   // const [room, setRoom] = useState("");
@@ -21,6 +33,7 @@ function Messages() {
   // const connectToRoom = () => {
   //   socket.emit("join_room", room);
   // };
+
   return (
     <div className="messages-wrapper">
       <section>
@@ -40,8 +53,13 @@ function Messages() {
         </p>
         {/* <button onClick={connectToRoom}>Connect</button> */}
       </section>
+      {conversations.map((conversation, indx) => (
+        <div key={indx}>
+          <h2>{conversation.id}</h2>
+          <p>{conversation.user_id}</p>
+          <p>{conversation.user2_id}</p>
+        </div>
+      ))}
     </div>
   );
 }
-
-export default Messages;

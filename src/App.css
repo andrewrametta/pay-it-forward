@@ -8,11 +8,13 @@
 main {
   margin-left: 10%;
   margin-right: 10%;
+  margin-bottom: 50px;
 }
 
 div .app-container {
   position: relative;
   min-height: 100vh;
+  bottom: 0;
 }
 
 .app-header {
