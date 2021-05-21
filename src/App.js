@@ -13,6 +13,7 @@ import "./App.css";
 import Dashboard from "./components/Dashboard/Dashboard";
 import AppContext from "./AppContext";
 import Donation from "./components/Donation/Donation";
+import Chat from "./components/Chat/Chat";
 import TokenService from "./services/token-service";
 
 function App() {
@@ -48,6 +49,7 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/newdonation" component={NewDonation} />
           <Route exact path="/donation/:donationId" component={Donation} />
+
           <Route path="/messages" component={Messages} />
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/donordashboard" component={DonorDashboard} />

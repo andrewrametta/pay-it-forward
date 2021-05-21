@@ -3,12 +3,15 @@ import AppContext from "../../AppContext";
 import AuthAPIService from "../../services/auth-api-service";
 //import io from "socket.io-client";
 import "./Messages.css";
+import { Link, Route } from "react-router-dom";
+import Chat from "../Chat/Chat";
 
 // let socket;
 // const CONNECTION_PORT = "localhost:8800";
 
 export default function Messages(props) {
   const [error, setError] = useState("");
+  const [selectedConverstion, setSelectedConversation] = useState(null);
   const { conversations, setConversations, messages, setMessages } = useContext(
     AppContext
   );
@@ -40,26 +43,18 @@ export default function Messages(props) {
         <header>
           <h1>Messages</h1>
         </header>
-        <article>
-          <h3>You have 2 new messges</h3>
+        <article className="conversation-list">
+          {conversations.map((conversation, indx) => (
+            <Link key={indx} to={`/messages/${conversation.id}`}>
+              <h2>{conversation.username2}</h2>
+              <p>{conversation.title}</p>
+            </Link>
+          ))}
         </article>
-        <p>
-          Metropolitan Ministries : I am interested in your couch, is it still
-          available?
-        </p>
-        <p>
-          Sunshine Church: I can pick up the couch this Saturday, is it still
-          avaliable?
-        </p>
+
         {/* <button onClick={connectToRoom}>Connect</button> */}
       </section>
-      {conversations.map((conversation, indx) => (
-        <div key={indx}>
-          <h2>{conversation.id}</h2>
-          <p>{conversation.user_id}</p>
-          <p>{conversation.user2_id}</p>
-        </div>
-      ))}
+      <Route exact path="/messages/:conversation_id" component={Chat} />
     </div>
   );
 }

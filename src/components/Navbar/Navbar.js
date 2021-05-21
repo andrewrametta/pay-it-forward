@@ -34,7 +34,7 @@ function Navbar(props) {
       <Link to="/about">
         <button>About</button>
       </Link>
-      {isLogged ? (
+      {TokenService.hasAuthToken() ? (
         <>
           <Link to="/dashboard">
             <button>Dashboard</button>

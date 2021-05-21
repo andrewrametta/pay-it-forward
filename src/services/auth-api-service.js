@@ -100,4 +100,14 @@ export default {
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
+  getMessage(conversation_id) {
+    return fetch(`${config.API_ENDPOINT}/api/messages/${conversation_id}`, {
+      method: "GET",
+      headers: {
+        Content_type: "application/json",
+      },
+    }).then((res) =>
+      !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+    );
+  },
 };

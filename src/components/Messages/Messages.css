@@ -1,6 +1,13 @@
 .messages-wrapper {
   width: 80%;
-  margin: 30px auto;
+  margin: 30px 50px;
   padding: 20px;
   background: lightgray;
+  display: flex;
+  flex-direction: row;
+}
+
+.conversation-list {
+  height: 500px;
+  overflow: scroll;
 }
