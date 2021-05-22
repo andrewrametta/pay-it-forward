@@ -1,10 +1,12 @@
 import React from "react";
+import { Image } from "cloudinary-react";
 import "./Landing.css";
 
 function Landing() {
   return (
     <div className="landing-wrapper">
       <h1>Pay it Forward</h1>
+
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim

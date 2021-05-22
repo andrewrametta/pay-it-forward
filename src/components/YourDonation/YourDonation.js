@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Image } from "cloudinary-react";
 import { Link } from "react-router-dom";
 import AppContext from "../../AppContext";
 import AuthAPIService from "../../services/auth-api-service";
@@ -13,6 +14,7 @@ export default function YourDonation(props) {
     AuthAPIService.deleteItem(item_id)
       .then(() => {
         deleteYourItem(item_id);
+        props.history.push("/yourdonations");
       })
       .catch((error) => {
         console.error({ error });
@@ -22,7 +24,13 @@ export default function YourDonation(props) {
   return (
     <div key={key}>
       <Link to={`donation/${id}`}>
-        <img className="item-img" src={src}></img>
+        <Image
+          cloudName="dj4cj4ori"
+          publicId={`${src}`}
+          width="150"
+          height="200"
+          crop="fill"
+        />
         <h3>{title}</h3>
         <p>{description}</p>
       </Link>

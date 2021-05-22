@@ -34,7 +34,7 @@ function Upload(props) {
       //AuthApiService.uploadImg(previewSource)
       .then((img) => {
         console.log(img);
-        setImgUrl(img.secure_url);
+        setImgUrl(img.public_id);
         setShowForm(true);
         setShowButton(false);
         setUploadError("");

@@ -12,9 +12,13 @@ import Chat from "../Chat/Chat";
 export default function Messages(props) {
   const [error, setError] = useState("");
   const [selectedConverstion, setSelectedConversation] = useState(null);
-  const { conversations, setConversations, messages, setMessages } = useContext(
-    AppContext
-  );
+  const {
+    type,
+    conversations,
+    setConversations,
+    messages,
+    setMessages,
+  } = useContext(AppContext);
 
   useEffect(() => {
     AuthAPIService.getConversation()
@@ -24,7 +28,7 @@ export default function Messages(props) {
       .catch((res) => {
         setError(error);
       });
-  }, []);
+  }, 1000);
 
   // const [loggedIn, setLoggedIn] = useState(false);
   // const [room, setRoom] = useState("");
@@ -46,7 +50,12 @@ export default function Messages(props) {
         <article className="conversation-list">
           {conversations.map((conversation, indx) => (
             <Link key={indx} to={`/messages/${conversation.id}`}>
-              <h2>{conversation.username2}</h2>
+              {type === "org" ? (
+                <h2>{conversation.username2}</h2>
+              ) : (
+                <h2>{conversation.username}</h2>
+              )}
+
               <p>{conversation.title}</p>
             </Link>
           ))}

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-
+import { Image } from "cloudinary-react";
 import AppContext from "../../AppContext";
 import { Link } from "react-router-dom";
 import AuthAPIService from "../../services/auth-api-service";
@@ -26,8 +26,13 @@ export default function Dashboard(props) {
           {items.map((item, indx) => (
             <li key={indx} className="items-div-container">
               <Link to={`donation/${item.id}`}>
-                <img className="item-img" src={item.item_url}></img>
-
+                <Image
+                  cloudName="dj4cj4ori"
+                  publicId={`${item.item_url}`}
+                  width="150"
+                  height="200"
+                  crop="fill"
+                />
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
               </Link>
