@@ -25,6 +25,9 @@ const TokenService = {
   saveUserType(type) {
     window.localStorage.setItem("user_type", type);
   },
+  saveUserName(username) {
+    window.localStorage.setItem("username", username);
+  },
   hasUserType() {
     return window.localStorage.getItem("user_type");
   },
@@ -36,6 +39,12 @@ const TokenService = {
   },
   clearUserId() {
     return window.localStorage.removeItem("user_id");
+  },
+  hasUserName() {
+    return window.localStorage.getItem("username");
+  },
+  clearUserName() {
+    return window.localStorage.removeItem("username");
   },
 };
 

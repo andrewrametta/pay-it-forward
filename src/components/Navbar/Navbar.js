@@ -19,6 +19,7 @@ function Navbar(props) {
     TokenService.clearAuthToken();
     TokenService.clearUserType();
     TokenService.clearUserId();
+    TokenService.clearUserName();
     setIsLogged(null);
     setType(null);
     setUserId(null);

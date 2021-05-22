@@ -14,6 +14,8 @@ function Login(props) {
     setIsLogged,
     userId,
     setUserId,
+    username,
+    setUsername,
   } = useContext(AppContext);
 
   const handleLogin = (e) => {
@@ -31,8 +33,9 @@ function Login(props) {
         console.log(jwt.user_type);
         setType(jwt.user_type);
         setUserId(jwt.user_id);
+        setUsername(jwt.username);
         setIsLogged(true);
-
+        TokenService.saveUserName(jwt.username);
         TokenService.saveUserType(jwt.user_type);
         TokenService.saveUserId(jwt.user_id);
         props.history.push("/dashboard");

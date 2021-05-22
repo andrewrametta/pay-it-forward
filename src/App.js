@@ -18,6 +18,7 @@ import TokenService from "./services/token-service";
 
 function App() {
   const [userId, setUserId] = useState(TokenService.hasUserId());
+  const [username, setUsername] = useState(TokenService.hasUserName());
   const [type, setType] = useState(TokenService.hasUserType());
   const [isLogged, setIsLogged] = useState(false);
   const [messages, setMessages] = useState([]);
@@ -36,6 +37,8 @@ function App() {
     setMessages,
     conversations,
     setConversations,
+    username,
+    setUsername,
   };
   return (
     <AppContext.Provider value={contextValue}>
@@ -52,11 +55,7 @@ function App() {
 
           <Route path="/messages" component={Messages} />
           <Route path="/dashboard" component={Dashboard} />
-          <Route path="/donordashboard" component={DonorDashboard} />
-          <Route
-            path="/organizationdashboard"
-            component={OrganizationDashboard}
-          />
+
           <Route path="/about" component={About} />
         </main>
         <footer>Built by Andrew Rametta</footer>

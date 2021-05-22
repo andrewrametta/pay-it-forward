@@ -1,7 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import DonorDashboard from "../DonorDashboard/DonorDashboard";
-import OrganizationDashboard from "../OrganizationDashboard/OrganizationDashboard";
-import Donation from "../Donation/Donation";
+
 import AppContext from "../../AppContext";
 import { Link } from "react-router-dom";
 import AuthAPIService from "../../services/auth-api-service";
@@ -37,8 +35,6 @@ export default function Dashboard(props) {
           ))}
         </ul>
       </div>
-
-      {type === "organization" ? <OrganizationDashboard /> : <DonorDashboard />}
     </div>
   );
 }

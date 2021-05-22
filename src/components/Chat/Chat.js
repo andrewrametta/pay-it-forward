@@ -4,13 +4,13 @@ import authApiService from "../../services/auth-api-service";
 import AuthAPIService from "../../services/auth-api-service";
 
 function Chat(props) {
-  const conversation_id = props.match.params.conversation_id;
+  const conversations_id = props.match.params.conversation_id;
   const [error, setError] = useState("");
-  const { messages, setMessages } = useContext(AppContext);
+  const { messages, setMessages, user_id, username } = useContext(AppContext);
   console.log(props);
 
   useEffect(() => {
-    AuthAPIService.getMessage(conversation_id)
+    AuthAPIService.getMessage(conversations_id)
       .then((messages) => {
         setMessages(messages);
       })
@@ -21,7 +21,13 @@ function Chat(props) {
 
   const handleMessage = (e) => {
     e.preventDefault();
-    AuthAPIService.postMessage({})
+    const { chat } = e.target;
+
+    AuthAPIService.postMessage({
+      conversations_id: conversations_id,
+      text: chat.value,
+      message_status: "not seen",
+    })
       .then((message) => {
         setMessages([...messages, message]);
       })
@@ -43,8 +49,8 @@ function Chat(props) {
       <form onSubmit={handleMessage}>
         <input
           type="text"
-          name="chat message"
-          id="chat message"
+          name="chat"
+          id="chat"
           placeholder="type a message"
         ></input>
         <button type="submit">Send</button>
