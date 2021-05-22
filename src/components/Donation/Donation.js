@@ -16,7 +16,6 @@ function Donation(props) {
     AuthAPIService.postConversation({
       user_id: userId,
       user2_id: donationItem.user_id,
-      item_id: donationItem.id,
     })
       .then((conversation) => {
         props.history.push("/messages");
@@ -29,19 +28,12 @@ function Donation(props) {
 
   return (
     <div>
-      <form onSubmit={handleConversation}>
-        <h2>This is a donation</h2>
-        <img src={donationItem.item_url}></img>
-        <h3>{donationItem.title}</h3>
-        <p>{donationItem.description}</p>
-        {type === "user" && userId === donationItem.user_id ? (
-          <>
-            <button>Delete</button>
-            <button>Edit</button>
-          </>
-        ) : null}
-        {type === "org" && <button type="submit ">Request</button>}
-      </form>
+      {" "}
+      <h2>This is a donation</h2>
+      <img src={donationItem.item_url}></img>
+      <h3>{donationItem.title}</h3>
+      <p>{donationItem.description}</p>
+      {type === "org" && <button onClick={handleConversation}>Request</button>}
     </div>
   );
 }

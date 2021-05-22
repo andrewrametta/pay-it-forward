@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
 import AppContext from "../../AppContext";
-import authApiService from "../../services/auth-api-service";
 import AuthAPIService from "../../services/auth-api-service";
 
 function Chat(props) {
@@ -15,7 +14,7 @@ function Chat(props) {
         setMessages(messages);
       })
       .catch((res) => {
-        console.log(error);
+        setError(error);
       });
   }, []);
 
@@ -55,6 +54,7 @@ function Chat(props) {
         ></input>
         <button type="submit">Send</button>
       </form>
+      {error && <h3>Something went wrong</h3>}
     </div>
   );
 }

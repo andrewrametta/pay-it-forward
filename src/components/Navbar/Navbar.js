@@ -41,9 +41,14 @@ function Navbar(props) {
             <button>Dashboard</button>
           </Link>
           {type == "user" ? (
-            <Link to="/newdonation">
-              <button>New Donation</button>
-            </Link>
+            <>
+              <Link to="/newdonation">
+                <button>New Donation</button>
+              </Link>
+              <Link to="/yourdonations">
+                <button>Your Donations</button>
+              </Link>
+            </>
           ) : null}
           {messages.length === 0 ? (
             <Link to="/messages">

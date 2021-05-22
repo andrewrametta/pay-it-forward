@@ -61,6 +61,16 @@ export default {
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
+  deleteItem(item_id) {
+    return fetch(`${config.API_ENDPOINT}/api/items/${item_id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((res) =>
+      !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+    );
+  },
   postConversation(conversation) {
     const token = "bearer " + TokenService.hasAuthToken();
     return fetch(`${config.API_ENDPOINT}/api/conversations`, {

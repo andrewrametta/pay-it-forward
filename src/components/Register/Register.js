@@ -64,7 +64,7 @@ function Register(props) {
               </div>
               <div>
                 <label className="label" htmlFor="username">
-                  Username
+                  Username or Organization Name
                 </label>
                 <input
                   type="text"

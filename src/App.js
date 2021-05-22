@@ -4,8 +4,6 @@ import Navbar from "./components/Navbar/Navbar";
 import Landing from "./components/Landing/Landing";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
-import DonorDashboard from "./components/DonorDashboard/DonorDashboard";
-import OrganizationDashboard from "./components/OrganizationDashboard/OrganizationDashboard";
 import NewDonation from "./components/NewDonation/NewDonation";
 import Messages from "./components/Messages/Messages";
 import About from "./components/About/About";
@@ -13,11 +11,18 @@ import "./App.css";
 import Dashboard from "./components/Dashboard/Dashboard";
 import AppContext from "./AppContext";
 import Donation from "./components/Donation/Donation";
-import Chat from "./components/Chat/Chat";
 import TokenService from "./services/token-service";
+import YourDonations from "./components/YourDonations/YourDonations";
 
 function App() {
+  const handleDelete = (item_id) => {
+    setItems({
+      items: items.filter((item) => item.id !== item_id),
+    });
+  };
+
   const [userId, setUserId] = useState(TokenService.hasUserId());
+  const [yourItems, setYourItems] = useState([]);
   const [username, setUsername] = useState(TokenService.hasUserName());
   const [type, setType] = useState(TokenService.hasUserType());
   const [isLogged, setIsLogged] = useState(false);
@@ -39,7 +44,11 @@ function App() {
     setConversations,
     username,
     setUsername,
+    yourItems,
+    setYourItems,
+    deleteYourItem: handleDelete,
   };
+
   return (
     <AppContext.Provider value={contextValue}>
       <div className="app-container">
@@ -52,7 +61,7 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/newdonation" component={NewDonation} />
           <Route exact path="/donation/:donationId" component={Donation} />
-
+          <Route path="/yourdonations" component={YourDonations} />
           <Route path="/messages" component={Messages} />
           <Route path="/dashboard" component={Dashboard} />
 

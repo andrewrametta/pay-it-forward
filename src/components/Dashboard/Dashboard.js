@@ -20,7 +20,7 @@ export default function Dashboard(props) {
 
   return (
     <div className="dashboard-container">
-      <h1>Dashboard Test</h1>
+      <h1>Donations Available</h1>
       <div className="dashboard-item-container">
         <ul className="ul-items">
           {items.map((item, indx) => (
