@@ -5,7 +5,7 @@ import AuthAPIService from "../../services/auth-api-service";
 function Chat(props) {
   const conversations_id = props.match.params.conversation_id;
   const [error, setError] = useState("");
-  const { messages, setMessages, user_id, username } = useContext(AppContext);
+  const { messages, setMessages } = useContext(AppContext);
   console.log(props);
 
   useEffect(() => {
