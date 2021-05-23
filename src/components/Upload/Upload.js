@@ -29,6 +29,7 @@ function Upload(props) {
 
   const handleSubmitFile = (e) => {
     e.preventDefault();
+    setUploadError(null);
     if (!previewSource) return;
     fetchImgJSON(previewSource)
       //AuthApiService.uploadImg(previewSource)
@@ -39,7 +40,9 @@ function Upload(props) {
         setShowButton(false);
         setUploadError("");
       })
-      .catch((error) => setUploadError(error));
+      .catch((res) => {
+        setUploadError({ uploadError: res.error });
+      });
   };
 
   // const uploadImg = async (base64EncodedImage) => {

@@ -130,7 +130,7 @@ function Register(props) {
               <div className="register-button">
                 <button type="submit">Register</button>
               </div>
-              {error !== null && <h3>error</h3>}
+              {error && <p className="error">{error}</p>}
             </form>
           </div>
         </article>
