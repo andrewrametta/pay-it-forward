@@ -11,14 +11,7 @@ import Chat from "../Chat/Chat";
 
 export default function Messages(props) {
   const [error, setError] = useState("");
-  const [selectedConverstion, setSelectedConversation] = useState(null);
-  const {
-    type,
-    conversations,
-    setConversations,
-    messages,
-    setMessages,
-  } = useContext(AppContext);
+  const { type, conversations, setConversations } = useContext(AppContext);
 
   useEffect(() => {
     AuthAPIService.getConversation()

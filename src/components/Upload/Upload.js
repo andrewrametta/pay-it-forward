@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import AuthApiService from "../../services/auth-api-service";
 
 function Upload(props) {
   const [uploadError, setUploadError] = useState("");

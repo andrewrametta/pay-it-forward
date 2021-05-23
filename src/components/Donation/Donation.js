@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import AppContext from "../../AppContext";
-import TokenService from "../../services/token-service";
 import AuthAPIService from "../../services/auth-api-service";
+import { Image } from "cloudinary-react";
 
 function Donation(props) {
   const id = props.match.params.donationId;
@@ -30,7 +30,13 @@ function Donation(props) {
     <div>
       {" "}
       <h2>This is a donation</h2>
-      <img src={donationItem.item_url}></img>
+      <Image
+        cloudName="dj4cj4ori"
+        publicId={`${donationItem.item_url}`}
+        width="150"
+        height="200"
+        crop="fill"
+      />
       <h3>{donationItem.title}</h3>
       <p>{donationItem.description}</p>
       {type === "org" && <button onClick={handleConversation}>Request</button>}

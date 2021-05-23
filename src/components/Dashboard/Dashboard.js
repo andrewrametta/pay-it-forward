@@ -6,7 +6,7 @@ import AuthAPIService from "../../services/auth-api-service";
 
 export default function Dashboard(props) {
   const [error, setError] = useState("");
-  const { items, setItems, type } = useContext(AppContext);
+  const { items, setItems } = useContext(AppContext);
 
   useEffect(() => {
     AuthAPIService.getItems()

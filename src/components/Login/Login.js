@@ -3,20 +3,12 @@ import TokenService from "../../services/token-service";
 import AuthApiService from "../../services/auth-api-service";
 import AppContext from "../../AppContext";
 import "./Login.css";
-import jwtDecode from "jwt-decode";
 
 function Login(props) {
   const [error, setError] = useState(null);
-  const {
-    type,
-    setType,
-    isLogged,
-    setIsLogged,
-    userId,
-    setUserId,
-    username,
-    setUsername,
-  } = useContext(AppContext);
+  const { setType, setIsLogged, setUserId, setUsername } = useContext(
+    AppContext
+  );
 
   const handleLogin = (e) => {
     e.preventDefault();
