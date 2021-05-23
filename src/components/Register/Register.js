@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react";
 import "./Register.css";
 import AuthAPIService from "../../services/auth-api-service";
-import AppContext from "../../config";
 
 function Register(props) {
   const [error, setError] = useState(null);
@@ -18,7 +17,7 @@ function Register(props) {
       state,
       zipcode,
     } = e.target;
-    setError({ error: null });
+    setError(null);
     // create user
     AuthAPIService.postUser({
       username: username.value,
@@ -34,7 +33,7 @@ function Register(props) {
         props.history.push("/login");
       })
       .catch((res) => {
-        setError({ error: res.error });
+        setError(res.error);
       });
   };
 
@@ -128,7 +127,7 @@ function Register(props) {
               <div className="register-button">
                 <button type="submit">Register</button>
               </div>
-              {error && <p className="error">{error}</p>}
+              {error !== null && <p className="error">error</p>}
             </form>
           </div>
         </article>

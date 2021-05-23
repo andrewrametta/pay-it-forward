@@ -33,7 +33,7 @@ function Login(props) {
         props.history.push("/dashboard");
       })
       .catch((res) => {
-        setError({ error: res.error });
+        setError(res.error);
       });
   };
 
@@ -50,7 +50,7 @@ function Login(props) {
         <p>Demo organization: The Demo Org</p>
         <p>Demo password: Password123$</p>
         <article>
-          {error && <h3>{error}</h3>}
+          {error !== null && <h3>error</h3>}
           <div>
             <form
               className="login form"
