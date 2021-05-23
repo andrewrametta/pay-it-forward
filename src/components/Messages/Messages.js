@@ -48,7 +48,6 @@ export default function Messages(props) {
               ) : (
                 <h2>{conversation.username}</h2>
               )}
-
               <p>{conversation.title}</p>
             </Link>
           ))}

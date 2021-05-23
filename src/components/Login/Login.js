@@ -44,8 +44,14 @@ function Login(props) {
         <header className="login-header">
           <h1>Login</h1>
         </header>
+        <p>Use the user or organization demo login to test out our app.</p>
+        <p>Demo username: Demo</p>
+        <p>Demo password: Password123$</p>
+
+        <p>Demo organization: The Demo Org</p>
+        <p>Demo password: Password123$</p>
         <article>
-          {error ? <h2>{error}</h2> : null}
+          {error && <h3>{error}</h3>}
           <div>
             <form
               className="login form"
@@ -74,7 +80,6 @@ function Login(props) {
                   defaultValue="password"
                 />
               </div>
-
               <button type="submit">Login</button>
             </form>
           </div>

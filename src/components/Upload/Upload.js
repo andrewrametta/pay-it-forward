@@ -56,7 +56,7 @@ function Upload(props) {
 
   async function fetchImgJSON(base64EncodedImage) {
     try {
-      const response = await fetch("http://localhost:8800/api/uploads", {
+      const response = await fetch(`${config.API_ENDPOINT}/api/uploads`, {
         method: "POST",
         body: JSON.stringify({ data: base64EncodedImage }),
         headers: { "Content-type": "application/json" },
@@ -87,7 +87,7 @@ function Upload(props) {
           )}
         </div>
         {uploadError ? (
-          <h3 className="error">{"Error uploading file, image too big"}</h3>
+          <h3 className="error">{"Error uploading file, try smaller image"}</h3>
         ) : null}
         {showButton ? (
           <button className="form-btn" type="submit">

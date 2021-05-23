@@ -11,37 +11,25 @@ function About() {
         <article>
           <h2>Donor User Info</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            As a registered donor you can post new donations. First take a
+            picture of your donation. Then follow the steps to add a new
+            donation by uploading a picture and then filling out the item
+            description form. You can also manage your donations and delete
+            anytime.
+          </p>
+          <p>
+            Once your donation is posted a nonprofit will contact you if
+            interested and then you can contact them through our messaging
+            system.
           </p>
         </article>
         <article>
           <h2>Organization User Info</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-        </article>
-        <article>
-          <h2>Messaging Info</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            As a verified nonprofit organization you will have access to all
+            available donations. All you have to do is click on a donation then
+            hit ‘request’ and you will start a conversation in our messaging
+            service to connect with a donor and schedule a pickup or drop off.
           </p>
         </article>
       </section>

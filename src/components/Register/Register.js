@@ -20,28 +20,24 @@ function Register(props) {
       zipcode,
     } = e.target;
     setError({ error: null });
-    if (password.value) {
-      // create user
-      AuthAPIService.postUser({
-        username: username.value,
-        password: password.value,
-        email: email.value,
-        user_type: usertype.value,
-        address: address.value,
-        city: city.value,
-        state: state.value,
-        zip: zipcode.value,
+    // create user
+    AuthAPIService.postUser({
+      username: username.value,
+      password: password.value,
+      email: email.value,
+      user_type: usertype.value,
+      address: address.value,
+      city: city.value,
+      state: state.value,
+      zip: zipcode.value,
+    })
+      .then((user) => {
+        context.setType(usertype);
+        props.history.push("/login");
       })
-        .then((user) => {
-          context.setType(usertype);
-          props.history.push("/login");
-        })
-        .catch((res) => {
-          setError({ error: res.error });
-        });
-    } else {
-      alert("Passwords do not match");
-    }
+      .catch((res) => {
+        setError({ error: res.error });
+      });
   };
 
   return (
