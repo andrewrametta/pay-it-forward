@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import config from "../../config";
 
 function Upload(props) {
   const [uploadError, setUploadError] = useState("");
@@ -95,6 +96,7 @@ function Upload(props) {
           </button>
         ) : null}
       </form>
+      {uploadError && <h4>{uploadError}</h4>}
     </div>
   );
 }
