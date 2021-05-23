@@ -1,11 +1,11 @@
 import React, { useState, useContext } from "react";
 import "./Register.css";
 import AuthAPIService from "../../services/auth-api-service";
-import AppContext from "../../AppContext";
+import AppContext from "../../config";
 
 function Register(props) {
   const [error, setError] = useState(null);
-  const context = useContext(AppContext);
+  const { setType } = useContext(AppContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,8 +31,7 @@ function Register(props) {
       state: state.value,
       zip: zipcode.value,
     })
-      .then((user) => {
-        context.setType(usertype);
+      .then(() => {
         props.history.push("/login");
       })
       .catch((res) => {
