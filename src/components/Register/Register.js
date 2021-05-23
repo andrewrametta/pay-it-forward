@@ -5,7 +5,6 @@ import AppContext from "../../config";
 
 function Register(props) {
   const [error, setError] = useState(null);
-  const { setType } = useContext(AppContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
