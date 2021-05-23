@@ -27,7 +27,7 @@ export default function Dashboard(props) {
             <li key={indx} className="items-div-container">
               <Link to={`donation/${item.id}`}>
                 <Image
-                  cloudName={process.env.CLOUDNAME}
+                  cloudName="hq1rpt94r"
                   publicId={`${item.item_url}`}
                   width="150"
                   height="200"

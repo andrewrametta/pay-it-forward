@@ -44,16 +44,11 @@ function Navbar(props) {
               </Link>
             </>
           ) : null}
-          {messages.length === 0 ? (
-            <Link to="/messages">
-              <button>No Messages</button>
-            </Link>
-          ) : (
-            <Link to="/messages">
-              <button>Messages</button>
-              <p>{messages.length}</p>
-            </Link>
-          )}
+
+          <Link to="/messages">
+            <button>Messages</button>
+            <p>{messages.length}</p>
+          </Link>
 
           <button
             className="button"
