@@ -41,7 +41,7 @@ function Upload(props) {
         setUploadError("");
       })
       .catch((res) => {
-        setUploadError({ uploadError: res.error });
+        setUploadError("Something went wrong, try again");
       });
   };
 
@@ -68,7 +68,7 @@ function Upload(props) {
       const itemImg = await response.json();
       return itemImg;
     } catch (error) {
-      setUploadError(error);
+      setUploadError("Something went wrong, try again");
     }
   }
   return (
