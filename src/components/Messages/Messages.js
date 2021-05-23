@@ -21,7 +21,7 @@ export default function Messages(props) {
       .catch((res) => {
         setError(error);
       });
-  }, 1000);
+  }, []);
 
   // const [loggedIn, setLoggedIn] = useState(false);
   // const [room, setRoom] = useState("");

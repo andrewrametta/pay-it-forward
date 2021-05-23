@@ -16,7 +16,7 @@ function Chat(props) {
       .catch((res) => {
         setError(error);
       });
-  }, []);
+  }, 1000);
 
   const handleMessage = (e) => {
     e.preventDefault();
@@ -37,7 +37,6 @@ function Chat(props) {
 
   return (
     <div>
-      <h2>This is a Chat Box</h2>
       {messages.map((message, indx) => (
         <div key={indx}>
           <p>{message.username}</p>
