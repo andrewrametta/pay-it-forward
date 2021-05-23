@@ -99,7 +99,6 @@ function Upload(props) {
           </button>
         ) : null}
       </form>
-      {uploadError && <h4>{uploadError}</h4>}
     </div>
   );
 }
