@@ -31,7 +31,7 @@ function Donation(props) {
       {" "}
       <h2>This is a donation</h2>
       <Image
-        cloudName="dj4cj4ori"
+        cloudName={process.env.CLOUDNAME}
         publicId={`${donationItem.item_url}`}
         width="150"
         height="200"

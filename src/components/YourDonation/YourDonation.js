@@ -25,7 +25,7 @@ export default function YourDonation(props) {
     <div key={key}>
       <Link to={`donation/${id}`}>
         <Image
-          cloudName="dj4cj4ori"
+          cloudName={process.env.CLOUDNAME}
           publicId={`${src}`}
           width="150"
           height="200"
