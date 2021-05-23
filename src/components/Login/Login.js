@@ -32,9 +32,8 @@ function Login(props) {
         TokenService.saveUserId(jwt.user_id);
         props.history.push("/dashboard");
       })
-      .catch((error) => {
-        //setError(error);
-        console.log(error);
+      .catch((res) => {
+        setError({ error: res.error });
       });
   };
 
