@@ -5,7 +5,7 @@ import AppContext from "../../AppContext";
 import AuthAPIService from "../../services/auth-api-service";
 
 export default function YourDonation(props) {
-  const { deleteYourItem } = useContext(AppContext);
+  const { items, setItems, yourItems, setYourItems } = useContext(AppContext);
   const { key, id, src, title, description } = props;
   const handleDelete = (e) => {
     e.preventDefault();
@@ -19,6 +19,15 @@ export default function YourDonation(props) {
       .catch((error) => {
         console.error({ error });
       });
+  };
+
+  const deleteYourItem = (item_id) => {
+    setYourItems({
+      yourItems: items.filter((item) => item.id !== item_id),
+    });
+    setItems({
+      items: items.filter((item) => item.id !== item_id),
+    });
   };
 
   return (

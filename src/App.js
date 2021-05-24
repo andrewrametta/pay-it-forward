@@ -15,11 +15,14 @@ import TokenService from "./services/token-service";
 import YourDonations from "./components/YourDonations/YourDonations";
 
 function App() {
-  const handleDelete = (item_id) => {
-    setItems({
-      items: items.filter((item) => item.id !== item_id),
-    });
-  };
+  // const handleDelete = (item_id) => {
+  //   setYourItems({
+  //     youtItems: items.filter((item) => item.id !== item_id),
+  //   });
+  //   setItems({
+  //     items: items.filter((item) => item.id !== item_id),
+  //   });
+  // };
 
   const [userId, setUserId] = useState(TokenService.hasUserId());
   const [yourItems, setYourItems] = useState([]);
@@ -46,7 +49,6 @@ function App() {
     setUsername,
     yourItems,
     setYourItems,
-    deleteYourItem: handleDelete,
   };
 
   return (
