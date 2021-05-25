@@ -16,7 +16,7 @@ function Chat(props) {
       .catch((res) => {
         setError(error);
       });
-  }, 1000);
+  }, []);
 
   const handleMessage = (e) => {
     e.preventDefault();

@@ -32,6 +32,7 @@ function About() {
             service to connect with a donor and schedule a pickup or drop off.
           </p>
         </article>
+        <h5>Register now or click the 'Login' button and use the provided credentials to test out our app.</h5>
       </section>
     </div>
   );

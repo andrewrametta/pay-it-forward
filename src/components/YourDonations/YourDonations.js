@@ -5,14 +5,12 @@ import AuthAPIService from "../../services/auth-api-service";
 
 export default function YourDonations(props) {
   const [error, setError] = useState("");
-  const { yourItems, setYourItems, userId } = useContext(AppContext);
+  const { items, setItems, userId } = useContext(AppContext);
 
   useEffect(() => {
     AuthAPIService.getItems()
       .then((donations) => {
-        setYourItems(donations);
-        console.log(yourItems);
-        console.log(userId);
+        setItems(donations);
       })
       .catch((res) => {
         setError(error);
@@ -24,7 +22,7 @@ export default function YourDonations(props) {
       <h1>Donations Available</h1>
       <div className="dashboard-item-container">
         <ul className="ul-items">
-          {yourItems
+          {items
             .filter((item) => item.user_id === userId)
             .map((filteredItem, indx) => (
               <YourDonation

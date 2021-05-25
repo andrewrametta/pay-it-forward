@@ -5,9 +5,14 @@ import { Image } from "cloudinary-react";
 
 function Donation(props) {
   const id = props.match.params.donationId;
-  const { items, type, userId, conversations, setConversations } = useContext(
-    AppContext
-  );
+  const {
+    items,
+    type,
+    userId,
+    conversations,
+    setConversations,
+    setItems,
+  } = useContext(AppContext);
   const donationArray = items.filter((item) => item.id === parseInt(id));
   const donationItem = donationArray.length > 0 ? donationArray[0] : null;
 
@@ -25,6 +30,28 @@ function Donation(props) {
         console.log(err);
       });
   };
+  const handleDelete = (e) => {
+    e.preventDefault();
+    console.log(id);
+    console.log(items);
+    AuthAPIService.deleteItem(id)
+      .then(() => {
+        console.log("deleting item");
+        props.history.push("/yourdonations");
+      })
+      .catch((error) => {
+        console.error({ error });
+      });
+  };
+
+  // const deleteYourItem = (item_id) => {
+  //   setItems({
+  //     items: items.filter((item) => item.id !== item_id),
+  //   });
+  //   // setItems({
+  //   //   items: items.filter((item) => item.id !== item_id),
+  //   // });
+  // };
 
   return (
     <div>
@@ -40,6 +67,9 @@ function Donation(props) {
       <h3>{donationItem.title}</h3>
       <p>{donationItem.description}</p>
       {type === "org" && <button onClick={handleConversation}>Request</button>}
+      {userId === donationItem.user_id && (
+        <button onClick={handleDelete}>Delete</button>
+      )}
     </div>
   );
 }
