@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
-import Donation from "../Donation/Donation";
+import { Link } from "react-router-dom";
+import { Image } from "cloudinary-react";
 import AppContext from "../../AppContext";
 import AuthAPIService from "../../services/auth-api-service";
 
@@ -25,13 +26,19 @@ export default function YourDonations(props) {
           {items
             .filter((item) => item.user_id === userId)
             .map((filteredItem, indx) => (
-              <Donation
-                key={indx}
-                id={filteredItem.id}
-                src={filteredItem.item_url}
-                title={filteredItem.title}
-                description={filteredItem.description}
-              />
+              <li key={indx} className="items-div-container">
+                <Link to={`donation/${filteredItem.id}`}>
+                  <Image
+                    cloudName="hq1rpt94r"
+                    publicId={`${filteredItem.item_url}`}
+                    width="150"
+                    height="200"
+                    crop="fill"
+                  />
+                  <h3>{filteredItem.title}</h3>
+                  <p>{filteredItem.description}</p>
+                </Link>
+              </li>
             ))}
         </ul>
       </div>
