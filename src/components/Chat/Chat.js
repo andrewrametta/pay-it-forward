@@ -16,12 +16,11 @@ function Chat(props) {
       .catch((res) => {
         setError(error);
       });
-  }, []);
+  }, [conversations_id]);
 
   const handleMessage = (e) => {
     e.preventDefault();
     const { chat } = e.target;
-
     AuthAPIService.postMessage({
       conversations_id: conversations_id,
       text: chat.value,

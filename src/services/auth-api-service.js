@@ -62,7 +62,6 @@ export default {
     );
   },
   deleteItem(item_id) {
-    console.log(`before call, ${item_id}`);
     return fetch(`${config.API_ENDPOINT}/api/items/${item_id}`, {
       method: "DELETE",
       headers: {

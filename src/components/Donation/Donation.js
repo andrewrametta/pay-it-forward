@@ -32,11 +32,8 @@ function Donation(props) {
   };
   const handleDelete = (e) => {
     e.preventDefault();
-    console.log(id);
-    console.log(items);
     AuthAPIService.deleteItem(id)
       .then(() => {
-        console.log("deleting item");
         props.history.push("/yourdonations");
       })
       .catch((error) => {
