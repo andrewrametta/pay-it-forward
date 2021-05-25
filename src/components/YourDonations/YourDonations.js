@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import YourDonation from "../YourDonation/YourDonation";
+import Donation from "../Donation/Donation";
 import AppContext from "../../AppContext";
 import AuthAPIService from "../../services/auth-api-service";
 
@@ -25,7 +25,7 @@ export default function YourDonations(props) {
           {items
             .filter((item) => item.user_id === userId)
             .map((filteredItem, indx) => (
-              <YourDonation
+              <Donation
                 key={indx}
                 id={filteredItem.id}
                 src={filteredItem.item_url}
