@@ -9,13 +9,11 @@ function Chat(props) {
   console.log(props);
 
   useEffect(() => {
-    AuthAPIService.getMessage(conversations_id)
-      .then((messages) => {
-        setMessages(messages);
-      })
-      .catch((res) => {
-        setError(error);
-      });
+    getData();
+    const timeout = setInterval(getData, 6000);
+    return () => {
+      clearInterval(timeout);
+    };
   }, [conversations_id]);
 
   const handleMessage = (e) => {
@@ -28,9 +26,20 @@ function Chat(props) {
     })
       .then((message) => {
         setMessages([...messages, message]);
+        e.target.reset();
       })
       .catch((res) => {
         console.log(error);
+      });
+  };
+
+  const getData = () => {
+    AuthAPIService.getMessage(conversations_id)
+      .then((messages) => {
+        setMessages(messages);
+      })
+      .catch((res) => {
+        setError(error);
       });
   };
 

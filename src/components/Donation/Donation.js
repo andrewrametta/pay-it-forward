@@ -23,7 +23,7 @@ function Donation(props) {
       user2_id: donationItem.user_id,
     })
       .then((conversation) => {
-        props.history.push("/messages");
+        props.history.push(`/messages/${conversation.id}`);
         setConversations([...conversations, conversation]);
       })
       .catch((err) => {
@@ -40,15 +40,6 @@ function Donation(props) {
         console.error({ error });
       });
   };
-
-  // const deleteYourItem = (item_id) => {
-  //   setItems({
-  //     items: items.filter((item) => item.id !== item_id),
-  //   });
-  //   // setItems({
-  //   //   items: items.filter((item) => item.id !== item_id),
-  //   // });
-  // };
 
   return (
     <div>
