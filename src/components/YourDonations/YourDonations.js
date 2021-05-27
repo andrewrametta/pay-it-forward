@@ -18,14 +18,15 @@ export default function YourDonations(props) {
       });
   }, []);
 
+  const yourDonations = items.filter((item) => item.user_id === userId);
+
   return (
     <div className="dashboard-container">
       <h1>Donations Available</h1>
       <div className="dashboard-item-container">
         <ul className="ul-items">
-          {items
-            .filter((item) => item.user_id === userId)
-            .map((filteredItem, indx) => (
+          {yourDonations.length > 0 ? (
+            yourDonations.map((filteredItem, indx) => (
               <li key={indx} className="items-div-container">
                 <Link to={`donation/${filteredItem.id}`}>
                   <Image
@@ -39,7 +40,10 @@ export default function YourDonations(props) {
                   <p>{filteredItem.description}</p>
                 </Link>
               </li>
-            ))}
+            ))
+          ) : (
+            <h3>Looks like you have no donations posted...</h3>
+          )}
         </ul>
       </div>
     </div>
