@@ -29,12 +29,15 @@ export default function Dashboard(props) {
                 <Image
                   cloudName="hq1rpt94r"
                   publicId={`${item.item_url}`}
-                  width="150"
-                  height="200"
+                  width="250"
+                  height="250"
                   crop="fill"
                 />
                 <h3>{item.title}</h3>
-                <p>{item.description}</p>
+                <p>{item.status}</p>
+                <p className="p citystate">
+                  {item.city}, {item.state}
+                </p>
               </Link>
             </li>
           ))}
