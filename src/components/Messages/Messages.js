@@ -6,9 +6,6 @@ import "./Messages.css";
 import { Link, Route } from "react-router-dom";
 import Chat from "../Chat/Chat";
 
-// let socket;
-// const CONNECTION_PORT = "localhost:8800";
-
 export default function Messages(props) {
   const [error, setError] = useState("");
   const { type, conversations, setConversations } = useContext(AppContext);
@@ -22,17 +19,6 @@ export default function Messages(props) {
         setError(error);
       });
   }, []);
-
-  // const [loggedIn, setLoggedIn] = useState(false);
-  // const [room, setRoom] = useState("");
-  // const [userName, setUserName] = useState("");
-  // useEffect(() => {
-  //   socket = io(CONNECTION_PORT);
-  // }, [CONNECTION_PORT]);
-
-  // const connectToRoom = () => {
-  //   socket.emit("join_room", room);
-  // };
 
   return (
     <div className="messages-wrapper">
@@ -52,8 +38,6 @@ export default function Messages(props) {
             </Link>
           ))}
         </article>
-
-        {/* <button onClick={connectToRoom}>Connect</button> */}
       </section>
       <Route exact path="/messages/:conversation_id" component={Chat} />
     </div>
