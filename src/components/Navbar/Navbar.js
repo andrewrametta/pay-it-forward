@@ -5,9 +5,7 @@ import AppContext from "../../AppContext";
 import "./Navbar.css";
 
 function Navbar(props) {
-  const { type, setType, setIsLogged, setUserId, messages } = useContext(
-    AppContext
-  );
+  const { type, setType, setIsLogged, setUserId } = useContext(AppContext);
 
   const logout = () => {
     TokenService.clearAuthToken();
@@ -47,7 +45,6 @@ function Navbar(props) {
 
           <Link to="/messages">
             <button>Messages</button>
-            <p>{messages.length}</p>
           </Link>
 
           <button

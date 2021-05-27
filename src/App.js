@@ -48,11 +48,25 @@ function App() {
     AuthAPIService.getConversation()
       .then((conversations) => {
         setConversations(conversations);
+        conversations.map((conversation) => {
+          const conversationId = conversation.id;
+          return getData(conversationId);
+        });
       })
       .catch((res) => {
         setError(error);
       });
   }, [userId]);
+
+  const getData = () => {
+    AuthAPIService.getMessage()
+      .then((messages) => {
+        setMessages(messages);
+      })
+      .catch((res) => {
+        setError(error);
+      });
+  };
 
   return (
     <AppContext.Provider value={contextValue}>
