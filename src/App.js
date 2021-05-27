@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Landing from "./components/Landing/Landing";
@@ -7,6 +7,7 @@ import Register from "./components/Register/Register";
 import NewDonation from "./components/NewDonation/NewDonation";
 import Messages from "./components/Messages/Messages";
 import About from "./components/About/About";
+import AuthAPIService from "./services/auth-api-service";
 import "./App.css";
 import Dashboard from "./components/Dashboard/Dashboard";
 import AppContext from "./AppContext";
@@ -16,6 +17,7 @@ import YourDonations from "./components/YourDonations/YourDonations";
 
 function App() {
   const [userId, setUserId] = useState(TokenService.hasUserId());
+  const [error, setError] = useState(null);
   const [yourItems, setYourItems] = useState([]);
   const [username, setUsername] = useState(TokenService.hasUserName());
   const [type, setType] = useState(TokenService.hasUserType());
@@ -41,6 +43,16 @@ function App() {
     yourItems,
     setYourItems,
   };
+
+  useEffect(() => {
+    AuthAPIService.getConversation()
+      .then((conversations) => {
+        setConversations(conversations);
+      })
+      .catch((res) => {
+        setError(error);
+      });
+  }, [userId]);
 
   return (
     <AppContext.Provider value={contextValue}>

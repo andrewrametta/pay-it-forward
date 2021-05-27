@@ -116,19 +116,6 @@ function Upload(props) {
   };
   /* End Utility function to convert a canvas to a BLOB      */
 
-  // const uploadImg = async (base64EncodedImage) => {
-  //   console.log(base64EncodedImage);
-  //   try {
-  //     const response = await fetch("http://localhost:8000/api/upload", {
-  //       method: "POST",
-  //       body: JSON.stringify({ data: (base64EncodedImage) }),
-  //       headers: { "Content-type": "application/json" },
-  //     });
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
-
   async function fetchImgJSON(base64EncodedImage) {
     try {
       const response = await fetch(`${config.API_ENDPOINT}/api/uploads`, {
