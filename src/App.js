@@ -14,6 +14,7 @@ import AppContext from "./AppContext";
 import Donation from "./components/Donation/Donation";
 import TokenService from "./services/token-service";
 import YourDonations from "./components/YourDonations/YourDonations";
+import EditDonation from "./components/EditDonation/EditDonation";
 
 function App() {
   const [userId, setUserId] = useState(TokenService.hasUserId());
@@ -80,6 +81,7 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/newdonation" component={NewDonation} />
           <Route exact path="/donation/:donationId" component={Donation} />
+          <Route exact path="/edit/:item_id" component={EditDonation} />
           <Route path="/yourdonations" component={YourDonations} />
           <Route path="/messages" component={Messages} />
           <Route path="/dashboard" component={Dashboard} />

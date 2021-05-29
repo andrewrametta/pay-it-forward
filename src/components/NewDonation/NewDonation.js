@@ -18,6 +18,7 @@ function NewDonation(props) {
       item_url: imgUrl,
     })
       .then((item) => {
+        console.log(item);
         props.history.push("/dashboard");
       })
       .catch((err) => {
@@ -64,19 +65,6 @@ function NewDonation(props) {
                     defaultValue="a brown leather couch"
                   />
                 </div>
-
-                {/* <div>
-                <label className="label" htmlFor="image">
-                  Image
-                </label>
-                <input
-                  type="text"
-                  name="image"
-                  id="image"
-                  defaultValue="couch image"
-                />
-              </div> */}
-
                 <div className="submit-button">
                   <button type="submit">Submit</button>
                 </div>

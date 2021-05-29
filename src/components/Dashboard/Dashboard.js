@@ -11,6 +11,7 @@ export default function Dashboard(props) {
   useEffect(() => {
     AuthAPIService.getItems()
       .then((donations) => {
+        console.log(donations);
         setItems(donations);
       })
       .catch((res) => {

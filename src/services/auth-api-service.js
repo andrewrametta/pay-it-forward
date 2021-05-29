@@ -41,7 +41,7 @@ export default {
     return fetch(`${config.API_ENDPOINT}/api/items`, {
       method: "GET",
       headers: {
-        Content_type: "application/json",
+        "Content-type": "application/json",
       },
       body: JSON.stringify(item),
     }).then((res) =>
@@ -67,6 +67,17 @@ export default {
       headers: {
         "Content-Type": "application/json",
       },
+    }).then((res) => {
+      if (!res.ok) return res.json().then((e) => Promise.reject(e));
+    });
+  },
+  editItem(item_id, item) {
+    return fetch(`${config.API_ENDPOINT}/api/items/${item_id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(item),
     }).then((res) => {
       if (!res.ok) return res.json().then((e) => Promise.reject(e));
     });
@@ -115,6 +126,16 @@ export default {
       method: "GET",
       headers: {
         Content_type: "application/json",
+      },
+    }).then((res) =>
+      !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+    );
+  },
+  getItemById(item_id) {
+    return fetch(`${config.API_ENDPOINT}/api/items/${item_id}`, {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json",
       },
     }).then((res) =>
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()

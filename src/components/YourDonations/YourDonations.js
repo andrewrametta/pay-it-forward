@@ -11,6 +11,7 @@ export default function YourDonations(props) {
   useEffect(() => {
     AuthAPIService.getItems()
       .then((donations) => {
+        console.log(donations);
         setItems(donations);
       })
       .catch((res) => {
@@ -19,6 +20,7 @@ export default function YourDonations(props) {
   }, []);
 
   const yourDonations = items.filter((item) => item.user_id === userId);
+  console.log(yourDonations);
 
   return (
     <div className="dashboard-container">
