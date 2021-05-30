@@ -7,7 +7,6 @@ import Register from "./components/Register/Register";
 import NewDonation from "./components/NewDonation/NewDonation";
 import Messages from "./components/Messages/Messages";
 import About from "./components/About/About";
-import AuthAPIService from "./services/auth-api-service";
 import "./App.css";
 import Dashboard from "./components/Dashboard/Dashboard";
 import AppContext from "./AppContext";
@@ -15,10 +14,10 @@ import Donation from "./components/Donation/Donation";
 import TokenService from "./services/token-service";
 import YourDonations from "./components/YourDonations/YourDonations";
 import EditDonation from "./components/EditDonation/EditDonation";
+import OrgProfile from "./components/OrgProfile/OrgProfile";
 
 function App() {
   const [userId, setUserId] = useState(TokenService.hasUserId());
-  const [error, setError] = useState(null);
   const [yourItems, setYourItems] = useState([]);
   const [username, setUsername] = useState(TokenService.hasUserName());
   const [type, setType] = useState(TokenService.hasUserType());
@@ -45,30 +44,6 @@ function App() {
     setYourItems,
   };
 
-  useEffect(() => {
-    AuthAPIService.getConversation()
-      .then((conversations) => {
-        setConversations(conversations);
-        conversations.map((conversation) => {
-          const conversationId = conversation.id;
-          return getData(conversationId);
-        });
-      })
-      .catch((res) => {
-        setError(error);
-      });
-  }, [userId]);
-
-  const getData = () => {
-    AuthAPIService.getMessage()
-      .then((messages) => {
-        setMessages(messages);
-      })
-      .catch((res) => {
-        setError(error);
-      });
-  };
-
   return (
     <AppContext.Provider value={contextValue}>
       <div className="app-container">
@@ -85,7 +60,6 @@ function App() {
           <Route path="/yourdonations" component={YourDonations} />
           <Route path="/messages" component={Messages} />
           <Route path="/dashboard" component={Dashboard} />
-
           <Route path="/about" component={About} />
         </main>
         <footer>Built by Andrew Rametta</footer>

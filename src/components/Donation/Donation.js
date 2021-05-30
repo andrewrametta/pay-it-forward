@@ -7,6 +7,8 @@ import { Image, Transformation } from "cloudinary-react";
 function Donation(props) {
   const id = props.match.params.donationId;
   console.log(props.match.params);
+  const [error, setError] = useState(null);
+  const [updatedItem, setUpdatedItem] = useState("");
   const [itemSelected, setItemSelected] = useState("");
   const {
     items,
@@ -51,6 +53,36 @@ function Donation(props) {
       });
   };
 
+  const handleDonation = (e) => {
+    e.preventDefault();
+    setError(null);
+    console.log(id);
+    const item = {
+      title: itemSelected.title,
+      description: itemSelected.description,
+      cur_status: "claimed",
+    };
+    console.log(item);
+    AuthAPIService.editItem(id, item)
+      .then((responseData) => {
+        console.log("patch worked");
+        setUpdatedItem(responseData);
+        console.log(updatedItem);
+        updateItems(updatedItem);
+        console.log(items);
+        props.history.push("/yourdonations");
+      })
+      .catch((res) => {
+        setError(error);
+      });
+  };
+  const updateItems = (updatedItem) => {
+    const newItems = items.map((item) =>
+      item.id === updatedItem.id ? updatedItem : item
+    );
+    setItems(newItems);
+  };
+
   return (
     <div>
       <h2>This is a donation</h2>
@@ -61,6 +93,7 @@ function Donation(props) {
         height="350"
         crop="fill"
       />
+      {error !== null && <h3>error</h3>}
       <div className="div item-container details">
         <h3>{itemSelected.title}</h3>
         <p>{itemSelected.description}</p>
@@ -77,7 +110,7 @@ function Donation(props) {
               <button>Edit</button>
             </Link>
 
-            <button>Mark as donated</button>
+            <button onClick={handleDonation}>Mark as donated</button>
           </>
         )}
       </div>

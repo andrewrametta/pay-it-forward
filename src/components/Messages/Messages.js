@@ -7,7 +7,9 @@ import Chat from "../Chat/Chat";
 
 export default function Messages(props) {
   const [error, setError] = useState("");
-  const { type, conversations, setConversations } = useContext(AppContext);
+  const { type, conversations, setConversations, setMessages } = useContext(
+    AppContext
+  );
 
   useEffect(() => {
     AuthAPIService.getConversation()

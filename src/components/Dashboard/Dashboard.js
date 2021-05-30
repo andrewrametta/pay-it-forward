@@ -6,7 +6,9 @@ import AuthAPIService from "../../services/auth-api-service";
 
 export default function Dashboard(props) {
   const [error, setError] = useState("");
-  const { items, setItems } = useContext(AppContext);
+  const { items, setItems, setConversations, setMessages, userId } = useContext(
+    AppContext
+  );
 
   useEffect(() => {
     AuthAPIService.getItems()
@@ -24,24 +26,26 @@ export default function Dashboard(props) {
       <h1>Donations Available</h1>
       <div className="dashboard-item-container">
         <ul className="ul-items">
-          {items.map((item, indx) => (
-            <li key={indx} className="items-div-container">
-              <Link to={`donation/${item.id}`}>
-                <Image
-                  cloudName="hq1rpt94r"
-                  publicId={`${item.item_url}`}
-                  width="250"
-                  height="250"
-                  crop="fill"
-                />
-                <h3>{item.title}</h3>
-                <p>{item.status}</p>
-                <p className="p citystate">
-                  {item.city}, {item.state}
-                </p>
-              </Link>
-            </li>
-          ))}
+          {items
+            .sort((a, b) => a.id - b.id)
+            .map((item, indx) => (
+              <li key={indx} className="items-div-container">
+                <Link to={`donation/${item.id}`}>
+                  <Image
+                    cloudName="hq1rpt94r"
+                    publicId={`${item.item_url}`}
+                    width="250"
+                    height="250"
+                    crop="fill"
+                  />
+                  <h3>{item.title}</h3>
+                  <p>{item.status}</p>
+                  <p className="p citystate">
+                    {item.city}, {item.state}
+                  </p>
+                </Link>
+              </li>
+            ))}
         </ul>
       </div>
     </div>

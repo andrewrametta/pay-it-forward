@@ -47,6 +47,7 @@ function EditDonation(props) {
         console.log(updatedItem);
         updateItems(updatedItem);
         console.log(items);
+        props.history.push("/yourdonations");
       })
       .catch((res) => {
         setError(error);

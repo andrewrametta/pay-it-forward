@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import AuthAPIService from "../../services/auth-api-service";
 import config from "../../config";
 
 function Upload(props) {
@@ -34,8 +35,7 @@ function Upload(props) {
     e.preventDefault();
     setUploadError(null);
     if (!resizeUrl) return;
-    fetchImgJSON(resizeUrl)
-      //AuthApiService.uploadImg(previewSource)
+    AuthAPIService.uploadImg(resizeUrl)
       .then((img) => {
         console.log(img);
         setImgUrl(img.public_id);
@@ -116,19 +116,6 @@ function Upload(props) {
   };
   /* End Utility function to convert a canvas to a BLOB      */
 
-  async function fetchImgJSON(base64EncodedImage) {
-    try {
-      const response = await fetch(`${config.API_ENDPOINT}/api/uploads`, {
-        method: "POST",
-        body: JSON.stringify({ data: base64EncodedImage }),
-        headers: { "Content-type": "application/json" },
-      });
-      const itemImg = await response.json();
-      return itemImg;
-    } catch (error) {
-      setUploadError("Something went wrong, try again");
-    }
-  }
   return (
     <div className="App">
       <form onSubmit={handleSubmitFile}>

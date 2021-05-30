@@ -41,7 +41,11 @@ function Navbar(props) {
                 <button>Your Donations</button>
               </Link>
             </>
-          ) : null}
+          ) : (
+            <Link to="/orgprofile">
+              <button>Profile</button>
+            </Link>
+          )}
 
           <Link to="/messages">
             <button>Messages</button>

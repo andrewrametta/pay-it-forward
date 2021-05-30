@@ -28,21 +28,23 @@ export default function YourDonations(props) {
       <div className="dashboard-item-container">
         <ul className="ul-items">
           {yourDonations.length > 0 ? (
-            yourDonations.map((filteredItem, indx) => (
-              <li key={indx} className="items-div-container">
-                <Link to={`donation/${filteredItem.id}`}>
-                  <Image
-                    cloudName="hq1rpt94r"
-                    publicId={`${filteredItem.item_url}`}
-                    width="150"
-                    height="200"
-                    crop="fill"
-                  />
-                  <h3>{filteredItem.title}</h3>
-                  <p>{filteredItem.description}</p>
-                </Link>
-              </li>
-            ))
+            yourDonations
+              .sort((a, b) => a.id - b.id)
+              .map((filteredItem, indx) => (
+                <li key={indx} className="items-div-container">
+                  <Link to={`donation/${filteredItem.id}`}>
+                    <Image
+                      cloudName="hq1rpt94r"
+                      publicId={`${filteredItem.item_url}`}
+                      width="150"
+                      height="200"
+                      crop="fill"
+                    />
+                    <h3>{filteredItem.title}</h3>
+                    <p>{filteredItem.description}</p>
+                  </Link>
+                </li>
+              ))
           ) : (
             <h3>Looks like you have no donations posted...</h3>
           )}
