@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Landing from "./components/Landing/Landing";
@@ -14,7 +14,6 @@ import Donation from "./components/Donation/Donation";
 import TokenService from "./services/token-service";
 import YourDonations from "./components/YourDonations/YourDonations";
 import EditDonation from "./components/EditDonation/EditDonation";
-import OrgProfile from "./components/OrgProfile/OrgProfile";
 
 function App() {
   const [userId, setUserId] = useState(TokenService.hasUserId());

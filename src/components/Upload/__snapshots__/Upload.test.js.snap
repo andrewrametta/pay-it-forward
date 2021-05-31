@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Upload component renders the complete page 1`] = `
+<div
+  className="App"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <input
+      className="form-input"
+      name="image"
+      onChange={[Function]}
+      type="file"
+    />
+    <div />
+    <button
+      className="form-btn"
+      type="submit"
+    >
+      Next
+    </button>
+  </form>
+</div>
+`;
