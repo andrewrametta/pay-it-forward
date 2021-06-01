@@ -1,4 +1,17 @@
 a {
   text-decoration: none;
   margin-left: 10px;
+  color: white;
+}
+.logo-image {
+  max-width: 240px;
+  position: center;
+  flex: none;
+}
+
+.link-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-content: center;
+  padding-right: 10px;
 }

@@ -22,53 +22,40 @@ function Navbar(props) {
   return (
     <div className="navbar-wrapper">
       <Link className="logo" to="/">
-        <h1>PayItForward</h1>
+        <img className="logo-image" src="/logo.svg" alt="Pay it Forward" />
       </Link>
-      <Link to="/about">
-        <button>About</button>
-      </Link>
-      {TokenService.hasAuthToken() ? (
-        <>
-          <Link to="/dashboard">
-            <button>Dashboard</button>
-          </Link>
-          {type === "user" ? (
-            <>
-              <Link to="/newdonation">
-                <button>New Donation</button>
-              </Link>
-              <Link to="/yourdonations">
-                <button>Your Donations</button>
-              </Link>
-            </>
-          ) : (
-            <Link to="/orgprofile">
-              <button>Profile</button>
-            </Link>
-          )}
 
-          <Link to="/messages">
-            <button>Messages</button>
-          </Link>
+      <div className="link-wrapper">
+        {TokenService.hasAuthToken() ? (
+          <>
+            <Link to="/dashboard">Dashboard</Link>
+            {type === "user" ? (
+              <>
+                <Link to="/newdonation">New Donation</Link>
+                <Link to="/yourdonations">Your Donations</Link>
+              </>
+            ) : (
+              <Link to="/orgprofile">Profile</Link>
+            )}
 
-          <button
-            className="button"
-            aria-label="logout-button"
-            onClick={logout}
-          >
-            Logout
-          </button>
-        </>
-      ) : (
-        <>
-          <Link to="/register">
-            <button>Register</button>
-          </Link>
-          <Link to="/login">
-            <button>Login</button>
-          </Link>
-        </>
-      )}
+            <Link to="/messages">Messages</Link>
+
+            <button
+              className="button"
+              aria-label="logout-button"
+              onClick={logout}
+            >
+              Logout
+            </button>
+          </>
+        ) : (
+          <>
+            <Link to="/register">Register</Link>
+            <Link to="/login">Login</Link>
+          </>
+        )}
+        <Link to="/about">About</Link>
+      </div>
     </div>
   );
 }

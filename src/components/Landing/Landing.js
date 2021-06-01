@@ -4,7 +4,6 @@ import "./Landing.css";
 function Landing() {
   return (
     <div className="landing-wrapper">
-      <h1>Pay it Forward</h1>
       <h2>Why join?</h2>
       <p>
         Have you ever had a piece of furniture you want to donate. Maybe you are

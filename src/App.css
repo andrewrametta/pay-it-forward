@@ -18,11 +18,25 @@ div .app-container {
 }
 
 .app-header {
-  background-color: grey;
+  background-image: linear-gradient(
+    to right,
+    #4500c9,
+    #5219c9,
+    #5e28c9,
+    #6835c8,
+    #7141c8,
+    #814bcb,
+    #8f55cf,
+    #9c60d2,
+    #b36dda,
+    #c87be2,
+    #dd89ea,
+    #f198f3
+  );
   position: sticky;
   top: 0;
-  border-bottom: 3px solid black;
-  padding: 5px 10px;
+  border-bottom: 3px solid rgb(166, 141, 255);
+  padding: 20px 5px;
 }
 
 footer {
@@ -30,9 +44,23 @@ footer {
   left: 0;
   bottom: 0;
   right: 0;
+  color: white;
   text-align: center;
-  border-top: 3px solid black;
-  background-color: grey;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  border-top: 3px solid rgb(166, 141, 255);
+  background-image: linear-gradient(
+    to right,
+    #4500c9,
+    #5219c9,
+    #5e28c9,
+    #6835c8,
+    #7141c8,
+    #814bcb,
+    #8f55cf,
+    #9c60d2,
+    #b36dda,
+    #c87be2,
+    #dd89ea,
+    #f198f3
+  );
+  padding: 20px 5px;
 }
