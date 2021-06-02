@@ -1,6 +1,45 @@
 .landing-wrapper {
-  width: 80%;
-  margin: 30px auto;
+  width: 100%;
+  margin: 10px auto;
   padding: 20px;
-  background: lightgray;
+  background: #edebeb;
+}
+
+.tagline {
+  color: #4500c9;
+  font-size: 18px;
+  font-style: italic;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.react-icon {
+  text-align: center;
+}
+
+@media all and (min-width: 900px) {
+  .tagline {
+    font-size: 24px;
+    margin-bottom: 60px;
+  }
+
+  .landing-wrapper {
+    width: 96%;
+    margin: 30px auto;
+
+    /* border: 2px solid #4500c9; */
+  }
+
+  .landing-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  .landing-item {
+    flex-grow: 1;
+    max-width: 350px;
+    min-width: 80px;
+    background-color: white;
+    padding: 20px;
+  }
 }

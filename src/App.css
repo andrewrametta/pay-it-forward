@@ -6,15 +6,33 @@
 }
 
 main {
-  margin-left: 10%;
-  margin-right: 10%;
-  margin-bottom: 50px;
+  margin-bottom: auto;
+}
+
+body {
+  background-color: #edebeb;
 }
 
 div .app-container {
   position: relative;
   min-height: 100vh;
   bottom: 0;
+}
+
+h1,
+h2 {
+  color: #4500c9;
+  margin: 20px auto;
+  text-align: center;
+}
+
+p {
+  margin-bottom: 10px;
+  color: rgb(55, 55, 55);
+}
+
+input {
+  width: 100%;
 }
 
 .app-header {
@@ -25,18 +43,18 @@ div .app-container {
     #5e28c9,
     #6835c8,
     #7141c8,
-    #814bcb,
-    #8f55cf,
-    #9c60d2,
-    #b36dda,
-    #c87be2,
-    #dd89ea,
-    #f198f3
+    #7242c9,
+    #7443cb,
+    #7544cc,
+    #6f3ad0,
+    #692fd3,
+    #6323d7,
+    #5b11da
   );
   position: sticky;
   top: 0;
   border-bottom: 3px solid rgb(166, 141, 255);
-  padding: 20px 5px;
+  padding: 10px 5px;
 }
 
 footer {
@@ -54,13 +72,31 @@ footer {
     #5e28c9,
     #6835c8,
     #7141c8,
-    #814bcb,
-    #8f55cf,
-    #9c60d2,
-    #b36dda,
-    #c87be2,
-    #dd89ea,
-    #f198f3
+    #7242c9,
+    #7443cb,
+    #7544cc,
+    #6f3ad0,
+    #692fd3,
+    #6323d7,
+    #5b11da
   );
   padding: 20px 5px;
+}
+
+button {
+  padding: 5px;
+  border-radius: 5px;
+  border: 2px solid #692fd3;
+  font-size: 18px;
+  color: rgb(55, 55, 55);
+  margin: 20px 0px;
+  width: 80%;
+}
+
+@media all and (min-width: 600px) {
+  main {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 50px;
+  }
 }

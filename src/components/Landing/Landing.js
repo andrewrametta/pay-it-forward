@@ -1,26 +1,37 @@
 import React from "react";
 import "./Landing.css";
+import { FaBoxOpen, FaPeopleCarry } from "react-icons/fa";
 
 function Landing() {
   return (
     <div className="landing-wrapper">
-      <h2>Why join?</h2>
-      <p>
-        Have you ever had a piece of furniture you want to donate. Maybe you are
-        moving or down sizing and have boxes of things you want to go to a good
-        home. You open up google and have no clue where to start. Or maybe you
-        put it on the side of the road hoping someone will pick it up and then
-        it gets ruined by rain or sun?
+      <p className="tagline">
+        You can make a difference in the lives of others
       </p>
-      <h2>What does this app do?</h2>
-      <p>
-        Pay it forward is a network you can join that is connected to verified
-        non profit organizations in your area. We take all of the guess work out
-        for you. Just sign in, post a picture of what you want to donate, and we
-        will connect you with the non profits in your area that can take your
-        donation. We make it simple and easy for you to find a good home for the
-        things that you want to get rid of.
-      </p>
+      <div className="landing-container">
+        <div className="landing-item">
+          <div className="react-icon">
+            <FaBoxOpen color="#692fd3" size="8em" />
+          </div>
+          <h2>Got something to donate?</h2>
+          <p>
+            We connect your posted donation with local nonprofits in your area.
+            Just upload a picture of the item you want to donate and wait for a
+            nonprofit to connect with you through our messaging service.
+          </p>
+        </div>
+        <div className="landing-item">
+          <div className="react-icon">
+            <FaPeopleCarry color="#692fd3" size="8em" />
+          </div>
+
+          <h2>Join our network today!</h2>
+          <p>
+            We make it simple and easy for you to find a good home for the
+            things that you want to give away.
+          </p>
+        </div>
+      </div>
     </div>
   );
 }

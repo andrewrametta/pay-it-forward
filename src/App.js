@@ -3,7 +3,6 @@ import { Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Landing from "./components/Landing/Landing";
 import Login from "./components/Login/Login";
-import Register from "./components/Register/Register";
 import NewDonation from "./components/NewDonation/NewDonation";
 import Messages from "./components/Messages/Messages";
 import About from "./components/About/About";
@@ -14,6 +13,9 @@ import Donation from "./components/Donation/Donation";
 import TokenService from "./services/token-service";
 import YourDonations from "./components/YourDonations/YourDonations";
 import EditDonation from "./components/EditDonation/EditDonation";
+import Register from "./components/Register/Register";
+import RegisterOrgForm from "./components/RegisterOrgForm/RegisterOrgForm";
+import RegisterUserForm from "./components/RegisterUserForm/RegisterUserForm";
 
 function App() {
   const [userId, setUserId] = useState(TokenService.hasUserId());
@@ -51,7 +53,9 @@ function App() {
         </header>
         <main>
           <Route exact path="/" component={Landing} />
-          <Route path="/register" component={Register} />
+          <Route path="/registeruser" component={RegisterUserForm} />
+          <Route path="/registerorg" component={RegisterOrgForm} />
+          <Route exact path="/register" component={Register} />
           <Route path="/login" component={Login} />
           <Route path="/newdonation" component={NewDonation} />
           <Route exact path="/donation/:donationId" component={Donation} />

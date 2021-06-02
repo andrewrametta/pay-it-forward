@@ -20,43 +20,63 @@ function Navbar(props) {
   };
 
   return (
-    <div className="navbar-wrapper">
+    <nav className="navbar-wrapper">
       <Link className="logo" to="/">
         <img className="logo-image" src="/logo.svg" alt="Pay it Forward" />
       </Link>
-
-      <div className="link-wrapper">
+      <ul className="hamburger">
+        <li className="line"></li>
+        <li className="line"></li>
+        <li className="line"></li>
+      </ul>
+      <ul className="link-wrapper">
         {TokenService.hasAuthToken() ? (
           <>
-            <Link to="/dashboard">Dashboard</Link>
+            <li className="nav-item">
+              <Link to="/dashboard">Dashboard</Link>
+            </li>
             {type === "user" ? (
               <>
-                <Link to="/newdonation">New Donation</Link>
-                <Link to="/yourdonations">Your Donations</Link>
+                <li className="nav-item">
+                  <Link to="/newdonation">New Donation</Link>
+                </li>
+                <li className="nav-item">
+                  <Link to="/yourdonations">Your Donations</Link>
+                </li>
               </>
             ) : (
-              <Link to="/orgprofile">Profile</Link>
+              <li className="nav-item">
+                <Link to="/orgprofile">Profile</Link>
+              </li>
             )}
-
-            <Link to="/messages">Messages</Link>
-
-            <button
-              className="button"
-              aria-label="logout-button"
-              onClick={logout}
-            >
-              Logout
-            </button>
+            <li className="nav-item">
+              <Link to="/messages">Messages</Link>
+            </li>
+            <li className="nav-item">
+              <button
+                className="button"
+                aria-label="logout-button"
+                onClick={logout}
+              >
+                Logout
+              </button>
+            </li>
           </>
         ) : (
           <>
-            <Link to="/register">Register</Link>
-            <Link to="/login">Login</Link>
+            <li className="nav-item">
+              <Link to="/register">Register</Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/login">Login</Link>
+            </li>
           </>
         )}
-        <Link to="/about">About</Link>
-      </div>
-    </div>
+        <li className="nav-item">
+          <Link to="/about">About</Link>
+        </li>
+      </ul>
+    </nav>
   );
 }
 
