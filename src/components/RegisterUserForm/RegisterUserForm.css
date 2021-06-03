@@ -1,6 +1,6 @@
 .register-wrapper {
-  width: 80%;
-  margin: 30px auto;
+  width: 100%;
+  margin: 20px 0px;
   padding: 20px;
-  background: lightgray;
+  background: #edebeb;
 }

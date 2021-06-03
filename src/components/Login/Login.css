@@ -1,6 +1,12 @@
 .login-wrapper {
-  width: 80%;
-  margin: 30px auto;
-  padding: 20px;
-  background: lightgray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 10px;
+}
+
+.demo-credentials {
+  color: #5219c9;
+  margin: 5px 0px;
 }

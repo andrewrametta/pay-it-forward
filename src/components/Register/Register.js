@@ -1,4 +1,5 @@
 import React from "react";
+import "./Register.css";
 import { Link } from "react-router-dom";
 import { FaUserPlus, FaBuilding } from "react-icons/fa";
 

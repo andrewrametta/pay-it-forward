@@ -15,7 +15,6 @@ function RegisterOrgForm(props) {
       username,
       password,
       email,
-      usertype,
       address,
       city,
       state,

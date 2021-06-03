@@ -44,11 +44,10 @@ function Login(props) {
           <h1>Login</h1>
         </header>
         <p>Use the user or organization demo login to test out our app.</p>
-        <p>Demo username: Demo</p>
-        <p>Demo password: Password123$</p>
-
-        <p>Demo organization: The Demo Org</p>
-        <p>Demo password: Password123$</p>
+        <p className="demo-credentials">Demo username: Demo</p>
+        <p className="demo-credentials">Demo password: Password123$</p>
+        <p className="demo-credentials">Demo organization: The Demo Org</p>
+        <p className="demo-credentials">Demo password: Password123$</p>
         <article>
           {error !== null && <h3>error</h3>}
           <div>
@@ -65,7 +64,7 @@ function Login(props) {
                   type="text"
                   name="username"
                   id="username"
-                  defaultValue="username"
+                  placeholder="username"
                 />
               </div>
               <div>
@@ -76,7 +75,7 @@ function Login(props) {
                   type="password"
                   name="password"
                   id="password"
-                  defaultValue="password"
+                  placeholder="password"
                 />
               </div>
               <button type="submit">Login</button>

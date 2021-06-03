@@ -65,7 +65,9 @@ function App() {
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/about" component={About} />
         </main>
-        <footer>Built by Andrew Rametta</footer>
+        <footer>
+          <p className="footer-text">Built by Andrew Rametta</p>
+        </footer>
       </div>
     </AppContext.Provider>
   );
