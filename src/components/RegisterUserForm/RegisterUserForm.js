@@ -15,7 +15,6 @@ function RegisterUserForm(props) {
       username,
       password,
       email,
-      usertype,
       address,
       city,
       state,

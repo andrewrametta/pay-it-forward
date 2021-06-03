@@ -1,7 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 import toJson from "enzyme-to-json";
-import Register from "./Register";
+import Register from "./RegisterUserForm";
 // setup file
 import { configure } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";

@@ -24,7 +24,7 @@ export default function YourDonations(props) {
 
   return (
     <div className="dashboard-container">
-      <h1>Donations Available</h1>
+      <h1>Available Donations</h1>
       <div className="dashboard-item-container">
         <ul className="ul-items">
           {yourDonations.length > 0 ? (

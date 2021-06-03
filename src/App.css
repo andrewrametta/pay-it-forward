@@ -90,7 +90,7 @@ button {
   font-size: 18px;
   color: rgb(55, 55, 55);
   margin: 20px 0px;
-  width: 80%;
+  width: 100%;
 }
 
 @media all and (min-width: 600px) {
