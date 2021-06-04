@@ -5,7 +5,6 @@ import Landing from "./components/Landing/Landing";
 import Login from "./components/Login/Login";
 import NewDonation from "./components/NewDonation/NewDonation";
 import Messages from "./components/Messages/Messages";
-import About from "./components/About/About";
 import "./App.css";
 import Dashboard from "./components/Dashboard/Dashboard";
 import AppContext from "./AppContext";
@@ -48,7 +47,7 @@ function App() {
   return (
     <AppContext.Provider value={contextValue}>
       <div className="app-container">
-        <header className="app-header">
+        <header className="header">
           <Route path="/" component={Navbar} />
         </header>
         <main>
@@ -63,7 +62,6 @@ function App() {
           <Route path="/yourdonations" component={YourDonations} />
           <Route path="/messages" component={Messages} />
           <Route path="/dashboard" component={Dashboard} />
-          <Route path="/about" component={About} />
         </main>
         <footer>
           <p className="footer-text">Built by Andrew Rametta</p>

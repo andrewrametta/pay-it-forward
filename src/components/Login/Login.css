@@ -8,5 +8,9 @@
 
 .demo-credentials {
   color: #5219c9;
-  margin: 5px 0px;
+  margin: 2.5px 0px;
+}
+
+form.login-form > div {
+  margin-top: 10px;
 }

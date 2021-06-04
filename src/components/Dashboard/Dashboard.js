@@ -3,6 +3,7 @@ import { Image } from "cloudinary-react";
 import AppContext from "../../AppContext";
 import { Link } from "react-router-dom";
 import AuthAPIService from "../../services/auth-api-service";
+import "./Dashboard.css";
 
 export default function Dashboard(props) {
   const [error, setError] = useState("");
@@ -32,15 +33,16 @@ export default function Dashboard(props) {
               <li key={indx} className="items-div-container">
                 <Link to={`donation/${item.id}`}>
                   <Image
+                    className="img-donation"
                     cloudName="hq1rpt94r"
                     publicId={`${item.item_url}`}
-                    width="250"
-                    height="250"
+                    // width="250"
+                    // height="250"
                     crop="fill"
                   />
                   <h3>{item.title}</h3>
                   <p>{item.status}</p>
-                  <p className="p citystate">
+                  <p className="p-citystate">
                     {item.city}, {item.state}
                   </p>
                 </Link>

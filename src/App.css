@@ -41,34 +41,25 @@ input {
   margin: 10px 0px;
   padding: 5px;
   font-size: 20px;
+  border: none;
 }
 
-img {
-  height: 200px;
-  width: 100%;
-  margin-top: 10px;
+header {
+  background-color: white;
 }
 
-.app-header {
-  background-image: linear-gradient(
-    to right,
-    #4500c9,
-    #5219c9,
-    #5e28c9,
-    #6835c8,
-    #7141c8,
-    #7242c9,
-    #7443cb,
-    #7544cc,
-    #6f3ad0,
-    #692fd3,
-    #6323d7,
-    #5b11da
-  );
+header {
+  /* background-color: white;
   position: sticky;
   top: 0;
   border-bottom: 3px solid rgb(166, 141, 255);
-  padding: 10px 0px;
+  padding: 10px 0px; */
+  background-color: #fff;
+  box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.1);
+  position: sticky;
+  width: 100%;
+  top: 0;
+  display: flex;
 }
 
 footer {
@@ -106,6 +97,7 @@ button {
   color: rgb(55, 55, 55);
   margin: 20px 0px;
   width: 100%;
+  cursor: pointer;
 }
 
 .footer-text {

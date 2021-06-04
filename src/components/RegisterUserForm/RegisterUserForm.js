@@ -57,7 +57,7 @@ function RegisterUserForm(props) {
           />
           <div>
             {showForm ? (
-              <form className="register form" onSubmit={handleSubmit}>
+              <form className="register-form" onSubmit={handleSubmit}>
                 <div>
                   <label className="label" htmlFor="username">
                     Username or Organization Name

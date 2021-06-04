@@ -24,12 +24,12 @@ function Navbar(props) {
       <Link className="logo" to="/">
         <img className="logo-image" src="/logo.svg" alt="Pay it Forward" />
       </Link>
-      <ul className="hamburger">
-        <li className="line"></li>
-        <li className="line"></li>
-        <li className="line"></li>
-      </ul>
-      <ul className="link-wrapper">
+      <input class="menu-btn" type="checkbox" id="menu-btn" />
+      <label class="menu-icon" for="menu-btn">
+        <span class="menu-label-content">Menu</span>
+        <span class="navicon"></span>
+      </label>
+      <ul className="menu">
         {TokenService.hasAuthToken() ? (
           <>
             <li className="nav-item">
@@ -72,9 +72,6 @@ function Navbar(props) {
             </li>
           </>
         )}
-        <li className="nav-item">
-          <Link to="/about">About</Link>
-        </li>
       </ul>
     </nav>
   );

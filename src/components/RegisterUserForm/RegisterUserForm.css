@@ -4,3 +4,7 @@
   padding: 20px;
   background: #edebeb;
 }
+
+form.register-form > div {
+  margin-top: 10px;
+}

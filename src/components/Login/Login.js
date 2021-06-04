@@ -40,9 +40,8 @@ function Login(props) {
   return (
     <div className="login-wrapper">
       <section className="login-section">
-        <header className="login-header">
-          <h1>Login</h1>
-        </header>
+        <h1>Login</h1>
+
         <p>Use the user or organization demo login to test out our app.</p>
         <p className="demo-credentials">Demo username: Demo</p>
         <p className="demo-credentials">Demo password: Password123$</p>
@@ -52,7 +51,7 @@ function Login(props) {
           {error !== null && <h3>error</h3>}
           <div>
             <form
-              className="login form"
+              className="login-form"
               aria-label="login-form"
               onSubmit={handleLogin}
             >

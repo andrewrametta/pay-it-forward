@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import AuthAPIService from "../../services/auth-api-service";
 import config from "../../config";
+import "./Upload.css";
 
 function Upload(props) {
   const [uploadError, setUploadError] = useState("");
@@ -128,7 +129,12 @@ function Upload(props) {
 
         <div>
           {resizeUrl && (
-            <img src={resizeUrl} alt="chosen-img" style={{ height: "200px" }} />
+            <img
+              className="upload-image"
+              src={resizeUrl}
+              alt="chosen-img"
+              style={{ height: "200px" }}
+            />
           )}
         </div>
         {uploadError ? (
