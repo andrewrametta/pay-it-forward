@@ -36,8 +36,8 @@ export default function Dashboard(props) {
                     className="img-donation"
                     cloudName="hq1rpt94r"
                     publicId={`${item.item_url}`}
-                    // width="250"
-                    // height="250"
+                    width="150"
+                    height="150"
                     crop="fill"
                   />
                   <h3>{item.title}</h3>

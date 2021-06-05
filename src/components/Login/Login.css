@@ -14,3 +14,13 @@
 form.login-form > div {
   margin-top: 10px;
 }
+
+@media all and (min-width: 600px) {
+  div.submit-button {
+    text-align: center;
+  }
+
+  button.form-btn {
+    width: 30%;
+  }
+}

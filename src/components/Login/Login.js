@@ -77,7 +77,11 @@ function Login(props) {
                   placeholder="password"
                 />
               </div>
-              <button type="submit">Login</button>
+              <div className="submit-button">
+                <button className="form-btn" type="submit">
+                  Login
+                </button>
+              </div>
             </form>
           </div>
         </article>

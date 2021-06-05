@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import AuthAPIService from "../../services/auth-api-service";
-import config from "../../config";
 import "./Upload.css";
 
 function Upload(props) {
@@ -141,9 +140,11 @@ function Upload(props) {
           <h3 className="error">{"Error uploading file, try smaller image"}</h3>
         ) : null}
         {showButton ? (
-          <button className="form-btn" type="submit">
-            Next
-          </button>
+          <div className="submit-button">
+            <button className="form-btn" type="submit">
+              Next
+            </button>
+          </div>
         ) : null}
       </form>
     </div>

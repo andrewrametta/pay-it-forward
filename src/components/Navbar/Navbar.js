@@ -23,10 +23,12 @@ function Navbar(props) {
   const links = document.querySelectorAll(".nav-links li");
 
   const handleClick = () => {
-    navLinks.classList.toggle("open");
-    links.forEach((link) => {
-      link.classList.toggle("fade");
-    });
+    if (navLinks) {
+      navLinks.classList.toggle("open");
+      links.forEach((link) => {
+        link.classList.toggle("fade");
+      });
+    }
   };
 
   return (

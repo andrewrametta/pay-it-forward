@@ -1,8 +1,9 @@
-nav {
+nav.navbar-wrapper {
   height: 10vh;
   background: white;
   display: flex;
   align-items: baseline;
+  position: relative;
 }
 
 .button {
@@ -12,11 +13,11 @@ nav {
 
 .logo {
   flex: 1;
-  margin-left: 10px;
+  margin: 15px;
 }
 
 .logo-image {
-  max-width: 200px;
+  max-width: 240px;
 }
 
 .nav-links {
@@ -46,8 +47,13 @@ nav {
     position: relative;
   }
 
+  .logo-image {
+    max-width: 200px;
+  }
+
   .logo {
-    margin-top: 25px;
+    margin: 15px;
+    vertical-align: baseline;
   }
 
   .hamburger {
@@ -78,21 +84,13 @@ nav {
 
   .nav-links li {
     opacity: 0;
+    transition: all 0.5s ease 0.3s;
   }
 
   .nav-links li a {
     font-size: 25px;
   }
 
-  .nav-links li:nth-child(1) {
-    transition: all 0.5s ease 0.2s;
-  }
-  .nav-links li:nth-child(2) {
-    transition: all 0.5s ease 0.4s;
-  }
-  .nav-links li:nth-child(3) {
-    transition: all 0.5s ease 0.6s;
-  }
   li.fade {
     opacity: 1;
   }

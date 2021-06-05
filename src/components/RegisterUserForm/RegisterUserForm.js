@@ -44,9 +44,8 @@ function RegisterUserForm(props) {
   return (
     <div className="register-wrapper">
       <section className="register-section">
-        <header className="register-header">
-          <h1>User Registration</h1>
-        </header>
+        <h1>User Registration</h1>
+
         <article>
           <p>Start with a profile Image</p>
           <Upload
@@ -60,13 +59,14 @@ function RegisterUserForm(props) {
               <form className="register-form" onSubmit={handleSubmit}>
                 <div>
                   <label className="label" htmlFor="username">
-                    Username or Organization Name
+                    Username
                   </label>
                   <input
                     type="text"
                     name="username"
                     id="username"
                     placeholder="username"
+                    className="form-input"
                   />
                 </div>
                 <div>
@@ -78,6 +78,7 @@ function RegisterUserForm(props) {
                     name="email"
                     id="email"
                     placeholder="email"
+                    className="form-input"
                   />
                 </div>
                 <div>
@@ -89,6 +90,7 @@ function RegisterUserForm(props) {
                     name="password"
                     id="password"
                     placeholder="password"
+                    className="form-input"
                   />
                 </div>
                 <div>
@@ -100,22 +102,39 @@ function RegisterUserForm(props) {
                     name="address"
                     id="address"
                     placeholder="address"
+                    className="form-input"
                   />
                 </div>
                 <div>
                   <label className="label" htmlFor="city">
                     City
                   </label>
-                  <input type="text" name="city" id="city" placeholder="city" />
+                  <input
+                    type="text"
+                    name="city"
+                    id="city"
+                    placeholder="city"
+                    className="form-input"
+                  />
                 </div>
                 <div>
                   <label className="label" htmlFor="state">
                     state
                   </label>
-                  <input type="text" name="state" id="state" placeholder="ST" />
+                  <input
+                    type="text"
+                    name="state"
+                    id="state"
+                    placeholder="ST"
+                    className="form-input"
+                  />
                 </div>
                 <div>
-                  <label className="label" htmlFor="zipcode">
+                  <label
+                    className="label"
+                    htmlFor="zipcode"
+                    className="form-input"
+                  >
                     zipcode
                   </label>
                   <input
@@ -125,10 +144,13 @@ function RegisterUserForm(props) {
                     placeholder="zipcode"
                     pattern="[0-9]{5}"
                     title="Five digit zip code"
+                    className="form-input"
                   />
                 </div>
-                <div className="register-button">
-                  <button type="submit">Register</button>
+                <div className="submit-button">
+                  <button className="form-btn" type="submit">
+                    Register
+                  </button>
                 </div>
                 {error !== null && <p className="error">error</p>}
               </form>

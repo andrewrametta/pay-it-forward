@@ -2,5 +2,19 @@
   width: 80%;
   margin: 30px auto;
   padding: 20px;
-  background: lightgray;
+  background-color: white;
+  border-radius: 10px;
+}
+
+@media all and (min-width: 600px) {
+  .newdonation-wrapper {
+    width: 60%;
+  }
+  div.submit-button {
+    text-align: center;
+  }
+
+  button.form-btn {
+    width: 30%;
+  }
 }

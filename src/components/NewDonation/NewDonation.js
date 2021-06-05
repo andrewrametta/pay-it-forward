@@ -29,9 +29,8 @@ function NewDonation(props) {
   return (
     <div className="newdonation-wrapper">
       <section className="newdonation-section">
-        <header className="newdonation-header">
-          <h1>New Donation</h1>
-        </header>
+        <h1>New Donation</h1>
+
         <article>
           <Upload
             setImgUrl={setImgUrl}
@@ -51,7 +50,8 @@ function NewDonation(props) {
                     type="text"
                     name="donation"
                     id="donation"
-                    defaultValue="furniture"
+                    placeholder="furniture"
+                    className="form-input"
                   />
                 </div>
                 <div>
@@ -62,11 +62,14 @@ function NewDonation(props) {
                     type="text"
                     name="description"
                     id="description"
-                    defaultValue="a brown leather couch"
+                    placeholder="a brown leather couch"
+                    className="form-input"
                   />
                 </div>
                 <div className="submit-button">
-                  <button type="submit">Submit</button>
+                  <button className="form-btn" type="submit">
+                    Submit
+                  </button>
                 </div>
               </form>
             ) : null}

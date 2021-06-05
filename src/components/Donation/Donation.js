@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import AppContext from "../../AppContext";
 import AuthAPIService from "../../services/auth-api-service";
 import { Image, Transformation } from "cloudinary-react";
+import "./Donation.css";
 
 function Donation(props) {
   const id = props.match.params.donationId;
-  console.log(props.match.params);
   const [error, setError] = useState(null);
   const [updatedItem, setUpdatedItem] = useState("");
   const [itemSelected, setItemSelected] = useState("");
@@ -21,18 +21,22 @@ function Donation(props) {
 
   useEffect(() => {
     AuthAPIService.getItemById(id)
-      .then((item) => setItemSelected(item))
+      .then((item) => {
+        setItemSelected(item);
+        console.log(itemSelected);
+      })
       .catch((err) => console.log(err));
+    console.log(itemSelected);
   }, []);
 
-  const donationArray = items.filter((item) => item.id === parseInt(id));
-  const donationItem = donationArray.length > 0 ? donationArray[0] : null;
+  // const donationArray = items.filter((item) => item.id === parseInt(id));
+  // const donationItem = donationArray.length > 0 ? donationArray[0] : null;
 
   const handleConversation = (e) => {
     e.preventDefault();
     AuthAPIService.postConversation({
       user_id: userId,
-      user2_id: donationItem.user_id,
+      user2_id: itemSelected.user_id,
     })
       .then((conversation) => {
         props.history.push(`/messages/${conversation.id}`);
@@ -84,38 +88,44 @@ function Donation(props) {
   };
 
   return (
-    <div>
-      <h2>This is a donation</h2>
-      <Image
-        cloudName="hq1rpt94r"
-        publicId={`${itemSelected.item_url}`}
-        width="350"
-        height="350"
-        crop="fill"
-      />
-      {error !== null && <h3>error</h3>}
-      <div className="div item-container details">
-        <h3>{itemSelected.title}</h3>
-        <p>{itemSelected.description}</p>
-        <p>
-          {itemSelected.city}, {itemSelected.state}
-        </p>
-        {type === "org" && (
-          <button onClick={handleConversation}>Request</button>
-        )}
-        {userId === itemSelected.user_id && (
-          <>
-            <button onClick={handleDelete}>Delete</button>
-            <Link to={`/edit/${props.match.params.donationId}`}>
-              <button>Edit</button>
-            </Link>
+    <div className="donation-wrapper">
+      <div className="desktop-flex-view">
+        <div className="donation-img">
+          <Image
+            className="donation-image"
+            cloudName="hq1rpt94r"
+            publicId={`${itemSelected.item_url}`}
+            width="350"
+            height="350"
+            crop="fill"
+          />
+        </div>
+        {error !== null && <h3>error</h3>}
+        <div className="item-container-details">
+          <h3>{itemSelected.title}</h3>
+          <p>{itemSelected.description}</p>
+          <p>
+            {itemSelected.city}, {itemSelected.state}
+          </p>
+          {type === "org" && (
+            <button onClick={handleConversation}>Request</button>
+          )}
+          {userId === itemSelected.user_id && (
+            <>
+              <button onClick={handleDelete}>Delete</button>
+              <Link to={`/edit/${props.match.params.donationId}`}>
+                <button>Edit</button>
+              </Link>
 
-            <button onClick={handleDonation}>Mark as donated</button>
-          </>
-        )}
+              <button onClick={handleDonation}>Mark as donated</button>
+            </>
+          )}
+        </div>
       </div>
-      <div className="div user-container details">
-        <Image cloudName="hq1rpt94r" publicId={`${itemSelected.item_url}`}>
+
+      <div className="user-container-details">
+        <p>Donationated By</p>
+        <Image cloudName="hq1rpt94r" publicId={`${itemSelected.user_url}`}>
           <Transformation gravity="face" height="200" width="200" crop="crop" />
           <Transformation radius="max" />
           <Transformation width="100" crop="scale" />
