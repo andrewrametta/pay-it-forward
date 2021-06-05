@@ -19,40 +19,51 @@ function Navbar(props) {
     props.history.push("/");
   };
 
+  const navLinks = document.querySelector(".nav-links");
+  const links = document.querySelectorAll(".nav-links li");
+
+  const handleClick = () => {
+    navLinks.classList.toggle("open");
+    links.forEach((link) => {
+      link.classList.toggle("fade");
+    });
+  };
+
   return (
     <nav className="navbar-wrapper">
       <Link className="logo" to="/">
         <img className="logo-image" src="/logo.svg" alt="Pay it Forward" />
       </Link>
-      <input class="menu-btn" type="checkbox" id="menu-btn" />
-      <label class="menu-icon" for="menu-btn">
-        <span class="menu-label-content">Menu</span>
-        <span class="navicon"></span>
-      </label>
-      <ul className="menu">
+      <div className="hamburger" onClick={handleClick}>
+        <div className="line"></div>
+        <div className="line"></div>
+        <div className="line"></div>
+      </div>
+
+      <ul className="nav-links">
         {TokenService.hasAuthToken() ? (
           <>
-            <li className="nav-item">
+            <li className="nav-item" onClick={handleClick}>
               <Link to="/dashboard">Dashboard</Link>
             </li>
             {type === "user" ? (
               <>
-                <li className="nav-item">
+                <li className="nav-item" onClick={handleClick}>
                   <Link to="/newdonation">New Donation</Link>
                 </li>
-                <li className="nav-item">
+                <li className="nav-item" onClick={handleClick}>
                   <Link to="/yourdonations">Your Donations</Link>
                 </li>
               </>
             ) : (
-              <li className="nav-item">
+              <li className="nav-item" onClick={handleClick}>
                 <Link to="/orgprofile">Profile</Link>
               </li>
             )}
-            <li className="nav-item">
+            <li className="nav-item" onClick={handleClick}>
               <Link to="/messages">Messages</Link>
             </li>
-            <li className="nav-item">
+            <li className="nav-item" onClick={handleClick}>
               <button
                 className="button"
                 aria-label="logout-button"
@@ -64,10 +75,10 @@ function Navbar(props) {
           </>
         ) : (
           <>
-            <li className="nav-item">
+            <li className="nav-item" onClick={handleClick}>
               <Link to="/register">Register</Link>
             </li>
-            <li className="nav-item">
+            <li className="nav-item" onClick={handleClick}>
               <Link to="/login">Login</Link>
             </li>
           </>

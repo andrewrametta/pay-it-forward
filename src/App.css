@@ -45,21 +45,15 @@ input {
 }
 
 header {
-  background-color: white;
-}
-
-header {
   /* background-color: white;
   position: sticky;
   top: 0;
   border-bottom: 3px solid rgb(166, 141, 255);
   padding: 10px 0px; */
   background-color: #fff;
-  box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.1);
-  position: sticky;
+  box-shadow: 1px 1px 4px 0 rgba(41, 2, 80, 0.1);
   width: 100%;
   top: 0;
-  display: flex;
 }
 
 footer {
