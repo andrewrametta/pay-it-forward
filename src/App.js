@@ -16,6 +16,7 @@ import Register from "./components/Register/Register";
 import RegisterOrgForm from "./components/RegisterOrgForm/RegisterOrgForm";
 import RegisterUserForm from "./components/RegisterUserForm/RegisterUserForm";
 import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
+import Chat from "./components/Chat/Chat";
 
 function App() {
   const [userId, setUserId] = useState(TokenService.hasUserId());
@@ -64,6 +65,7 @@ function App() {
             <Route path="/yourdonations" component={YourDonations} />
             <Route path="/messages" component={Messages} />
             <Route path="/dashboard" component={Dashboard} />
+            <Route exact path="/messages/:conversation_id" component={Chat} />
           </main>
           <footer>
             <p className="footer-text">Built by Andrew Rametta</p>

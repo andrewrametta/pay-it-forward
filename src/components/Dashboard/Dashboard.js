@@ -22,15 +22,19 @@ export default function Dashboard(props) {
 
   return (
     <div className="dashboard-container">
-      <h1>Donations Available</h1>
+      <div className="dashboard-header">
+        <h1>Donations Available</h1>
+        <p>Click a donation for more info</p>
+      </div>
+
       <div className="dashboard-item-container">
         {error && <h2>error</h2>}
-        <ul className="ul-items">
+        <ul className="dashboard-items">
           {items
             .sort((a, b) => a.id - b.id)
             .map((item, indx) => (
               <Link key={indx} to={`donation/${item.id}`}>
-                <li key={indx} className="items-div-container">
+                <li key={indx} className="dashboard-items-div-container">
                   <div className="donation-dashboard-img">
                     {item.item_url ? (
                       <Image

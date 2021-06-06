@@ -20,27 +20,29 @@ export default function YourDonations(props) {
   }, [setItems, setError]);
 
   const yourDonations = items.filter(
-    (item) => item.user_id === parseInt(userId)
+    (item) =>
+      item.user_id === parseInt(userId) && item.cur_status === "available"
   );
 
   return (
     <div className="yourdonations-container">
       <div className="yourdonations-header">
         <h1>Available Donations</h1>
-        <p>Click donation to manage</p>
+        <p>Click a donation to manage</p>
       </div>
       {error && <h2>error</h2>}
-      <div className="your-item-container">
+      <div className="your-items-container">
         <ul className="yourdonations-items">
           {yourDonations.length > 0 ? (
             yourDonations
               .sort((a, b) => a.id - b.id)
               .map((filteredItem, indx) => (
                 <Link key={indx} to={`donation/${filteredItem.id}`}>
-                  <li key={indx} className="items-div-container">
-                    <div className="yourdonation-item-img">
+                  <li key={indx} className="your-items-div-container">
+                    <div className="your-item-img">
                       {filteredItem.item_url ? (
                         <Image
+                          className="img-yourdonation"
                           cloudName="hq1rpt94r"
                           publicId={`${filteredItem.item_url}`}
                           width="250"
@@ -49,11 +51,8 @@ export default function YourDonations(props) {
                         />
                       ) : null}
                     </div>
-
-                    <div className="yourdonation-item-details">
-                      <h3>{filteredItem.title}</h3>
-                      <p>{filteredItem.description}</p>
-                    </div>
+                    <h3>{filteredItem.title}</h3>
+                    <p>{filteredItem.description}</p>
                   </li>
                 </Link>
               ))

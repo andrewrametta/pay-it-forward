@@ -2,6 +2,10 @@
   margin-bottom: 100px;
 }
 
+.dashboard-header {
+  text-align: center;
+}
+
 p .p-citystate {
   color: lightgrey;
   font-size: 12px;
@@ -11,16 +15,12 @@ div.donation-dashboard-img {
   text-align: center;
 }
 
-li.items-div-container {
+li.dashboard-items-div-container {
   margin: 10px;
   background: white;
   padding: 10px;
   box-shadow: 2px 2px 6px 0 rgba(41, 2, 80, 0.1);
   border-radius: 10px;
-}
-
-.ul-items {
-  text-align: center;
 }
 
 img.img-donation {
@@ -30,15 +30,21 @@ img.img-donation {
 }
 
 @media all and (min-width: 400px) {
-  .ul-items {
+  .dashboard-container {
+    margin-right: 10%;
+    margin-left: 10%;
+  }
+
+  .dashboard-items {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    text-align: start;
   }
 
   img.img-donation {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     padding: 5px;
   }
 }

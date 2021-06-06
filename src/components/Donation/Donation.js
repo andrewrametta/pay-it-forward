@@ -27,9 +27,6 @@ function Donation(props) {
       .catch((err) => console.log(err));
   }, [id, setItemSelected]);
 
-  // const donationArray = items.filter((item) => item.id === parseInt(id));
-  // const donationItem = donationArray.length > 0 ? donationArray[0] : null;
-
   const handleConversation = (e) => {
     e.preventDefault();
     AuthAPIService.postConversation({
@@ -107,19 +104,25 @@ function Donation(props) {
           <p>
             {itemSelected.city}, {itemSelected.state}
           </p>
-          {type === "org" && (
-            <button onClick={handleConversation}>Request</button>
-          )}
-          {parseInt(userId) === itemSelected.user_id && (
-            <>
-              <button onClick={handleDelete}>Delete</button>
-              <Link to={`/edit/${props.match.params.donationId}`}>
-                <button>Edit</button>
-              </Link>
+          <div className="button-container">
+            {type === "org" && (
+              <button className="donation-btn" onClick={handleConversation}>
+                Request
+              </button>
+            )}
+            {parseInt(userId) === itemSelected.user_id && (
+              <>
+                <button className="donation-btn" onClick={handleDelete}>
+                  Delete
+                </button>
+                <Link to={`/edit/${props.match.params.donationId}`}>
+                  <button className="donation-btn">Edit</button>
+                </Link>
 
-              <button onClick={handleDonation}>Mark as donated</button>
-            </>
-          )}
+                <button onClick={handleDonation}>Mark as donated</button>
+              </>
+            )}
+          </div>
         </div>
       </div>
 

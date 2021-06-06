@@ -5,15 +5,11 @@ import "./Upload.css";
 function Upload(props) {
   const [uploadError, setUploadError] = useState("");
   const [showButton, setShowButton] = useState(true);
-  const [setResizeSource] = useState("");
   const [resizeUrl, setResizeUrl] = useState("");
-  //const [previewSource, setPreviewSource] = useState("");
   const { setImgUrl, setPreviewSource, setShowForm } = props;
 
   const handleFileInputChange = (e) => {
     const file = e.target.files[0];
-    console.log(file.name);
-    //console.log(file);
     previewFile(file);
     uploadPhotos(e);
   };
@@ -82,39 +78,12 @@ function Upload(props) {
           canvas.getContext("2d").drawImage(image, 0, 0, width, height);
           const dataUrl = canvas.toDataURL("image/jpeg");
           setResizeUrl(dataUrl);
-          const resizedImage = dataURLToBlob(dataUrl);
-          console.log(resizedImage);
-          setResizeSource(resizedImage);
         };
         image.src = readerEvent.target.result;
       };
       reader.readAsDataURL(file);
     }
   };
-  const dataURLToBlob = function (dataURL) {
-    const BASE64_MARKER = ";base64,";
-    if (dataURL.indexOf(BASE64_MARKER) === -1) {
-      const parts = dataURL.split(",");
-      const contentType = parts[0].split(":")[1];
-      const raw = parts[1];
-
-      return new Blob([raw], { type: contentType });
-    }
-
-    const parts = dataURL.split(BASE64_MARKER);
-    const contentType = parts[0].split(":")[1];
-    const raw = window.atob(parts[1]);
-    const rawLength = raw.length;
-
-    const uInt8Array = new Uint8Array(rawLength);
-
-    for (let i = 0; i < rawLength; ++i) {
-      uInt8Array[i] = raw.charCodeAt(i);
-    }
-
-    return new Blob([uInt8Array], { type: contentType });
-  };
-  /* End Utility function to convert a canvas to a BLOB      */
 
   return (
     <div className="App">

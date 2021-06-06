@@ -1,16 +1,49 @@
-div.yourdonations-container {
-  width: 100%;
+li.your-items-div-container {
+  margin: 10px;
+  background: white;
+  padding: 10px;
+  box-shadow: 2px 2px 6px 0 rgba(41, 2, 80, 0.1);
+  border-radius: 10px;
 }
 
 div.yourdonations-header {
   text-align: center;
 }
 
-div.your-item-container {
-  display: flex;
-  flex-direction: column;
+div.your-item-img {
+  text-align: center;
 }
 
-div.yourdonation-item-img {
-  text-align: center;
+img.img-yourdonation {
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+}
+
+@media all and (min-width: 400px) {
+  .yourdonations-container {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  ul.yourdonations-items {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 10px;
+  }
+
+  li.your-items-div-container {
+    width: 250px;
+    margin-bottom: 20px;
+    padding: 10px;
+    flex: 1;
+  }
+
+  img.img-yourdonation {
+    width: 200px;
+    height: 200px;
+    padding: 5px;
+  }
 }

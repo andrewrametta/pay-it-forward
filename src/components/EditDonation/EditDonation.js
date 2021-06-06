@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import AppContext from "../../AppContext";
 import { Image } from "cloudinary-react";
 import AuthAPIService from "../../services/auth-api-service";
+import "./EditDonation.css";
 
 function EditDonation(props) {
   const id = props.match.params.item_id;
@@ -69,18 +70,20 @@ function EditDonation(props) {
   return (
     <div className="newdonation-wrapper">
       <section className="newdonation-section">
-        <header className="newdonation-header">
-          <h1>Edit Donation</h1>
-        </header>
+        <h1>Edit Donation</h1>
+
         <article>
           <p>{error}</p>
-          <Image
-            cloudName="hq1rpt94r"
-            publicId={`${img}`}
-            width="350"
-            height="350"
-            crop="fill"
-          />
+          <div className="editdonation-image">
+            <Image
+              className="edit-image"
+              cloudName="hq1rpt94r"
+              publicId={`${img}`}
+              width="350"
+              height="350"
+              crop="fill"
+            />
+          </div>
           <div>
             <form className="newdonation form" onSubmit={handleSubmit}>
               <div>
@@ -99,10 +102,10 @@ function EditDonation(props) {
                 <label className="label" htmlFor="description">
                   Description
                 </label>
-                <input
-                  type="text"
+                <textarea
                   name="description"
                   id="description"
+                  rows="5"
                   value={description}
                   onChange={handleChangeDescription}
                 />

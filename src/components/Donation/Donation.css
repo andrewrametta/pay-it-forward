@@ -8,12 +8,11 @@ div.donation-wrapper {
 
 div.donation-img {
   text-align: center;
-  padding: 5px;
 }
 
 img.donation-image {
-  max-width: 275px;
-  max-height: 275px;
+  width: 100%;
+  height: 100%;
   padding: 5px;
 }
 
@@ -27,7 +26,7 @@ div.user-container-details {
   padding-top: 20px;
 }
 
-@media all and (min-width: 900px) {
+@media all and (min-width: 600px) {
   div.donation-wrapper {
     margin: 30px;
     display: flex;

@@ -28,6 +28,7 @@ h2 {
 p {
   margin-bottom: 10px;
   color: rgb(55, 55, 55);
+  overflow-wrap: break-word;
 }
 
 label {
@@ -43,6 +44,13 @@ input {
   padding: 5px;
   font-size: 20px;
   border: 1px solid black;
+}
+
+textarea {
+  width: 100%;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #edebeb;
 }
 
 a {
@@ -98,11 +106,4 @@ button {
 .footer-text {
   vertical-align: center;
   color: white;
-}
-
-@media all and (min-width: 600px) {
-  main {
-    margin-left: 10%;
-    margin-right: 10%;
-  }
 }

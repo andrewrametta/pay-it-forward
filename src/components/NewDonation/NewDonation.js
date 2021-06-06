@@ -30,7 +30,7 @@ function NewDonation(props) {
     <div className="newdonation-wrapper">
       <section className="newdonation-section">
         <h1>New Donation</h1>
-
+        <p>Start by selecting 1 image</p>
         <article>
           <Upload
             setImgUrl={setImgUrl}
@@ -42,27 +42,28 @@ function NewDonation(props) {
           <div>
             {showForm ? (
               <form className="newdonation form" onSubmit={handleSubmit}>
+                <p>Next provide the donation information</p>
                 <div>
                   <label className="label" htmlFor="donation">
-                    Donation Type
+                    Donation Name
                   </label>
                   <input
                     type="text"
                     name="donation"
                     id="donation"
-                    placeholder="furniture"
+                    placeholder="A brown couch"
                     className="form-input"
                   />
                 </div>
                 <div>
                   <label className="label" htmlFor="description">
-                    Description
+                    Detailed Description
                   </label>
-                  <input
-                    type="text"
+                  <textarea
+                    rows="5"
                     name="description"
                     id="description"
-                    placeholder="a brown leather couch"
+                    placeholder="Gently used couch ready for a new home. Leather, brown, with little sign of wear. Available for drop off only"
                     className="form-input"
                   />
                 </div>
