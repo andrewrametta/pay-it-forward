@@ -1,6 +1,5 @@
 .messages-wrapper {
   width: 100%;
-  margin: 30px 50px;
   padding: 20px;
   background: lightgray;
   display: flex;
@@ -11,6 +10,7 @@
   height: 500px;
   overflow: scroll;
   flex: 1;
+  background: coral;
 }
 
 .chat-messages-box {

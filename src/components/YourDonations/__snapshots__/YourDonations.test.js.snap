@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`YourDonations component renders the complete page 1`] = `<YourDonations />`;

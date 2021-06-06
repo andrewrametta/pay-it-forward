@@ -21,7 +21,7 @@ export default function Messages(props) {
 
   return (
     <div className="messages-wrapper">
-      <section className="message-container">
+      <section>
         <h1>Messages</h1>
         {error && <h2>error</h2>}
         <article className="conversation-list">
@@ -40,10 +40,8 @@ export default function Messages(props) {
             <h3>Looks like there are no Messages at this time</h3>
           )}
         </article>
-        <article className="chat-messages-box">
-          <Route exact path="/messages/:conversation_id" component={Chat} />
-        </article>
       </section>
+      <Route exact path="/messages/:conversation_id" component={Chat} />
     </div>
   );
 }

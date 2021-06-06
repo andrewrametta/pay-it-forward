@@ -57,11 +57,7 @@ function Navbar(props) {
                   <Link to="/yourdonations">Your Donations</Link>
                 </li>
               </>
-            ) : (
-              <li className="nav-item" onClick={handleClick}>
-                <Link to="/orgprofile">Profile</Link>
-              </li>
-            )}
+            ) : null}
             <li className="nav-item" onClick={handleClick}>
               <Link to="/messages">Messages</Link>
             </li>
