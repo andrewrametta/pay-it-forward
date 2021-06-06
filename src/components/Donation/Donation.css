@@ -7,12 +7,13 @@ div.donation-wrapper {
 }
 
 div.donation-img {
-  padding: 20px;
   text-align: center;
+  padding: 5px;
 }
 
 img.donation-image {
-  width: 100%;
+  max-width: 275px;
+  max-height: 275px;
   padding: 5px;
 }
 

@@ -1,7 +1,7 @@
 import config from "../config";
 import TokenService from "./token-service";
 
-export default {
+const AuthAPIService = {
   // used to register user
   postUser(user) {
     return fetch(`${config.API_ENDPOINT}/api/users`, {
@@ -142,3 +142,5 @@ export default {
     );
   },
 };
+
+export default AuthAPIService;

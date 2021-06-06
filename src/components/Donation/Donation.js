@@ -23,11 +23,9 @@ function Donation(props) {
     AuthAPIService.getItemById(id)
       .then((item) => {
         setItemSelected(item);
-        console.log(itemSelected);
       })
       .catch((err) => console.log(err));
-    console.log(itemSelected);
-  }, []);
+  }, [id, setItemSelected]);
 
   // const donationArray = items.filter((item) => item.id === parseInt(id));
   // const donationItem = donationArray.length > 0 ? donationArray[0] : null;
@@ -91,14 +89,16 @@ function Donation(props) {
     <div className="donation-wrapper">
       <div className="desktop-flex-view">
         <div className="donation-img">
-          <Image
-            className="donation-image"
-            cloudName="hq1rpt94r"
-            publicId={`${itemSelected.item_url}`}
-            width="350"
-            height="350"
-            crop="fill"
-          />
+          {itemSelected.item_url ? (
+            <Image
+              className="donation-image"
+              cloudName="hq1rpt94r"
+              publicId={`${itemSelected.item_url}`}
+              width="350"
+              height="350"
+              crop="fill"
+            />
+          ) : null}
         </div>
         {error !== null && <h3>error</h3>}
         <div className="item-container-details">
@@ -110,7 +110,7 @@ function Donation(props) {
           {type === "org" && (
             <button onClick={handleConversation}>Request</button>
           )}
-          {userId === itemSelected.user_id && (
+          {parseInt(userId) === itemSelected.user_id && (
             <>
               <button onClick={handleDelete}>Delete</button>
               <Link to={`/edit/${props.match.params.donationId}`}>
@@ -125,11 +125,19 @@ function Donation(props) {
 
       <div className="user-container-details">
         <p>Donationated By</p>
-        <Image cloudName="hq1rpt94r" publicId={`${itemSelected.user_url}`}>
-          <Transformation gravity="face" height="200" width="200" crop="crop" />
-          <Transformation radius="max" />
-          <Transformation width="100" crop="scale" />
-        </Image>
+        {itemSelected.user_url ? (
+          <Image cloudName="hq1rpt94r" publicId={`${itemSelected.user_url}`}>
+            <Transformation
+              gravity="face"
+              height="200"
+              width="200"
+              crop="crop"
+            />
+            <Transformation radius="max" />
+            <Transformation width="100" crop="scale" />
+          </Image>
+        ) : null}
+
         <h4>{itemSelected.username}</h4>
       </div>
     </div>

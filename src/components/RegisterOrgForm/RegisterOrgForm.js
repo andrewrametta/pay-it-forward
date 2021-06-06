@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import Upload from "../Upload/Upload";
 import "./RegisterOrgForm.css";
 import AuthAPIService from "../../services/auth-api-service";

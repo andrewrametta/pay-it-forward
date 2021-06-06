@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Image } from "cloudinary-react";
 import AppContext from "../../AppContext";
 import AuthAPIService from "../../services/auth-api-service";
+import "./YourDonations.css";
 
 export default function YourDonations(props) {
   const [error, setError] = useState("");
@@ -11,39 +12,50 @@ export default function YourDonations(props) {
   useEffect(() => {
     AuthAPIService.getItems()
       .then((donations) => {
-        console.log(donations);
         setItems(donations);
       })
-      .catch((res) => {
+      .catch((error) => {
         setError(error);
       });
-  }, []);
+  }, [setItems, setError]);
 
-  const yourDonations = items.filter((item) => item.user_id === userId);
-  console.log(yourDonations);
+  const yourDonations = items.filter(
+    (item) => item.user_id === parseInt(userId)
+  );
 
   return (
-    <div className="dashboard-container">
-      <h1>Available Donations</h1>
-      <div className="dashboard-item-container">
-        <ul className="ul-items">
+    <div className="yourdonations-container">
+      <div className="yourdonations-header">
+        <h1>Available Donations</h1>
+        <p>Click donation to manage</p>
+      </div>
+      {error && <h2>error</h2>}
+      <div className="your-item-container">
+        <ul className="yourdonations-items">
           {yourDonations.length > 0 ? (
             yourDonations
               .sort((a, b) => a.id - b.id)
               .map((filteredItem, indx) => (
-                <li key={indx} className="items-div-container">
-                  <Link to={`donation/${filteredItem.id}`}>
-                    <Image
-                      cloudName="hq1rpt94r"
-                      publicId={`${filteredItem.item_url}`}
-                      width="150"
-                      height="200"
-                      crop="fill"
-                    />
-                    <h3>{filteredItem.title}</h3>
-                    <p>{filteredItem.description}</p>
-                  </Link>
-                </li>
+                <Link key={indx} to={`donation/${filteredItem.id}`}>
+                  <li key={indx} className="items-div-container">
+                    <div className="yourdonation-item-img">
+                      {filteredItem.item_url ? (
+                        <Image
+                          cloudName="hq1rpt94r"
+                          publicId={`${filteredItem.item_url}`}
+                          width="250"
+                          height="250"
+                          crop="fill"
+                        />
+                      ) : null}
+                    </div>
+
+                    <div className="yourdonation-item-details">
+                      <h3>{filteredItem.title}</h3>
+                      <p>{filteredItem.description}</p>
+                    </div>
+                  </li>
+                </Link>
               ))
           ) : (
             <h3>Looks like you have no donations posted...</h3>

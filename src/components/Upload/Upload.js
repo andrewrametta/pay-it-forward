@@ -5,10 +5,10 @@ import "./Upload.css";
 function Upload(props) {
   const [uploadError, setUploadError] = useState("");
   const [showButton, setShowButton] = useState(true);
-  const [resizeSource, setResizeSource] = useState("");
+  const [setResizeSource] = useState("");
   const [resizeUrl, setResizeUrl] = useState("");
   //const [previewSource, setPreviewSource] = useState("");
-  const { setImgUrl, setPreviewSource, previewSource, setShowForm } = props;
+  const { setImgUrl, setPreviewSource, setShowForm } = props;
 
   const handleFileInputChange = (e) => {
     const file = e.target.files[0];
@@ -93,7 +93,7 @@ function Upload(props) {
   };
   const dataURLToBlob = function (dataURL) {
     const BASE64_MARKER = ";base64,";
-    if (dataURL.indexOf(BASE64_MARKER) == -1) {
+    if (dataURL.indexOf(BASE64_MARKER) === -1) {
       const parts = dataURL.split(",");
       const contentType = parts[0].split(":")[1];
       const raw = parts[1];
@@ -126,7 +126,7 @@ function Upload(props) {
           className="form-input"
         />
 
-        <div>
+        <div className="img-upload">
           {resizeUrl && (
             <img
               className="upload-image"

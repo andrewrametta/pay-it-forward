@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect, useCallback } from "react";
 import AppContext from "../../AppContext";
 import AuthAPIService from "../../services/auth-api-service";
 
@@ -6,15 +6,24 @@ function Chat(props) {
   const conversations_id = props.match.params.conversation_id;
   const [error, setError] = useState("");
   const { messages, setMessages } = useContext(AppContext);
-  console.log(props);
+
+  const getDataCallback = useCallback(() => {
+    AuthAPIService.getMessage(conversations_id)
+      .then((messages) => {
+        setMessages(messages);
+      })
+      .catch((error) => {
+        setError(error);
+      });
+  }, [conversations_id, setMessages]);
 
   useEffect(() => {
-    getData();
-    const timeout = setInterval(getData, 6000);
+    getDataCallback();
+    const timeout = setInterval(getDataCallback, 6000);
     return () => {
       clearInterval(timeout);
     };
-  }, [conversations_id]);
+  }, [conversations_id, getDataCallback]);
 
   const handleMessage = (e) => {
     e.preventDefault();
@@ -30,16 +39,6 @@ function Chat(props) {
       })
       .catch((res) => {
         console.log(error);
-      });
-  };
-
-  const getData = () => {
-    AuthAPIService.getMessage(conversations_id)
-      .then((messages) => {
-        setMessages(messages);
-      })
-      .catch((res) => {
-        setError(error);
       });
   };
 

@@ -14,7 +14,6 @@ function EditDonation(props) {
   const { items, setItems } = useContext(AppContext);
 
   useEffect(() => {
-    console.log("updating");
     setError(null);
     AuthAPIService.getItemById(id)
       .then((item) => {
@@ -23,7 +22,14 @@ function EditDonation(props) {
         setDescription(item.description);
       })
       .catch((err) => console.log(err));
-  }, [props.match.params.item_id]);
+  }, [
+    props.match.params.item_id,
+    id,
+    setError,
+    setImg,
+    setTitle,
+    setDescription,
+  ]);
   const handleChangeTitle = (e) => {
     setTitle(e.target.value);
   };

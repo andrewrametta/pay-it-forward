@@ -130,11 +130,7 @@ function RegisterUserForm(props) {
                   />
                 </div>
                 <div>
-                  <label
-                    className="label"
-                    htmlFor="zipcode"
-                    className="form-input"
-                  >
+                  <label className="label" htmlFor="zipcode">
                     zipcode
                   </label>
                   <input

@@ -1,0 +1,16 @@
+div.yourdonations-container {
+  width: 100%;
+}
+
+div.yourdonations-header {
+  text-align: center;
+}
+
+div.your-item-container {
+  display: flex;
+  flex-direction: column;
+}
+
+div.yourdonation-item-img {
+  text-align: center;
+}

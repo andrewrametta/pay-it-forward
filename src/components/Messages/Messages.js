@@ -7,19 +7,17 @@ import Chat from "../Chat/Chat";
 
 export default function Messages(props) {
   const [error, setError] = useState("");
-  const { type, conversations, setConversations, setMessages } = useContext(
-    AppContext
-  );
+  const { type, conversations, setConversations } = useContext(AppContext);
 
   useEffect(() => {
     AuthAPIService.getConversation()
       .then((conversations) => {
         setConversations(conversations);
       })
-      .catch((res) => {
+      .catch((error) => {
         setError(error);
       });
-  }, []);
+  }, [setConversations, setError]);
 
   return (
     <div className="messages-wrapper">
@@ -27,6 +25,7 @@ export default function Messages(props) {
         <header>
           <h1>Messages</h1>
         </header>
+        {error && <h2>error</h2>}
         <article className="conversation-list">
           {conversations.length > 0 ? (
             conversations.map((conversation, indx) => (

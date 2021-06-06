@@ -15,6 +15,7 @@ import EditDonation from "./components/EditDonation/EditDonation";
 import Register from "./components/Register/Register";
 import RegisterOrgForm from "./components/RegisterOrgForm/RegisterOrgForm";
 import RegisterUserForm from "./components/RegisterUserForm/RegisterUserForm";
+import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
 
 function App() {
   const [userId, setUserId] = useState(TokenService.hasUserId());
@@ -45,29 +46,31 @@ function App() {
   };
 
   return (
-    <AppContext.Provider value={contextValue}>
-      <div className="app-container">
-        <header className="header">
-          <Route path="/" component={Navbar} />
-        </header>
-        <main>
-          <Route exact path="/" component={Landing} />
-          <Route path="/registeruser" component={RegisterUserForm} />
-          <Route path="/registerorg" component={RegisterOrgForm} />
-          <Route exact path="/register" component={Register} />
-          <Route path="/login" component={Login} />
-          <Route path="/newdonation" component={NewDonation} />
-          <Route exact path="/donation/:donationId" component={Donation} />
-          <Route exact path="/edit/:item_id" component={EditDonation} />
-          <Route path="/yourdonations" component={YourDonations} />
-          <Route path="/messages" component={Messages} />
-          <Route path="/dashboard" component={Dashboard} />
-        </main>
-        <footer>
-          <p className="footer-text">Built by Andrew Rametta</p>
-        </footer>
-      </div>
-    </AppContext.Provider>
+    <ErrorBoundary>
+      <AppContext.Provider value={contextValue}>
+        <div className="app-container">
+          <header className="header">
+            <Route path="/" component={Navbar} />
+          </header>
+          <main>
+            <Route exact path="/" component={Landing} />
+            <Route path="/registeruser" component={RegisterUserForm} />
+            <Route path="/registerorg" component={RegisterOrgForm} />
+            <Route exact path="/register" component={Register} />
+            <Route path="/login" component={Login} />
+            <Route path="/newdonation" component={NewDonation} />
+            <Route exact path="/donation/:donationId" component={Donation} />
+            <Route exact path="/edit/:item_id" component={EditDonation} />
+            <Route path="/yourdonations" component={YourDonations} />
+            <Route path="/messages" component={Messages} />
+            <Route path="/dashboard" component={Dashboard} />
+          </main>
+          <footer>
+            <p className="footer-text">Built by Andrew Rametta</p>
+          </footer>
+        </div>
+      </AppContext.Provider>
+    </ErrorBoundary>
   );
 }
 
