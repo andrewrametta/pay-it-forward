@@ -18,7 +18,6 @@ function NewDonation(props) {
       item_url: imgUrl,
     })
       .then((item) => {
-        console.log(item);
         props.history.push("/dashboard");
       })
       .catch((err) => {
@@ -38,7 +37,6 @@ function NewDonation(props) {
             setPreviewSource={setPreviewSource}
             setShowForm={setShowForm}
           />
-
           <div>
             {showForm ? (
               <form className="newdonation form" onSubmit={handleSubmit}>

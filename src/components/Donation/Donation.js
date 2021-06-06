@@ -55,20 +55,15 @@ function Donation(props) {
   const handleDonation = (e) => {
     e.preventDefault();
     setError(null);
-    console.log(id);
     const item = {
       title: itemSelected.title,
       description: itemSelected.description,
       cur_status: "claimed",
     };
-    console.log(item);
     AuthAPIService.editItem(id, item)
       .then((responseData) => {
-        console.log("patch worked");
         setUpdatedItem(responseData);
-        console.log(updatedItem);
         updateItems(updatedItem);
-        console.log(items);
         props.history.push("/yourdonations");
       })
       .catch((res) => {
@@ -125,7 +120,6 @@ function Donation(props) {
           </div>
         </div>
       </div>
-
       <div className="user-container-details">
         <p>Donationated By</p>
         {itemSelected.user_url ? (
@@ -140,7 +134,6 @@ function Donation(props) {
             <Transformation width="100" crop="scale" />
           </Image>
         ) : null}
-
         <h4>{itemSelected.username}</h4>
       </div>
     </div>

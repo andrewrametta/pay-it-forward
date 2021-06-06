@@ -19,7 +19,6 @@ function Upload(props) {
     //convert img to url
     reader.readAsDataURL(file);
     reader.onloadend = () => {
-      // console.log(reader.result);
       setPreviewSource(reader.result);
       setShowButton(true);
       setShowForm(false);
@@ -59,7 +58,7 @@ function Upload(props) {
         image.onload = function (imageEvent) {
           // Resize the image
           let canvas = document.createElement("canvas"),
-            max_size = 544, // TODO : pull max size from a site config
+            max_size = 544,
             width = image.width,
             height = image.height;
           if (width > height) {

@@ -20,9 +20,7 @@ function Login(props) {
         // store auth token in local storage
         TokenService.saveAuthToken(loginResponse.authToken);
         setIsLogged(loginResponse.authToken);
-        console.log(loginResponse);
         const jwt = TokenService.readJwtToken(loginResponse);
-        console.log(jwt.user_type);
         setType(jwt.user_type);
         setUserId(jwt.user_id);
         setUsername(jwt.username);
@@ -41,7 +39,6 @@ function Login(props) {
     <div className="login-wrapper">
       <section className="login-section">
         <h1>Login</h1>
-
         <p>Use the user or organization demo login to test out our app.</p>
         <p className="demo-credentials">Demo username: Demo</p>
         <p className="demo-credentials">Demo password: Password123$</p>

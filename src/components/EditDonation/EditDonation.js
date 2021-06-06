@@ -6,7 +6,6 @@ import "./EditDonation.css";
 
 function EditDonation(props) {
   const id = props.match.params.item_id;
-  console.log(props.match.params);
   const [updatedItem, setUpdatedItem] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -49,11 +48,8 @@ function EditDonation(props) {
     };
     AuthAPIService.editItem(item_id, item)
       .then((responseData) => {
-        console.log("patch worked");
         setUpdatedItem(responseData);
-        console.log(updatedItem);
         updateItems(updatedItem);
-        console.log(items);
         props.history.push("/yourdonations");
       })
       .catch((res) => {
@@ -71,7 +67,6 @@ function EditDonation(props) {
     <div className="newdonation-wrapper">
       <section className="newdonation-section">
         <h1>Edit Donation</h1>
-
         <article>
           <p>{error}</p>
           <div className="editdonation-image">

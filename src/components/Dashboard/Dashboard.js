@@ -26,7 +26,6 @@ export default function Dashboard(props) {
         <h1>Donations Available</h1>
         <p>Click a donation for more info</p>
       </div>
-
       <div className="dashboard-item-container">
         {error && <h2>error</h2>}
         <ul className="dashboard-items">
@@ -47,7 +46,6 @@ export default function Dashboard(props) {
                       />
                     ) : null}
                   </div>
-
                   <h3>{item.title}</h3>
                   <p>{item.status}</p>
                   <p className="p-citystate">
