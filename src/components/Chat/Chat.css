@@ -1,0 +1,27 @@
+div.chat-box {
+  display: flex;
+  height: 100%;
+}
+
+div.chat-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+div.chat-messages {
+  flex: 4;
+  overflow: scroll;
+}
+
+div.chat-form-box {
+  align-self: flex-end;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+form.chat-form {
+  width: 100%;
+}

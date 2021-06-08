@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect, useCallback } from "react";
 import AppContext from "../../AppContext";
 import AuthAPIService from "../../services/auth-api-service";
+import "./Chat.css";
 
 function Chat(props) {
   const conversations_id = props.match.params.conversation_id;
@@ -43,24 +44,28 @@ function Chat(props) {
   };
 
   return (
-    <div>
-      {messages.map((message, indx) => (
-        <div key={indx}>
-          <p>{message.username}</p>
-          <p>{message.text}</p>
-          <p>{new Date(message.timestamp).toLocaleDateString()}</p>
-        </div>
-      ))}
-      <form onSubmit={handleMessage}>
-        <input
-          type="text"
-          name="chat"
-          id="chat"
-          placeholder="type a message"
-        ></input>
-        <button type="submit">Send</button>
-      </form>
+    <div className="chat-container">
+      <div className="chat-messages">
+        {messages.map((message, indx) => (
+          <div key={indx}>
+            <p>{message.username}</p>
+            <p>{message.text}</p>
+            <p>{new Date(message.timestamp).toLocaleDateString()}</p>
+          </div>
+        ))}
+      </div>
       {error && <h3>Something went wrong</h3>}
+      <div className="chat-form-box">
+        <form className="chat-form" onSubmit={handleMessage}>
+          <input
+            type="text"
+            name="chat"
+            id="chat"
+            placeholder="type a message"
+          ></input>
+          <button type="submit">Send</button>
+        </form>
+      </div>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 .messages-wrapper {
   width: 100%;
+  height: 90vh;
   padding: 20px;
   background: lightgray;
   display: flex;
@@ -7,12 +8,15 @@
 }
 
 .conversation-list {
-  height: 500px;
+  height: 100%;
   overflow: scroll;
   flex: 1;
   background: coral;
 }
 
-.chat-messages-box {
+.chat-box {
   flex: 3;
+  padding: 15px;
+  height: 100%;
+  width: 100%;
 }

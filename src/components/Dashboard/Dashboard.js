@@ -7,9 +7,10 @@ import "./Dashboard.css";
 
 export default function Dashboard(props) {
   const [error, setError] = useState("");
-  const { items, setItems } = useContext(AppContext);
+  const { items, setItems, setChatOn } = useContext(AppContext);
 
   useEffect(() => {
+    setChatOn(null);
     AuthAPIService.getItems()
       .then((donations) => {
         console.log(donations);
@@ -18,7 +19,7 @@ export default function Dashboard(props) {
       .catch((error) => {
         setError(error);
       });
-  }, [setItems, setError]);
+  }, [setItems, setError, setChatOn]);
 
   return (
     <div className="dashboard-container">

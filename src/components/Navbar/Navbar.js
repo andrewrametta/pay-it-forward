@@ -5,7 +5,9 @@ import AppContext from "../../AppContext";
 import "./Navbar.css";
 
 function Navbar(props) {
-  const { type, setType, setIsLogged, setUserId } = useContext(AppContext);
+  const { type, setType, setIsLogged, setUserId, setChatOn } = useContext(
+    AppContext
+  );
 
   const logout = () => {
     TokenService.clearAuthToken();
@@ -16,6 +18,7 @@ function Navbar(props) {
     setType(null);
     setUserId(null);
     setIsLogged(false);
+    setChatOn(null);
     props.history.push("/");
   };
 
@@ -23,6 +26,7 @@ function Navbar(props) {
   const links = document.querySelectorAll(".nav-links li");
 
   const handleClick = () => {
+    setChatOn(null);
     if (navLinks) {
       navLinks.classList.toggle("open");
       links.forEach((link) => {

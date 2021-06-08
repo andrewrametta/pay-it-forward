@@ -23,6 +23,7 @@ function App() {
   const [userId, setUserId] = useState(TokenService.hasUserId());
   const [yourItems, setYourItems] = useState([]);
   const [username, setUsername] = useState(TokenService.hasUserName());
+  const [chatOn, setChatOn] = useState(null);
   const [type, setType] = useState(TokenService.hasUserType());
   const [isLogged, setIsLogged] = useState(false);
   const [messages, setMessages] = useState([]);
@@ -45,6 +46,8 @@ function App() {
     setUsername,
     yourItems,
     setYourItems,
+    chatOn,
+    setChatOn,
   };
 
   return (
@@ -78,9 +81,11 @@ function App() {
               <Route component={PageNotFound} />
             </Switch>
           </main>
-          <footer>
-            <p className="footer-text">Built by Andrew Rametta</p>
-          </footer>
+          {chatOn === null ? (
+            <footer>
+              <p className="footer-text">Built by Andrew Rametta</p>
+            </footer>
+          ) : null}
         </div>
       </AppContext.Provider>
     </ErrorBoundary>
