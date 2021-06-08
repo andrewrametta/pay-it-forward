@@ -35,7 +35,7 @@ nav.navbar-wrapper {
   font-size: 16px;
 }
 
-@media all and (max-width: 1000px) {
+@media all and (max-width: 900px) {
   .line {
     width: 30px;
     height: 3px;

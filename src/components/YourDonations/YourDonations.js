@@ -52,7 +52,7 @@ export default function YourDonations(props) {
                       ) : null}
                     </div>
                     <h3>{filteredItem.title}</h3>
-                    <p>{filteredItem.description}</p>
+                    <p>{filteredItem.cur_status}</p>
                   </li>
                 </Link>
               ))
