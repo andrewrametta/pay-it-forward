@@ -16,6 +16,7 @@ import Register from "./components/Register/Register";
 import RegisterOrgForm from "./components/RegisterOrgForm/RegisterOrgForm";
 import RegisterUserForm from "./components/RegisterUserForm/RegisterUserForm";
 import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
+import PrivateRoute from "./services/PrivateRoute";
 
 function App() {
   const [userId, setUserId] = useState(TokenService.hasUserId());
@@ -58,12 +59,20 @@ function App() {
             <Route path="/registerorg" component={RegisterOrgForm} />
             <Route exact path="/register" component={Register} />
             <Route path="/login" component={Login} />
-            <Route path="/newdonation" component={NewDonation} />
-            <Route exact path="/donation/:donationId" component={Donation} />
-            <Route exact path="/edit/:item_id" component={EditDonation} />
-            <Route path="/yourdonations" component={YourDonations} />
-            <Route path="/messages" component={Messages} />
-            <Route path="/dashboard" component={Dashboard} />
+            <PrivateRoute path="/newdonation" component={NewDonation} />
+            <PrivateRoute
+              exact
+              path="/donation/:donationId"
+              component={Donation}
+            />
+            <PrivateRoute
+              exact
+              path="/edit/:item_id"
+              component={EditDonation}
+            />
+            <PrivateRoute path="/yourdonations" component={YourDonations} />
+            <PrivateRoute path="/messages" component={Messages} />
+            <PrivateRoute path="/dashboard" component={Dashboard} />
           </main>
           <footer>
             <p className="footer-text">Built by Andrew Rametta</p>
