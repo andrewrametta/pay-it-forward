@@ -4,9 +4,8 @@
   list-style: none;
   padding: 0;
 }
-
 main {
-  padding-bottom: 2.5rem;
+  height: 100%;
 }
 
 body {

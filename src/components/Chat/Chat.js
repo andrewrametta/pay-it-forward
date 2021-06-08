@@ -6,7 +6,7 @@ import "./Chat.css";
 function Chat(props) {
   const conversations_id = props.match.params.conversation_id;
   const [error, setError] = useState("");
-  const { messages, setMessages } = useContext(AppContext);
+  const { messages, setMessages, username } = useContext(AppContext);
 
   const getDataCallback = useCallback(() => {
     AuthAPIService.getMessage(conversations_id)
@@ -46,13 +46,25 @@ function Chat(props) {
   return (
     <div className="chat-container">
       <div className="chat-messages">
-        {messages.map((message, indx) => (
-          <div key={indx}>
-            <p>{message.username}</p>
-            <p>{message.text}</p>
-            <p>{new Date(message.timestamp).toLocaleDateString()}</p>
-          </div>
-        ))}
+        {messages.map((message, indx) => {
+          return message.username === username ? (
+            <div className="message-sent" key={indx}>
+              <p className="chat-user">{message.username}</p>
+              <p className="chat-message">{message.text}</p>
+              <p className="chat-date">
+                {new Date(message.timestamp).toLocaleDateString()}
+              </p>
+            </div>
+          ) : (
+            <div className="message-recieved" key={indx}>
+              <p className="chat-user">{message.username}</p>
+              <p className="chat-message">{message.text}</p>
+              <p className="chat-date">
+                {new Date(message.timestamp).toLocaleDateString()}
+              </p>
+            </div>
+          );
+        })}
       </div>
       {error && <h3>Something went wrong</h3>}
       <div className="chat-form-box">

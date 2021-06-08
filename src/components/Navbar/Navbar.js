@@ -35,10 +35,25 @@ function Navbar(props) {
     }
   };
 
+  const handleMessageClick = () => {
+    setChatOn(true);
+    if (navLinks) {
+      navLinks.classList.toggle("open");
+      links.forEach((link) => {
+        link.classList.toggle("fade");
+      });
+    }
+  };
+
   return (
     <nav className="navbar-wrapper">
       <Link className="logo" to="/">
-        <img className="logo-image" src="/logo.svg" alt="Pay it Forward" />
+        <img
+          onClick={handleClick}
+          className="logo-image"
+          src="/logo.svg"
+          alt="Pay it Forward"
+        />
       </Link>
       <div className="hamburger" onClick={handleClick}>
         <div className="line"></div>
@@ -62,7 +77,7 @@ function Navbar(props) {
                 </li>
               </>
             ) : null}
-            <li className="nav-item" onClick={handleClick}>
+            <li className="nav-item" onClick={handleMessageClick}>
               <Link to="/messages">Messages</Link>
             </li>
             <li className="nav-item" onClick={handleClick}>

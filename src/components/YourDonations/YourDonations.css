@@ -1,3 +1,8 @@
+div.yourdonations-container {
+  height: 100%;
+  padding: 30px 0px;
+}
+
 li.your-items-div-container {
   margin: 10px;
   background: white;
@@ -12,6 +17,11 @@ div.yourdonations-header {
 
 div.your-item-img {
   text-align: center;
+}
+
+div.your-items-container {
+  height: 100%;
+  padding-bottom: 50px;
 }
 
 img.img-yourdonation {

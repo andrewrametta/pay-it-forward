@@ -7,12 +7,14 @@ import Chat from "../Chat/Chat";
 
 export default function Messages(props) {
   const [error, setError] = useState("");
+  const [show, setShow] = useState(null);
   const { type, conversations, setConversations, setChatOn } = useContext(
     AppContext
   );
 
   useEffect(() => {
     setChatOn(true);
+    setShow(null);
     AuthAPIService.getConversation()
       .then((conversations) => {
         setConversations(conversations);
@@ -22,13 +24,28 @@ export default function Messages(props) {
       });
   }, [setConversations, setError, setChatOn]);
 
+  const handleShow = () => {
+    setShow(true);
+  };
+
   return (
     <div className="messages-wrapper">
       {error && <h2>error</h2>}
+
       <section className="conversation-list">
+        {show === null ? (
+          <div className="show-chat-message">
+            <p>Click on a user to chat</p>
+          </div>
+        ) : null}
+
         {conversations.length > 0 ? (
           conversations.map((conversation, indx) => (
-            <Link key={indx} to={`/messages/${conversation.id}`}>
+            <Link
+              onClick={handleShow}
+              key={indx}
+              to={`/messages/${conversation.id}`}
+            >
               {type === "org" ? (
                 <h2>{conversation.username2}</h2>
               ) : (

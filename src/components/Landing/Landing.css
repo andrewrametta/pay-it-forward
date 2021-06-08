@@ -1,7 +1,6 @@
 .landing-wrapper {
-  margin-left: 15%;
-  margin-right: 15%;
-  padding: 20px;
+  height: 100%;
+  padding: 50px 20px;
   background: #edebeb;
 }
 
@@ -21,12 +20,6 @@
   .tagline {
     font-size: 24px;
     margin-bottom: 60px;
-  }
-
-  .landing-wrapper {
-    margin: 30px auto;
-
-    /* border: 2px solid #4500c9; */
   }
 
   .landing-container {
