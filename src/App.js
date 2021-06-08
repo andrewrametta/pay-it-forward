@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Landing from "./components/Landing/Landing";
 import Login from "./components/Login/Login";
@@ -17,6 +17,7 @@ import RegisterOrgForm from "./components/RegisterOrgForm/RegisterOrgForm";
 import RegisterUserForm from "./components/RegisterUserForm/RegisterUserForm";
 import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
 import PrivateRoute from "./services/PrivateRoute";
+import PageNotFound from "./components/PageNotFound/PageNotFound";
 
 function App() {
   const [userId, setUserId] = useState(TokenService.hasUserId());
@@ -54,25 +55,28 @@ function App() {
             <Route path="/" component={Navbar} />
           </header>
           <main>
-            <Route exact path="/" component={Landing} />
-            <Route path="/registeruser" component={RegisterUserForm} />
-            <Route path="/registerorg" component={RegisterOrgForm} />
-            <Route exact path="/register" component={Register} />
-            <Route path="/login" component={Login} />
-            <PrivateRoute path="/newdonation" component={NewDonation} />
-            <PrivateRoute
-              exact
-              path="/donation/:donationId"
-              component={Donation}
-            />
-            <PrivateRoute
-              exact
-              path="/edit/:item_id"
-              component={EditDonation}
-            />
-            <PrivateRoute path="/yourdonations" component={YourDonations} />
-            <PrivateRoute path="/messages" component={Messages} />
-            <PrivateRoute path="/dashboard" component={Dashboard} />
+            <Switch>
+              <Route exact path="/" component={Landing} />
+              <Route path="/registeruser" component={RegisterUserForm} />
+              <Route path="/registerorg" component={RegisterOrgForm} />
+              <Route exact path="/register" component={Register} />
+              <Route path="/login" component={Login} />
+              <PrivateRoute path="/newdonation" component={NewDonation} />
+              <PrivateRoute
+                exact
+                path="/donation/:donationId"
+                component={Donation}
+              />
+              <PrivateRoute
+                exact
+                path="/edit/:item_id"
+                component={EditDonation}
+              />
+              <PrivateRoute path="/yourdonations" component={YourDonations} />
+              <PrivateRoute path="/messages" component={Messages} />
+              <PrivateRoute path="/dashboard" component={Dashboard} />
+              <Route component={PageNotFound} />
+            </Switch>
           </main>
           <footer>
             <p className="footer-text">Built by Andrew Rametta</p>
