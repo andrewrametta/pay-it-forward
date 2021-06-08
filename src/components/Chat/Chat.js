@@ -49,19 +49,23 @@ function Chat(props) {
         {messages.map((message, indx) => {
           return message.username === username ? (
             <div className="message-sent" key={indx}>
-              <p className="chat-user">{message.username}</p>
-              <p className="chat-message">{message.text}</p>
-              <p className="chat-date">
-                {new Date(message.timestamp).toLocaleDateString()}
-              </p>
+              <div className="user-info">
+                <p className="chat-user-sent">{message.username}</p>
+                <p className="chat-date">
+                  {new Date(message.timestamp).toLocaleDateString()}
+                </p>
+              </div>
+              <p className="chat-message-sent">{message.text}</p>
             </div>
           ) : (
             <div className="message-recieved" key={indx}>
-              <p className="chat-user">{message.username}</p>
-              <p className="chat-message">{message.text}</p>
-              <p className="chat-date">
-                {new Date(message.timestamp).toLocaleDateString()}
-              </p>
+              <div className="user-info">
+                <p className="chat-user-recieved">{message.username} </p>
+                <p className="chat-date">
+                  {new Date(message.timestamp).toLocaleDateString()}
+                </p>
+              </div>
+              <p className="chat-message-recieved">{message.text}</p>
             </div>
           );
         })}

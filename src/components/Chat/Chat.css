@@ -27,21 +27,45 @@ form.chat-form {
 }
 
 div.message-sent {
-  background: blueviolet;
+  background: #7443cb;
   padding: 5px;
   margin-bottom: 5px;
   box-shadow: 2px 2px 6px 0 rgba(41, 2, 80, 0.1);
   border-radius: 10px;
   display: flex;
-  color: white;
+  flex-direction: row;
 }
 
 div.message-recieved {
-  background: cadetblue;
+  background: white;
   padding: 5px;
   margin-bottom: 5px;
   box-shadow: 2px 2px 6px 0 rgba(41, 2, 80, 0.1);
   border-radius: 10px;
   display: flex;
+}
+
+p.chat-user-sent {
+  color: black;
+  margin: 0;
+  padding-right: 10px;
+  font-weight: bold;
+}
+
+p.chat-user-recieved {
+  color: rgb(55, 55, 55);
+  margin: 0;
+  padding-right: 10px;
+  font-weight: bold;
+}
+
+p.chat-message-sent {
   color: white;
+}
+p.chat-message-recieved {
+  color: #4500c9;
+}
+
+p.chat-date {
+  color: lightgreen;
 }
