@@ -2,16 +2,19 @@ import React, { useState, useContext } from "react";
 import TokenService from "../../services/token-service";
 import AuthApiService from "../../services/auth-api-service";
 import AppContext from "../../AppContext";
+import Spinner from "../Spinner/Spinner";
 import "./Login.css";
 
 function Login(props) {
   const [error, setError] = useState(null);
+  const [loggedInState, setLoggedInState] = useState(null);
   const { setType, setIsLogged, setUserId, setUsername } = useContext(
     AppContext
   );
 
   const handleLogin = (e) => {
     e.preventDefault();
+    setLoggedInState(true);
     const { username, password } = e.target;
     const user = { username: username.value, password: password.value };
     setError(null);
@@ -32,12 +35,14 @@ function Login(props) {
       })
       .catch((res) => {
         setError(res.error);
+        setLoggedInState(null);
       });
   };
 
   return (
     <div className="login-wrapper">
       <section className="login-section">
+        {loggedInState && <Spinner />}
         <h1>Login</h1>
         <p>Use the user or organization demo login to test out our app.</p>
         <p className="demo-credentials">Demo username: Demo</p>

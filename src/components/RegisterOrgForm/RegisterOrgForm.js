@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import Upload from "../Upload/Upload";
+import Spinner from "../Spinner/Spinner";
 import "./RegisterOrgForm.css";
 import AuthAPIService from "../../services/auth-api-service";
 
 function RegisterOrgForm(props) {
   const [error, setError] = useState(null);
   const [showForm, setShowForm] = useState(false);
+  const [loggedInState, setLoggedInState] = useState(null);
   const [imgUrl, setImgUrl] = useState("");
   const [previewSource, setPreviewSource] = useState("");
 
@@ -20,6 +22,7 @@ function RegisterOrgForm(props) {
       state,
       zipcode,
     } = e.target;
+    setLoggedInState(true);
     setError(null);
     // create user
     AuthAPIService.postUser({
@@ -38,6 +41,7 @@ function RegisterOrgForm(props) {
       })
       .catch((res) => {
         setError(res.error);
+        setLoggedInState(null);
       });
   };
 
@@ -45,7 +49,7 @@ function RegisterOrgForm(props) {
     <div className="register-wrapper">
       <section className="register-section">
         <h1>Organization Registration</h1>
-
+        {loggedInState && <Spinner />}
         <article>
           <p>Start with an organization profile Image</p>
           <Upload
