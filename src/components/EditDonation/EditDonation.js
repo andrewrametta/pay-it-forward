@@ -70,14 +70,16 @@ function EditDonation(props) {
         <article>
           <p className="error-message">{error}</p>
           <div className="editdonation-image">
-            <Image
-              className="edit-image"
-              cloudName="hq1rpt94r"
-              publicId={`${img}`}
-              width="350"
-              height="350"
-              crop="fill"
-            />
+            {img ? (
+              <Image
+                className="edit-image"
+                cloudName="hq1rpt94r"
+                publicId={`${img}`}
+                width="350"
+                height="350"
+                crop="fill"
+              />
+            ) : null}
           </div>
           <div>
             <form className="edonation-form" onSubmit={handleSubmit}>
