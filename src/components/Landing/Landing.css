@@ -3,7 +3,17 @@
   padding: 50px 20px;
   background: #edebeb;
 }
-
+.landing-item {
+  flex-grow: 1;
+  height: 350px;
+  max-width: 350px;
+  min-width: 80px;
+  background-color: white;
+  padding: 20px;
+  margin: 60px;
+  box-shadow: 2px 2px 6px 0 rgba(41, 2, 80, 0.1);
+  border-radius: 10px;
+}
 .tagline {
   color: #4500c9;
   font-size: 18px;
@@ -11,7 +21,12 @@
   margin-bottom: 30px;
   text-align: center;
 }
-
+.landing-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .react-icon {
   text-align: center;
 }
@@ -25,7 +40,7 @@
   .landing-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
   }
   .landing-item {
     flex-grow: 1;
@@ -33,7 +48,7 @@
     min-width: 80px;
     background-color: white;
     padding: 20px;
-    margin-bottom: 60px;
+    margin: 60px;
     box-shadow: 2px 2px 6px 0 rgba(41, 2, 80, 0.1);
     border-radius: 10px;
   }
