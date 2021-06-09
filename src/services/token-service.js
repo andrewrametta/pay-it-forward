@@ -46,6 +46,15 @@ const TokenService = {
   clearUserName() {
     return window.localStorage.removeItem("username");
   },
+  saveUserURL(user_url) {
+    window.localStorage.setItem("user_url", user_url);
+  },
+  hasUserURL() {
+    return window.localStorage.getItem("user_url");
+  },
+  clearUserURL() {
+    return window.localStorage.removeItem("user_url");
+  },
 };
 
 export default TokenService;

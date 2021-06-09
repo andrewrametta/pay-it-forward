@@ -8,9 +8,13 @@ import "./Login.css";
 function Login(props) {
   const [error, setError] = useState(null);
   const [loggedInState, setLoggedInState] = useState(null);
-  const { setType, setIsLogged, setUserId, setUsername } = useContext(
-    AppContext
-  );
+  const {
+    setType,
+    setIsLogged,
+    setUserId,
+    setUsername,
+    setUserUrl,
+  } = useContext(AppContext);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -28,6 +32,8 @@ function Login(props) {
         setUserId(jwt.user_id);
         setUsername(jwt.username);
         setIsLogged(true);
+        setUserUrl(jwt.user_url);
+        TokenService.saveUserURL(jwt.user_url);
         TokenService.saveUserName(jwt.username);
         TokenService.saveUserType(jwt.user_type);
         TokenService.saveUserId(jwt.user_id);

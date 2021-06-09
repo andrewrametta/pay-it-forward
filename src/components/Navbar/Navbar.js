@@ -14,6 +14,7 @@ function Navbar(props) {
     TokenService.clearUserType();
     TokenService.clearUserId();
     TokenService.clearUserName();
+    TokenService.clearUserURL();
     setIsLogged(null);
     setType(null);
     setUserId(null);
@@ -45,11 +46,15 @@ function Navbar(props) {
     }
   };
 
+  const handleLogoClick = () => {
+    setChatOn(null);
+  };
+
   return (
     <nav className="navbar-wrapper">
       <Link className="logo" to="/">
         <img
-          onClick={handleClick}
+          onClick={handleLogoClick}
           className="logo-image"
           src="/logo.svg"
           alt="Pay it Forward"

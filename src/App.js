@@ -29,6 +29,7 @@ function App() {
   const [messages, setMessages] = useState([]);
   const [conversations, setConversations] = useState([]);
   const [items, setItems] = useState([]);
+  const [userUrl, setUserUrl] = useState(TokenService.hasUserURL());
   const contextValue = {
     type,
     setType,
@@ -48,6 +49,8 @@ function App() {
     setYourItems,
     chatOn,
     setChatOn,
+    userUrl,
+    setUserUrl,
   };
 
   return (

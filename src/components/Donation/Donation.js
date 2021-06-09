@@ -32,6 +32,8 @@ function Donation(props) {
     AuthAPIService.postConversation({
       user_id: userId,
       user2_id: itemSelected.user_id,
+      user_url: "",
+      user2_url: itemSelected.user_url,
     })
       .then((conversation) => {
         props.history.push(`/messages/${conversation.id}`);

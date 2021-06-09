@@ -28,3 +28,26 @@
   text-align: center;
   color: #4500c9;
 }
+
+.conversation-user-container {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.conversation-user {
+  visibility: hidden;
+}
+
+.user-image {
+  width: 50px;
+}
+
+@media all and (min-width: 600px) {
+  .conversation-user {
+    visibility: visible;
+  }
+
+  .user-image {
+    width: 100px;
+  }
+}

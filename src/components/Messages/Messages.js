@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import AppContext from "../../AppContext";
 import AuthAPIService from "../../services/auth-api-service";
 import "./Messages.css";
+import { Image, Transformation } from "cloudinary-react";
 import { Link, Route } from "react-router-dom";
 import Chat from "../Chat/Chat";
 
@@ -47,11 +48,44 @@ export default function Messages(props) {
               to={`/messages/${conversation.id}`}
             >
               {type === "org" ? (
-                <h2>{conversation.username2}</h2>
+                <div className="conversation-user-container">
+                  <Image
+                    className="user-image"
+                    cloudName="hq1rpt94r"
+                    publicId={`${conversation.user2_url}`}
+                  >
+                    <Transformation
+                      gravity="face"
+                      height="100"
+                      width="100"
+                      crop="thumb"
+                    />
+                    <Transformation radius="max" />
+                    <Transformation width="100" crop="thumb" />
+                  </Image>
+                  <h2 className="conversation-user">
+                    {conversation.username2}
+                  </h2>
+                </div>
               ) : (
-                <h2>{conversation.username}</h2>
+                <div className="conversation-user-container">
+                  <Image
+                    className="user-image"
+                    cloudName="hq1rpt94r"
+                    publicId={`${conversation.user_url}`}
+                  >
+                    <Transformation
+                      gravity="face"
+                      height="100"
+                      width="100"
+                      crop="thumb"
+                    />
+                    <Transformation radius="max" />
+                    <Transformation width="100" crop="thumb" />
+                  </Image>
+                  <h2 className="conversation-user">{conversation.username}</h2>
+                </div>
               )}
-              <p>{conversation.title}</p>
             </Link>
           ))
         ) : (
