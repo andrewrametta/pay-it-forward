@@ -109,7 +109,9 @@ function EditDonation(props) {
                 />
               </div>
               <div className="submit-button">
-                <button type="form-submit">Submit</button>
+                <button className="form-btn" type="form-submit">
+                  Submit
+                </button>
               </div>
             </form>
           </div>

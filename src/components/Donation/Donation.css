@@ -1,5 +1,9 @@
 div.donation-wrapper {
   height: 100%;
+  padding-bottom: 100px;
+}
+
+section.donation-section {
   margin: 50px 10px;
   background: white;
   box-shadow: 2px 2px 6px 0 rgba(41, 2, 80, 0.1);
@@ -29,6 +33,12 @@ div.user-container-details {
 
 @media all and (min-width: 600px) {
   div.donation-wrapper {
+    margin-right: 10%;
+    margin-left: 10%;
+    padding: 30px;
+  }
+
+  section.donation-container {
     margin: 30px;
     display: flex;
     flex-direction: column;

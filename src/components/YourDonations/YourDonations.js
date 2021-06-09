@@ -28,7 +28,7 @@ export default function YourDonations(props) {
     <div className="yourdonations-container">
       <div className="yourdonations-header">
         <h1>Available Donations</h1>
-        <p>Click a donation to manage</p>
+        <h2 className="click-donation">Click a donation to manage</h2>
       </div>
       {error && <h2>error</h2>}
       <div className="your-items-container">

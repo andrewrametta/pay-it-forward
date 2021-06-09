@@ -81,68 +81,70 @@ function Donation(props) {
 
   return (
     <div className="donation-wrapper">
-      <div className="desktop-flex-view">
-        <div className="donation-img">
-          {itemSelected.item_url ? (
-            <Image
-              className="donation-image"
-              cloudName="hq1rpt94r"
-              publicId={`${itemSelected.item_url}`}
-              width="350"
-              height="350"
-              crop="fill"
-              alt={`${itemSelected.title}`}
-            />
-          ) : null}
-        </div>
-        {error !== null && <h3>error</h3>}
-        <div className="item-container-details">
-          <h3>{itemSelected.title}</h3>
-          <p>{itemSelected.description}</p>
-          <p>
-            {itemSelected.city}, {itemSelected.state}
-          </p>
-          <div className="button-container">
-            {type === "org" && (
-              <button className="donation-btn" onClick={handleConversation}>
-                Request
-              </button>
-            )}
-            {parseInt(userId) === itemSelected.user_id && (
-              <>
-                <button className="donation-btn" onClick={handleDelete}>
-                  Delete
+      <section className="donation-section">
+        <div className="desktop-flex-view">
+          <div className="donation-img">
+            {itemSelected.item_url ? (
+              <Image
+                className="donation-image"
+                cloudName="hq1rpt94r"
+                publicId={`${itemSelected.item_url}`}
+                width="350"
+                height="350"
+                crop="fill"
+                alt={`${itemSelected.title}`}
+              />
+            ) : null}
+          </div>
+          {error !== null && <h3>error</h3>}
+          <div className="item-container-details">
+            <h3>{itemSelected.title}</h3>
+            <p>{itemSelected.description}</p>
+            <p>
+              {itemSelected.city}, {itemSelected.state}
+            </p>
+            <div className="button-container">
+              {type === "org" && (
+                <button className="donation-btn" onClick={handleConversation}>
+                  Request
                 </button>
-                <Link to={`/edit/${props.match.params.donationId}`}>
-                  <button className="donation-btn">Edit</button>
-                </Link>
+              )}
+              {parseInt(userId) === itemSelected.user_id && (
+                <>
+                  <button className="donation-btn" onClick={handleDelete}>
+                    Delete
+                  </button>
+                  <Link to={`/edit/${props.match.params.donationId}`}>
+                    <button className="donation-btn">Edit</button>
+                  </Link>
 
-                <button onClick={handleDonation}>Mark as donated</button>
-              </>
-            )}
+                  <button onClick={handleDonation}>Mark as donated</button>
+                </>
+              )}
+            </div>
           </div>
         </div>
-      </div>
-      <div className="user-container-details">
-        <p>Donationated By</p>
-        {itemSelected.user_url ? (
-          <Image
-            cloudName="hq1rpt94r"
-            publicId={`${itemSelected.user_url}`}
-            alt={`${itemSelected.username}`}
-          >
-            <Transformation
-              gravity="face"
-              height="200"
-              width="200"
-              crop="crop"
-            />
-            <Transformation radius="max" />
-            <Transformation width="100" crop="scale" />
-          </Image>
-        ) : null}
-        <h4>{itemSelected.username}</h4>
-      </div>
+        <div className="user-container-details">
+          <p>Donationated By</p>
+          {itemSelected.user_url ? (
+            <Image
+              cloudName="hq1rpt94r"
+              publicId={`${itemSelected.user_url}`}
+              alt={`${itemSelected.username}`}
+            >
+              <Transformation
+                gravity="face"
+                height="200"
+                width="200"
+                crop="crop"
+              />
+              <Transformation radius="max" />
+              <Transformation width="100" crop="scale" />
+            </Image>
+          ) : null}
+          <h4>{itemSelected.username}</h4>
+        </div>
+      </section>
     </div>
   );
 }
