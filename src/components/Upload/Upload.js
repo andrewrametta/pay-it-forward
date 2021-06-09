@@ -94,16 +94,13 @@ function Upload(props) {
 
         <div className="img-upload">
           {resizeUrl && (
-            <img
-              className="upload-image"
-              src={resizeUrl}
-              alt="chosen-img"
-              style={{ height: "200px" }}
-            />
+            <img className="upload-image" src={resizeUrl} alt="chosen-img" />
           )}
         </div>
         {uploadError ? (
-          <h3 className="error">{"Error uploading file, try smaller image"}</h3>
+          <h3 className="error-message">
+            {"Error uploading file, try smaller image"}
+          </h3>
         ) : null}
         {showButton ? (
           <div className="submit-button">

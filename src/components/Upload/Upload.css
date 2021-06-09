@@ -3,10 +3,12 @@ input.form-input {
   color: #692fd3;
 }
 
-img.upload-image {
-  width: 80%;
-}
-
 div.img-upload {
   text-align: center;
+}
+
+img.upload-image {
+  max-height: 100%;
+  max-width: 100%;
+  padding: 5px;
 }
