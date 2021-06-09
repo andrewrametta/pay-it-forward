@@ -89,6 +89,7 @@ function Upload(props) {
           name="image"
           onChange={handleFileInputChange}
           className="form-input"
+          aria-label="upload-image"
         />
 
         <div className="img-upload">

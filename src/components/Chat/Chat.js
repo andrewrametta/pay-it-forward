@@ -51,7 +51,7 @@ function Chat(props) {
             <div className="message-sent" key={indx}>
               <div className="user-info">
                 <p className="chat-user-sent">{message.username}</p>
-                <p className="chat-date">
+                <p className="chat-date-sent">
                   {new Date(message.timestamp).toLocaleDateString()}
                 </p>
               </div>
@@ -61,7 +61,7 @@ function Chat(props) {
             <div className="message-recieved" key={indx}>
               <div className="user-info">
                 <p className="chat-user-recieved">{message.username} </p>
-                <p className="chat-date">
+                <p className="chat-date-recieved">
                   {new Date(message.timestamp).toLocaleDateString()}
                 </p>
               </div>
@@ -78,6 +78,7 @@ function Chat(props) {
             name="chat"
             id="chat"
             placeholder="type a message"
+            aria-label="chat-message"
           ></input>
           <button type="submit">Send</button>
         </form>

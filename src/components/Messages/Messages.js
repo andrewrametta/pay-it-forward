@@ -54,7 +54,7 @@ export default function Messages(props) {
                       className="user-image"
                       cloudName="hq1rpt94r"
                       publicId={`${conversation.user2_url}`}
-                      alt="user-image"
+                      alt={`${conversation.username2} image`}
                     >
                       <Transformation
                         gravity="face"
@@ -77,7 +77,7 @@ export default function Messages(props) {
                       className="user-image"
                       cloudName="hq1rpt94r"
                       publicId={`${conversation.user_url}`}
-                      alt="user-image"
+                      alt={`${conversation.username} image`}
                     >
                       <Transformation
                         gravity="face"

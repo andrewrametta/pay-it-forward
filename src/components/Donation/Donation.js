@@ -91,7 +91,7 @@ function Donation(props) {
               width="350"
               height="350"
               crop="fill"
-              alt="donation-image"
+              alt={`${itemSelected.title}`}
             />
           ) : null}
         </div>
@@ -126,7 +126,11 @@ function Donation(props) {
       <div className="user-container-details">
         <p>Donationated By</p>
         {itemSelected.user_url ? (
-          <Image cloudName="hq1rpt94r" publicId={`${itemSelected.user_url}`}>
+          <Image
+            cloudName="hq1rpt94r"
+            publicId={`${itemSelected.user_url}`}
+            alt={`${itemSelected.username}`}
+          >
             <Transformation
               gravity="face"
               height="200"

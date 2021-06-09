@@ -27,7 +27,7 @@ form.chat-form {
 }
 
 div.message-sent {
-  background: #7443cb;
+  background: rgb(48, 0, 96);
   padding: 5px;
   margin-bottom: 5px;
   box-shadow: 2px 2px 6px 0 rgba(41, 2, 80, 0.1);
@@ -46,7 +46,7 @@ div.message-recieved {
 }
 
 p.chat-user-sent {
-  color: black;
+  color: #aa7dfe;
   margin: 0;
   padding-right: 10px;
   font-weight: bold;
@@ -66,6 +66,10 @@ p.chat-message-recieved {
   color: #4500c9;
 }
 
-p.chat-date {
-  color: lightgreen;
+p.chat-date-sent {
+  color: white;
+}
+
+p.chat-date-recieved {
+  color: rgb(0, 38, 121);
 }

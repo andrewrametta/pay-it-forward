@@ -24,7 +24,7 @@ export default function Dashboard(props) {
     <div className="dashboard-container">
       <div className="dashboard-header">
         <h1>Donations Available</h1>
-        <p>Click a donation for more info</p>
+        <h2 className="click-donation">Click a donation for more info</h2>
       </div>
       <div className="dashboard-item-container">
         {error && <h2>error</h2>}
@@ -43,7 +43,7 @@ export default function Dashboard(props) {
                         width="275"
                         height="275"
                         crop="fill"
-                        alt="donation-image"
+                        alt={`${item.title} image`}
                       />
                     ) : null}
                   </div>

@@ -1,9 +1,14 @@
-.dashboard-container {
+div.dashboard-container {
   height: 100%;
   padding-bottom: 100px;
 }
 
-.dashboard-header {
+h2.click-donation {
+  color: rgb(55, 55, 55);
+  font-weight: normal;
+}
+
+div.dashboard-header {
   text-align: center;
 }
 
