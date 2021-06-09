@@ -8,18 +8,25 @@ exports[`Upload component renders the complete page 1`] = `
     onSubmit={[Function]}
   >
     <input
+      aria-label="upload-image"
       className="form-input"
       name="image"
       onChange={[Function]}
       type="file"
     />
-    <div />
-    <button
-      className="form-btn"
-      type="submit"
+    <div
+      className="img-upload"
+    />
+    <div
+      className="submit-button"
     >
-      Next
-    </button>
+      <button
+        className="form-btn"
+        type="submit"
+      >
+        Next
+      </button>
+    </div>
   </form>
 </div>
 `;
