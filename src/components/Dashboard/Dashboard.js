@@ -27,7 +27,7 @@ export default function Dashboard(props) {
         <h2 className="click-donation">Click a donation for more info</h2>
       </div>
       <div className="dashboard-item-container">
-        {error && <h2>error</h2>}
+        {error && <h2 className="error-message">error</h2>}
         <ul className="dashboard-items">
           {items
             .sort((a, b) => a.id - b.id)

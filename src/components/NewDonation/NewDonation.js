@@ -5,6 +5,7 @@ import AuthAPIService from "../../services/auth-api-service";
 
 function NewDonation(props) {
   const [showForm, setShowForm] = useState(false);
+  const [error, setError] = useState(null);
   const [imgUrl, setImgUrl] = useState("");
   const [previewSource, setPreviewSource] = useState("");
 
@@ -20,8 +21,8 @@ function NewDonation(props) {
       .then((item) => {
         props.history.push("/dashboard");
       })
-      .catch((err) => {
-        console.log(err);
+      .catch((error) => {
+        setError(error);
       });
   };
 
@@ -73,6 +74,7 @@ function NewDonation(props) {
               </form>
             ) : null}
           </div>
+          {error && <h3 className="error-message">error</h3>}
         </article>
       </section>
     </div>

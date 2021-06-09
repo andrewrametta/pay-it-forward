@@ -31,8 +31,7 @@ export default function Messages(props) {
 
   return (
     <div className="messages-wrapper">
-      {error && <h2>error</h2>}
-
+      {error && <h2 className="error-message">error</h2>}
       <section className="conversation-list">
         {show === null ? (
           <div className="show-chat-message">

@@ -70,7 +70,7 @@ function Chat(props) {
           );
         })}
       </div>
-      {error && <h3>Something went wrong</h3>}
+      {error && <h3 className="error-message">Something went wrong</h3>}
       <div className="chat-form-box">
         <form className="chat-form" onSubmit={handleMessage}>
           <input
