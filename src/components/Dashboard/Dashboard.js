@@ -13,7 +13,6 @@ export default function Dashboard(props) {
     setChatOn(null);
     AuthAPIService.getItems()
       .then((donations) => {
-        console.log(donations);
         setItems(donations);
       })
       .catch((error) => {
@@ -44,6 +43,7 @@ export default function Dashboard(props) {
                         width="275"
                         height="275"
                         crop="fill"
+                        alt="donation-image"
                       />
                     ) : null}
                   </div>

@@ -91,6 +91,7 @@ function Donation(props) {
               width="350"
               height="350"
               crop="fill"
+              alt="donation-image"
             />
           ) : null}
         </div>

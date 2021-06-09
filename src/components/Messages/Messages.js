@@ -49,40 +49,46 @@ export default function Messages(props) {
             >
               {type === "org" ? (
                 <div className="conversation-user-container">
-                  <Image
-                    className="user-image"
-                    cloudName="hq1rpt94r"
-                    publicId={`${conversation.user2_url}`}
-                  >
-                    <Transformation
-                      gravity="face"
-                      height="100"
-                      width="100"
-                      crop="thumb"
-                    />
-                    <Transformation radius="max" />
-                    <Transformation width="100" crop="thumb" />
-                  </Image>
+                  {conversation.user2_url ? (
+                    <Image
+                      className="user-image"
+                      cloudName="hq1rpt94r"
+                      publicId={`${conversation.user2_url}`}
+                      alt="user-image"
+                    >
+                      <Transformation
+                        gravity="face"
+                        height="100"
+                        width="100"
+                        crop="thumb"
+                      />
+                      <Transformation radius="max" />
+                      <Transformation width="100" crop="thumb" />
+                    </Image>
+                  ) : null}
                   <h2 className="conversation-user">
                     {conversation.username2}
                   </h2>
                 </div>
               ) : (
                 <div className="conversation-user-container">
-                  <Image
-                    className="user-image"
-                    cloudName="hq1rpt94r"
-                    publicId={`${conversation.user_url}`}
-                  >
-                    <Transformation
-                      gravity="face"
-                      height="100"
-                      width="100"
-                      crop="thumb"
-                    />
-                    <Transformation radius="max" />
-                    <Transformation width="100" crop="thumb" />
-                  </Image>
+                  {conversation.user_url ? (
+                    <Image
+                      className="user-image"
+                      cloudName="hq1rpt94r"
+                      publicId={`${conversation.user_url}`}
+                      alt="user-image"
+                    >
+                      <Transformation
+                        gravity="face"
+                        height="100"
+                        width="100"
+                        crop="thumb"
+                      />
+                      <Transformation radius="max" />
+                      <Transformation width="100" crop="thumb" />
+                    </Image>
+                  ) : null}
                   <h2 className="conversation-user">{conversation.username}</h2>
                 </div>
               )}

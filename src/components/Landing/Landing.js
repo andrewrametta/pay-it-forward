@@ -5,9 +5,9 @@ import { FaBoxOpen, FaPeopleCarry } from "react-icons/fa";
 function Landing() {
   return (
     <div className="landing-wrapper">
-      <p className="tagline">
+      <h1 className="tagline">
         You can make a difference in the lives of others
-      </p>
+      </h1>
       <div className="landing-container">
         <div className="landing-item">
           <div className="react-icon">

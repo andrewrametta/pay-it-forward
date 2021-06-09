@@ -32,7 +32,6 @@ function Upload(props) {
     if (!resizeUrl) return;
     AuthAPIService.uploadImg(resizeUrl)
       .then((img) => {
-        console.log(img);
         setImgUrl(img.public_id);
         setShowForm(true);
         setShowButton(false);
@@ -49,8 +48,6 @@ function Upload(props) {
 
     // Ensure it's an image
     if (file.type.match(/image.*/)) {
-      console.log("An image has been loaded");
-
       // Load the image
       const reader = new FileReader();
       reader.onload = function (readerEvent) {
