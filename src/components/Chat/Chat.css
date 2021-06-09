@@ -24,6 +24,16 @@ div.chat-form-box {
 
 form.chat-form {
   width: 100%;
+  display: flex;
+}
+
+input.chat-input {
+  margin: 0;
+}
+
+button.chat-submit {
+  flex: 1;
+  margin: 0;
 }
 
 div.message-sent {

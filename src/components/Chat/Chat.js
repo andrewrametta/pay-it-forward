@@ -74,13 +74,16 @@ function Chat(props) {
       <div className="chat-form-box">
         <form className="chat-form" onSubmit={handleMessage}>
           <input
+            className="chat-input"
             type="text"
             name="chat"
             id="chat"
             placeholder="type a message"
             aria-label="chat-message"
           ></input>
-          <button type="submit">Send</button>
+          <button className="chat-submit" type="submit">
+            Send
+          </button>
         </form>
       </div>
     </div>

@@ -64,11 +64,11 @@ function EditDonation(props) {
   };
 
   return (
-    <div className="newdonation-wrapper">
-      <section className="newdonation-section">
+    <div className="editdonation-wrapper">
+      <section className="editdonation-section">
         <h1>Edit Donation</h1>
         <article>
-          <p>{error}</p>
+          <p className="error-message">{error}</p>
           <div className="editdonation-image">
             <Image
               className="edit-image"
@@ -80,12 +80,13 @@ function EditDonation(props) {
             />
           </div>
           <div>
-            <form className="newdonation form" onSubmit={handleSubmit}>
+            <form className="edonation-form" onSubmit={handleSubmit}>
               <div>
                 <label className="label" htmlFor="donation">
-                  Donation Type
+                  Donation Name
                 </label>
                 <input
+                  className="edit-input"
                   type="text"
                   name="title"
                   id="donation"
