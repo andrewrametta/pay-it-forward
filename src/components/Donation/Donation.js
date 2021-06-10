@@ -9,6 +9,7 @@ function Donation(props) {
   const id = props.match.params.donationId;
   const [error, setError] = useState(null);
   const [updatedItem, setUpdatedItem] = useState("");
+  const [showDelete, setShowDelete] = useState(null);
   const [itemSelected, setItemSelected] = useState("");
   const {
     items,
@@ -20,6 +21,7 @@ function Donation(props) {
   } = useContext(AppContext);
 
   useEffect(() => {
+    setShowDelete(null);
     AuthAPIService.getItemById(id)
       .then((item) => {
         setItemSelected(item);
@@ -39,8 +41,8 @@ function Donation(props) {
         props.history.push(`/messages/${conversation.id}`);
         setConversations([...conversations, conversation]);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch((error) => {
+        setError(error);
       });
   };
   const handleDelete = (e) => {
@@ -50,8 +52,15 @@ function Donation(props) {
         props.history.push("/yourdonations");
       })
       .catch((error) => {
-        console.error({ error });
+        setError(error);
       });
+  };
+
+  const handleDeleteButton = () => {
+    setShowDelete(true);
+  };
+  const handleCancel = () => {
+    setShowDelete(null);
   };
 
   const handleDonation = (e) => {
@@ -82,8 +91,8 @@ function Donation(props) {
   return (
     <div className="donation-wrapper">
       <section className="donation-section">
-        <div className="desktop-flex-view">
-          <div className="donation-img">
+        <div className="donation-item-container">
+          <div className="donation-img-container">
             {itemSelected.item_url ? (
               <Image
                 className="donation-image"
@@ -111,14 +120,34 @@ function Donation(props) {
               )}
               {parseInt(userId) === itemSelected.user_id && (
                 <>
-                  <button className="donation-btn" onClick={handleDelete}>
-                    Delete
+                  {showDelete === null ? (
+                    <button
+                      onClick={handleDeleteButton}
+                      className="donation-btn"
+                    >
+                      Delete
+                    </button>
+                  ) : (
+                    <>
+                      <p className="cancel-message">
+                        Are you sure you want to delete?
+                      </p>
+                      <button className="donation-btn" onClick={handleCancel}>
+                        No
+                      </button>
+                      <button className="donation-btn" onClick={handleDelete}>
+                        Yes
+                      </button>
+                    </>
+                  )}
+                  <button className="donation-btn">
+                    <Link to={`/edit/${props.match.params.donationId}`}>
+                      Edit
+                    </Link>
                   </button>
-                  <Link to={`/edit/${props.match.params.donationId}`}>
-                    <button className="donation-btn">Edit</button>
-                  </Link>
-
-                  <button onClick={handleDonation}>Mark as donated</button>
+                  <button className="donation-btn" onClick={handleDonation}>
+                    Mark as donated
+                  </button>
                 </>
               )}
             </div>

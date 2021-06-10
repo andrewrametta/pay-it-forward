@@ -3,6 +3,11 @@ div.donation-wrapper {
   padding-bottom: 100px;
 }
 
+p.cancel-message {
+  color: #4500c9;
+  font-weight: bold;
+}
+
 section.donation-section {
   margin: 50px 10px;
   background: white;
@@ -44,18 +49,34 @@ div.user-container-details {
     flex-direction: column;
   }
 
-  div.desktop-flex-view {
+  div.donation-item-container {
     display: flex;
     flex-direction: row;
     border-bottom: 1px solid #4500c9;
   }
 
+  div.donation-img-container {
+    flex: 1px;
+  }
+
   div.item-container-details {
     border-bottom: none;
     margin-top: 20px;
+    flex: 1;
   }
 
   div.user-container-details {
     margin-left: 20px;
+  }
+
+  button.donation-btn {
+    width: 30%;
+  }
+
+  div.button-container {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
   }
 }
