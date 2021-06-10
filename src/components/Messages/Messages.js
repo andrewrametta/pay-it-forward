@@ -31,14 +31,7 @@ export default function Messages(props) {
 
   return (
     <div className="messages-wrapper">
-      {error && <h2 className="error-message">error</h2>}
       <section className="conversation-list">
-        {show === null ? (
-          <div className="show-chat-message">
-            <p>Click on a user to chat</p>
-          </div>
-        ) : null}
-
         {conversations.length > 0 ? (
           conversations.map((conversation, indx) => (
             <Link
@@ -98,6 +91,12 @@ export default function Messages(props) {
         )}
       </section>
       <section className="chat-box">
+        {error && <h2 className="error-message">{error}</h2>}
+        {show === null ? (
+          <div className="show-chat-message">
+            <p>Click on a user to chat</p>
+          </div>
+        ) : null}
         <Route exact path="/messages/:conversation_id" component={Chat} />
       </section>
     </div>
