@@ -57,6 +57,7 @@ function NewDonation(props) {
                     id="donation"
                     placeholder="A brown couch"
                     className="form-input"
+                    required
                   />
                 </div>
                 <div>
@@ -69,6 +70,7 @@ function NewDonation(props) {
                     id="description"
                     placeholder="Gently used couch ready for a new home. Leather, brown, with little sign of wear. Available for drop off only"
                     className="form-input"
+                    required
                   />
                 </div>
                 <div className="submit-button">

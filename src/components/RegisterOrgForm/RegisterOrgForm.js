@@ -71,6 +71,7 @@ function RegisterOrgForm(props) {
                     id="username"
                     placeholder="username"
                     className="form-input"
+                    required
                   />
                 </div>
                 <div>
@@ -83,6 +84,7 @@ function RegisterOrgForm(props) {
                     id="email"
                     placeholder="email"
                     className="form-input"
+                    required
                   />
                 </div>
                 <div>
@@ -95,6 +97,7 @@ function RegisterOrgForm(props) {
                     id="password"
                     placeholder="password"
                     className="form-input"
+                    required
                   />
                 </div>
                 <div>
@@ -107,6 +110,7 @@ function RegisterOrgForm(props) {
                     id="address"
                     placeholder="address"
                     className="form-input"
+                    required
                   />
                 </div>
                 <div>
@@ -119,6 +123,7 @@ function RegisterOrgForm(props) {
                     id="city"
                     placeholder="city"
                     className="form-input"
+                    required
                   />
                 </div>
                 <div>
@@ -131,6 +136,7 @@ function RegisterOrgForm(props) {
                     id="state"
                     placeholder="ST"
                     className="form-input"
+                    required
                   />
                 </div>
                 <div>
@@ -145,6 +151,7 @@ function RegisterOrgForm(props) {
                     pattern="[0-9]{5}"
                     title="Five digit zip code"
                     className="form-input"
+                    required
                   />
                 </div>
                 <div className="submit-button">
