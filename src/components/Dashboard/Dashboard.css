@@ -3,6 +3,10 @@ div.dashboard-container {
   padding-bottom: 100px;
 }
 
+div.dashboard-item-container {
+  margin: 50px 10px;
+}
+
 h2.click-donation {
   color: rgb(55, 55, 55);
   font-weight: normal;
