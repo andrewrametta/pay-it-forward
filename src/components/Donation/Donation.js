@@ -105,7 +105,7 @@ function Donation(props) {
               />
             ) : null}
           </div>
-          {error !== null && <h3>error</h3>}
+          {error !== null && <h3>{error}</h3>}
           <div className="item-container-details">
             <h3>{itemSelected.title}</h3>
             <p>{itemSelected.description}</p>

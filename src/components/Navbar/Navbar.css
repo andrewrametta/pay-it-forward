@@ -5,6 +5,7 @@ header {
 }
 
 .logo {
+  padding-top: 10px;
   max-width: 200px;
   flex: 1;
 }

@@ -81,7 +81,7 @@ function NewDonation(props) {
               </form>
             ) : null}
           </div>
-          {error && <h3 className="error-message">error</h3>}
+          {error && <h3 className="error-message">{error}</h3>}
         </article>
       </section>
     </div>

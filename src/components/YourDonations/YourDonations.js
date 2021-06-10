@@ -30,7 +30,7 @@ export default function YourDonations(props) {
         <h1>Available Donations</h1>
         <h2 className="click-donation">Click a donation to manage</h2>
       </div>
-      {error && <h2 className="error-message">error</h2>}
+      {error && <h2 className="error-message">{error}</h2>}
       <div className="your-items-container">
         <ul className="yourdonations-items">
           {yourDonations.length > 0 ? (
