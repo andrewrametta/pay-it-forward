@@ -80,6 +80,7 @@ function Chat(props) {
             id="chat"
             placeholder="type a message"
             aria-label="chat-message"
+            required
           ></input>
           <button className="chat-submit" type="submit">
             Send
