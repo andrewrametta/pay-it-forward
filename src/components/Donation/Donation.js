@@ -154,7 +154,7 @@ function Donation(props) {
           </div>
         </div>
         <div className="user-container-details">
-          <p>Donationated By</p>
+          <p>Donated By</p>
           {itemSelected.user_url ? (
             <Image
               cloudName="hq1rpt94r"

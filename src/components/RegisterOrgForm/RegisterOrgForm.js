@@ -159,7 +159,7 @@ function RegisterOrgForm(props) {
                     Register
                   </button>
                 </div>
-                {error !== null && <p className="error-message">error</p>}
+                {error !== null && <p className="error-message">{error}</p>}
               </form>
             ) : null}
           </div>

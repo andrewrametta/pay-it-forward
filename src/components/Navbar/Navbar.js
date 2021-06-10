@@ -68,7 +68,7 @@ function Navbar(props) {
         </Link>
       </div>
       <button
-        onCLick={handleClick}
+        onClick={handleClick}
         className="nav-toggle"
         aria-label="toggle navigation"
       >
