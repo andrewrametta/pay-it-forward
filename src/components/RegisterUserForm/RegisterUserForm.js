@@ -128,7 +128,7 @@ function RegisterUserForm(props) {
                 </div>
                 <div>
                   <label className="label" htmlFor="state">
-                    state
+                    State
                   </label>
                   <input
                     type="text"
@@ -141,7 +141,7 @@ function RegisterUserForm(props) {
                 </div>
                 <div>
                   <label className="label" htmlFor="zipcode">
-                    zipcode
+                    Zipcode
                   </label>
                   <input
                     type="text"
