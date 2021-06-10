@@ -8,14 +8,13 @@
 }
 
 .conversation-list {
-  height: 50px;
+  height: 75px;
   overflow-x: scroll;
   overflow-y: hidden;
   display: flex;
   flex-direction: row;
-  flex: 1;
+  align-items: baseline;
   background: white;
-  padding: 5px;
   box-shadow: 2px 2px 6px 0 rgba(41, 2, 80, 0.1);
   border-radius: 10px;
 }
@@ -51,11 +50,8 @@
   }
 
   .conversation-user {
-    overflow: scroll;
-  }
-
-  .conversation-user {
     visibility: visible;
+    overflow: scroll;
   }
 
   .user-image {
@@ -63,7 +59,7 @@
   }
 
   .chat-box {
-    flex: 3;
+    flex: 4;
     padding: 15px;
     height: 100%;
     width: 100%;
@@ -71,7 +67,12 @@
 
   .conversation-list {
     height: 100%;
+    width: 100%;
+    flex: 1;
     overflow-x: hidden;
     overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
