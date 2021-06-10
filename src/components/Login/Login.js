@@ -54,7 +54,7 @@ function Login(props) {
         <p className="demo-credentials">Demo username: Demo</p>
         <p className="demo-credentials">Demo password: Password123$</p>
         <p className="demo-credentials">Demo organization: The Demo Org</p>
-        <p className="demo-credentials">Demo password: Password123$</p>
+        <p className="demo-credentials">Demo password: Ufgator1!</p>
         <article>
           {error !== null && <h3 className="error-message">{error}</h3>}
           <div>
