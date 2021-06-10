@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import TokenService from "../../services/token-service";
 import AppContext from "../../AppContext";
@@ -23,27 +23,32 @@ function Navbar(props) {
     props.history.push("/");
   };
 
-  const navLinks = document.querySelector(".nav-links");
-  const links = document.querySelectorAll(".nav-links li");
+  useEffect(() => {
+    const navToggle = document.querySelector(".nav-toggle");
+    navToggle.addEventListener("click", handler);
+    const navLinks = document.querySelectorAll(".nav-item");
+    navLinks.forEach((link) => {
+      link.addEventListener("click", handlerClose);
+    });
+    return () => {
+      navToggle.removeEventListener("click", handler);
+    };
+  });
+
+  const handlerClose = () => {
+    document.body.classList.remove("nav-open");
+  };
+
+  const handler = () => {
+    document.body.classList.toggle("nav-open");
+  };
 
   const handleClick = () => {
     setChatOn(null);
-    if (navLinks) {
-      navLinks.classList.toggle("open");
-      links.forEach((link) => {
-        link.classList.toggle("fade");
-      });
-    }
   };
 
   const handleMessageClick = () => {
     setChatOn(true);
-    if (navLinks) {
-      navLinks.classList.toggle("open");
-      links.forEach((link) => {
-        link.classList.toggle("fade");
-      });
-    }
   };
 
   const handleLogoClick = () => {
@@ -51,62 +56,67 @@ function Navbar(props) {
   };
 
   return (
-    <nav className="navbar-wrapper">
-      <Link className="logo" to="/">
-        <img
-          onClick={handleLogoClick}
-          className="logo-image"
-          src="/logo.svg"
-          alt="Pay it Forward"
-        />
-      </Link>
-      <div className="hamburger" onClick={handleClick}>
-        <div className="line"></div>
-        <div className="line"></div>
-        <div className="line"></div>
+    <header>
+      <div className="logo">
+        <Link className="logo" to="/">
+          <img
+            onClick={handleLogoClick}
+            className="logo-image"
+            src="/logo.svg"
+            alt="Pay it Forward"
+          />
+        </Link>
       </div>
-
-      <ul className="nav-links">
-        {TokenService.hasAuthToken() ? (
-          <>
-            <li className="nav-item" onClick={handleClick}>
-              <Link to="/dashboard">Dashboard</Link>
-            </li>
-            {type === "user" ? (
-              <>
-                <li className="nav-item" onClick={handleClick}>
-                  <Link to="/newdonation">New Donation</Link>
-                </li>
-                <li className="nav-item" onClick={handleClick}>
-                  <Link to="/yourdonations">Your Donations</Link>
-                </li>
-              </>
-            ) : null}
-            <li className="nav-item" onClick={handleMessageClick}>
-              <Link to="/messages">Messages</Link>
-            </li>
-            <li className="nav-item" onClick={handleClick}>
-              <button
-                className="button"
-                aria-label="logout-button"
-                onClick={logout}
-              >
-                Logout
-              </button>
-            </li>
-          </>
-        ) : (
-          <>
-            <li className="nav-item" onClick={handleClick}>
-              <Link to="/register">Register</Link>
-            </li>
-            <li className="nav-item" onClick={handleClick}>
-              <Link to="/login">Login</Link>
-            </li>
-          </>
-        )}
-      </ul>
-    </nav>
+      <button
+        onCLick={handleClick}
+        className="nav-toggle"
+        aria-label="toggle navigation"
+      >
+        <span className="hamburger"></span>
+      </button>
+      <nav className="nav">
+        <ul className="nav-list">
+          {TokenService.hasAuthToken() ? (
+            <>
+              <li className="nav-item" onClick={handleClick}>
+                <Link to="/dashboard">Dashboard</Link>
+              </li>
+              {type === "user" ? (
+                <>
+                  <li className="nav-item" onClick={handleClick}>
+                    <Link to="/newdonation">New Donation</Link>
+                  </li>
+                  <li className="nav-item" onClick={handleClick}>
+                    <Link to="/yourdonations">Your Donations</Link>
+                  </li>
+                </>
+              ) : null}
+              <li className="nav-item" onClick={handleMessageClick}>
+                <Link to="/messages">Messages</Link>
+              </li>
+              <li className="nav-item" onClick={handleClick}>
+                <button
+                  className="button"
+                  aria-label="logout-button"
+                  onClick={logout}
+                >
+                  Logout
+                </button>
+              </li>
+            </>
+          ) : (
+            <>
+              <li className="nav-item" onClick={handleClick}>
+                <Link to="/register">Register</Link>
+              </li>
+              <li className="nav-item" onClick={handleClick}>
+                <Link to="/login">Login</Link>
+              </li>
+            </>
+          )}
+        </ul>
+      </nav>
+    </header>
   );
 }
 

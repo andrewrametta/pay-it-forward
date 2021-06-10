@@ -57,9 +57,7 @@ function App() {
     <ErrorBoundary>
       <AppContext.Provider value={contextValue}>
         <div className="app-container">
-          <header className="header">
-            <Route path="/" component={Navbar} />
-          </header>
+          <Route path="/" component={Navbar} />
           <main>
             <Switch>
               <Route exact path="/" component={Landing} />
