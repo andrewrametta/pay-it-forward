@@ -63,7 +63,7 @@ function RegisterOrgForm(props) {
               <form className="register form" onSubmit={handleSubmit}>
                 <div>
                   <label className="label" htmlFor="username">
-                    Username or Organization Name
+                    Organization Name
                   </label>
                   <input
                     type="text"

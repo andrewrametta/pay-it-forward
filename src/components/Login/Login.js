@@ -56,7 +56,7 @@ function Login(props) {
         <p className="demo-credentials">Demo organization: The Demo Org</p>
         <p className="demo-credentials">Demo password: Password123$</p>
         <article>
-          {error !== null && <h3>error</h3>}
+          {error !== null && <h3 className="error-message">error</h3>}
           <div>
             <form
               className="login-form"

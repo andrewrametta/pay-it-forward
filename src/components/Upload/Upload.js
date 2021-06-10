@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import AuthAPIService from "../../services/auth-api-service";
+import Spinner from "../Spinner/Spinner";
 import "./Upload.css";
 
 function Upload(props) {
   const [uploadError, setUploadError] = useState("");
   const [showButton, setShowButton] = useState(true);
   const [resizeUrl, setResizeUrl] = useState("");
+  const [loggedInState, setLoggedInState] = useState(null);
   const { setImgUrl, setPreviewSource, setShowForm } = props;
 
   const handleFileInputChange = (e) => {
@@ -28,6 +30,7 @@ function Upload(props) {
 
   const handleSubmitFile = (e) => {
     e.preventDefault();
+    setLoggedInState(true);
     setUploadError(null);
     if (!resizeUrl) return;
     AuthAPIService.uploadImg(resizeUrl)
@@ -39,6 +42,7 @@ function Upload(props) {
       })
       .catch((res) => {
         setUploadError("Something went wrong, try again");
+        setLoggedInState(null);
       });
   };
 
@@ -83,6 +87,7 @@ function Upload(props) {
 
   return (
     <div className="App">
+      {loggedInState && <Spinner />}
       <form onSubmit={handleSubmitFile}>
         <input
           type="file"

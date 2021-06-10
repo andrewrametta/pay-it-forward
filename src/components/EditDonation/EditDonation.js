@@ -2,13 +2,16 @@ import React, { useState, useEffect, useContext } from "react";
 import AppContext from "../../AppContext";
 import { Image } from "cloudinary-react";
 import AuthAPIService from "../../services/auth-api-service";
+import Spinner from "../Spinner/Spinner";
 import "./EditDonation.css";
 
 function EditDonation(props) {
   const id = props.match.params.item_id;
   const [updatedItem, setUpdatedItem] = useState("");
+  const [loggedInState, setLoggedInState] = useState(null);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+
   const [img, setImg] = useState("");
   const [error, setError] = useState(null);
   const { items, setItems } = useContext(AppContext);
@@ -38,6 +41,7 @@ function EditDonation(props) {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoggedInState(true);
     setError(null);
     const item_id = props.match.params.item_id;
     const { title, description } = e.target;
@@ -54,6 +58,7 @@ function EditDonation(props) {
       })
       .catch((res) => {
         setError(error);
+        setLoggedInState(null);
       });
   };
   const updateItems = (updatedItem) => {
@@ -65,6 +70,7 @@ function EditDonation(props) {
 
   return (
     <div className="editdonation-wrapper">
+      {loggedInState && <Spinner />}
       <section className="editdonation-section">
         <h1>Edit Donation</h1>
         <article>
