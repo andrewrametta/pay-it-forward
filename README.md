@@ -60,7 +60,11 @@ Our hope is to build communities of generosity that can connect and share resour
 
 ![Screen Shot 2021-06-10 at 5 07 13 PM](https://user-images.githubusercontent.com/73006425/121600830-19255b00-ca13-11eb-97a6-677662c97e87.png)
 
-### Add a Donation
+### Add a New Donation
+
+![Screen Shot 2021-06-10 at 5 11 26 PM](https://user-images.githubusercontent.com/73006425/121601118-81743c80-ca13-11eb-9c23-fe9260760191.png)
+
+### Edit a Donation
 
 ![Screen Shot 2021-06-10 at 5 42 14 PM](https://user-images.githubusercontent.com/73006425/121600912-34906600-ca13-11eb-8b61-d3003a0285f8.png)
 
