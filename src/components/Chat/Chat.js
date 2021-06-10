@@ -33,6 +33,7 @@ function Chat(props) {
       conversations_id: conversations_id,
       text: chat.value,
       message_status: "not seen",
+      username: username,
     })
       .then((message) => {
         setMessages([...messages, message]);
