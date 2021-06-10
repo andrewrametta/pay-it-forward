@@ -5,12 +5,12 @@
 }
 .landing-item {
   flex-grow: 1;
-  height: 350px;
+  height: 100%;
   max-width: 350px;
   min-width: 80px;
   background-color: white;
+  margin: 30px 0;
   padding: 20px;
-  margin: 60px;
   box-shadow: 2px 2px 6px 0 rgba(41, 2, 80, 0.1);
   border-radius: 10px;
 }

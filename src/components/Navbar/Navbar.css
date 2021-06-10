@@ -76,14 +76,14 @@ nav.navbar-wrapper {
     margin-top: 10vh;
     justify-content: flex-start;
     flex-direction: column;
-    clip-path: circle(100px at 90% -10%);
-    -webkit-clip-path: circle(100px at 90% -10%);
+    clip-path: circle(50px at 95% -5%);
+    -webkit-clip-path: circle(50px at 95% -5%);
     transition: all 1s ease-out;
     pointer-events: none;
   }
   .nav-links.open {
-    clip-path: circle(1500px at 90% -10%);
-    -webkit-clip-path: circle(1500px at 90% -10%);
+    clip-path: circle(1500px at 95% -5%);
+    -webkit-clip-path: circle(1500px at 95% -5%);
     pointer-events: all;
   }
 

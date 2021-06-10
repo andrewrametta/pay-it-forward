@@ -1,15 +1,27 @@
-.register-wrapper {
-  width: 80%;
-  margin: 50px auto;
-  padding: 20px;
-  background-color: white;
+div.register-wrapper {
+  height: 100%;
+  padding-bottom: 100px;
+}
+
+section.register-section {
+  margin: 10px;
+  background: white;
+  padding: 10px;
+  box-shadow: 2px 2px 6px 0 rgba(41, 2, 80, 0.1);
   border-radius: 10px;
 }
 
 @media all and (min-width: 600px) {
-  .register-wrapper {
-    width: 60%;
+  div.register-wrapper {
+    margin-right: 10%;
+    margin-left: 10%;
+    padding: 30px;
   }
+
+  section.register-section {
+    padding: 20px;
+  }
+
   div.submit-button {
     text-align: center;
   }
