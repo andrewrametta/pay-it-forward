@@ -1,16 +1,19 @@
 import React, { useState } from "react";
 import "./NewDonation.css";
 import Upload from "../Upload/Upload";
+import Spinner from "../Spinner/Spinner";
 import AuthAPIService from "../../services/auth-api-service";
 
 function NewDonation(props) {
   const [showForm, setShowForm] = useState(false);
+  const [loggedInState, setLoggedInState] = useState(null);
   const [error, setError] = useState(null);
   const [imgUrl, setImgUrl] = useState("");
   const [previewSource, setPreviewSource] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoggedInState(true);
     const { donation, description } = e.target;
     AuthAPIService.postItem({
       cur_status: "available",
@@ -23,11 +26,13 @@ function NewDonation(props) {
       })
       .catch((error) => {
         setError(error);
+        setLoggedInState(null);
       });
   };
 
   return (
     <div className="newdonation-wrapper">
+      {loggedInState && <Spinner />}
       <section className="newdonation-section">
         <h1>New Donation</h1>
         <p>Start by selecting 1 image</p>
