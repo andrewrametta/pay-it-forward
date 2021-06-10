@@ -20,6 +20,10 @@ export default function Dashboard(props) {
       });
   }, [setItems, setError, setChatOn]);
 
+  const availableDonations = items.filter(
+    (item) => item.cur_status === "available"
+  );
+
   return (
     <div className="dashboard-container">
       <div className="dashboard-header">
@@ -29,7 +33,7 @@ export default function Dashboard(props) {
       <div className="dashboard-item-container">
         {error && <h2 className="error-message">{error}</h2>}
         <ul className="dashboard-items">
-          {items
+          {availableDonations
             .sort((a, b) => a.id - b.id)
             .map((item, indx) => (
               <Link key={indx} to={`donation/${item.id}`}>
