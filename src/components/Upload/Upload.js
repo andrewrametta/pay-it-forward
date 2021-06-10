@@ -36,6 +36,7 @@ function Upload(props) {
     AuthAPIService.uploadImg(resizeUrl)
       .then((img) => {
         setImgUrl(img.public_id);
+        setLoggedInState(null);
         setShowForm(true);
         setShowButton(false);
         setUploadError("");
