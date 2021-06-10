@@ -63,9 +63,9 @@ a {
 header {
   background-color: #fff;
   box-shadow: 1px 1px 4px 0 rgba(41, 2, 80, 0.1);
-  /* width: 100%;
+  width: 100%;
   top: 0;
-  position: sticky; */
+  position: sticky;
 }
 
 footer {

@@ -93,3 +93,27 @@ button.nav-toggle {
 .nav-open .hamburger::after {
   opacity: 0;
 }
+
+@media all and (min-width: 900px) {
+  .hamburger {
+    display: none;
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: row;
+    transform: translateX(0);
+    position: relative;
+  }
+  ul.nav-list {
+    display: flex;
+    flex-direction: row;
+  }
+
+  li.nav-item {
+    flex: 1;
+    font-size: 18px;
+    font-weight: normal;
+    padding: 0 20px;
+  }
+}
