@@ -20,6 +20,7 @@
 
 ## About this project
 
+<<<<<<< HEAD
 Have you ever had something you want to get rid of but don't know where to start?
 
 If you are a nonprofit, do you wish there was a place to find local donations?
@@ -31,6 +32,19 @@ We make it easy for individuals to post a donation from their phone or computer.
 A user can post a donation by uploading an image and then filling out a donation form. It is that simple.
 
 Once a nonprofit requests a posted donation a our messaging service kicks in and connects the donor with the nonprofit.
+=======
+Have you ever had something you want to get rid of but don't know where to start? 
+
+If you are a nonprofit, do you wish there was a place to find local donations? 
+
+We have created a network of generosity.
+
+We make it easy for individuals to post a donation from their phone or computer. Once the donation is on our site, local nonprofits can request this donation and then message the user to connect for pickup or drop off. Are goal is to connect donors to nonprofits. 
+
+A user can post a donation by uploading an image and then filling out a donation form. It is that simple.
+
+Once a nonprofit requests a posted donation a our messaging service kicks in and connects the donor with the nonprofit. 
+>>>>>>> fee52a898e976e8073efd5205ebf1c74e8b228d3
 
 Our hope is to build communities of generosity that can connect and share resources fast and efficiently.
 
@@ -44,11 +58,19 @@ Our hope is to build communities of generosity that can connect and share resour
 
 ![Screen Shot 2021-06-10 at 5 05 51 PM](https://user-images.githubusercontent.com/73006425/121600411-694fed80-ca12-11eb-9ff2-8fd39bff00ea.png)
 
+<<<<<<< HEAD
 ### Register as a User
 
 ![Screen Shot 2021-06-10 at 5 09 21 PM](https://user-images.githubusercontent.com/73006425/121600563-a7e5a800-ca12-11eb-9b67-c92194af6190.png)
 
 ### Register as an Organization
+=======
+### Register as a User 
+
+![Screen Shot 2021-06-10 at 5 09 21 PM](https://user-images.githubusercontent.com/73006425/121600563-a7e5a800-ca12-11eb-9b67-c92194af6190.png)
+
+### Register as an Organization 
+>>>>>>> fee52a898e976e8073efd5205ebf1c74e8b228d3
 
 ![Screen Shot 2021-06-10 at 5 40 32 PM](https://user-images.githubusercontent.com/73006425/121600757-f72bd880-ca12-11eb-9198-278a2a99e808.png)
 
