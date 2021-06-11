@@ -1,70 +1,82 @@
-# Getting Started with Create React App
+<br />
+<p align="center">
+  <a href="https://github.com/andrewrametta/pay-it-forward">
+    <img src="public/logo.svg" alt="Logo" width="500px">
+  </a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  <p align="center">
+    A daily gratitude journal
+    <br />
+    <a href="https://github.com/andrewrametta/pay-it-forward-api"><strong>Explore the API docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://pay-it-forward-andrewrametta.vercel.app/">View Demo</a>
+    ·
+    <a href="https://github.com/andrewrametta/pay-it-forward/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/andrewrametta/pay-it-forward/issues">Request Feature</a>
+  </p>
+</p>
 
-## Available Scripts
+## About this project
 
-In the project directory, you can run:
+Have you ever had something you want to get rid of but don't know where to start?
 
-### `npm start`
+If you are a nonprofit, do you wish there was a place to find local donations?
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+We have created a network of generosity.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+We make it easy for individuals to post a donation from their phone or computer. Once the donation is on our site, local nonprofits can request this donation and then message the user to connect for pickup or drop off. Are goal is to connect donors to nonprofits.
 
-### `npm test`
+A user can post a donation by uploading an image and then filling out a donation form. It is that simple.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Once a nonprofit requests a posted donation a our messaging service kicks in and connects the donor with the nonprofit.
 
-### `npm run build`
+Our hope is to build communities of generosity that can connect and share resources fast and efficiently.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Screen Shots
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Landing page desktop view
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Screen Shot 2021-06-10 at 5 05 12 PM](https://user-images.githubusercontent.com/73006425/121600367-5806e100-ca12-11eb-89f6-2ade024b672e.png)
 
-### `npm run eject`
+### Register page mobile view
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![Screen Shot 2021-06-10 at 5 05 51 PM](https://user-images.githubusercontent.com/73006425/121600411-694fed80-ca12-11eb-9ff2-8fd39bff00ea.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Register as a User
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![Screen Shot 2021-06-10 at 5 09 21 PM](https://user-images.githubusercontent.com/73006425/121600563-a7e5a800-ca12-11eb-9b67-c92194af6190.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Register as an Organization
 
-## Learn More
+![Screen Shot 2021-06-10 at 5 40 32 PM](https://user-images.githubusercontent.com/73006425/121600757-f72bd880-ca12-11eb-9198-278a2a99e808.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Login page mobile view
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![Screen Shot 2021-06-10 at 5 40 55 PM](https://user-images.githubusercontent.com/73006425/121600790-0874e500-ca13-11eb-9536-ccbd98f7f377.png)
 
-### Code Splitting
+### Dashboard page desktop view
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![Screen Shot 2021-06-10 at 5 07 13 PM](https://user-images.githubusercontent.com/73006425/121600830-19255b00-ca13-11eb-97a6-677662c97e87.png)
 
-### Analyzing the Bundle Size
+### Add a New Donation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+![Screen Shot 2021-06-10 at 5 11 26 PM](https://user-images.githubusercontent.com/73006425/121601118-81743c80-ca13-11eb-9c23-fe9260760191.png)
 
-### Making a Progressive Web App
+### Edit a Donation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+![Screen Shot 2021-06-10 at 5 42 14 PM](https://user-images.githubusercontent.com/73006425/121600912-34906600-ca13-11eb-8b61-d3003a0285f8.png)
 
-### Advanced Configuration
+### Messaging App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+![Screen Shot 2021-06-10 at 5 14 55 PM](https://user-images.githubusercontent.com/73006425/121600981-50940780-ca13-11eb-9b0a-10156b0ccde9.png)
 
-### Deployment
+## Technologies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+For this app, I used:
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Node.js (v. 12.18.3)
+- React.js (v. 17.0.1)
+- PostgreSQL (v. 12.4)
+- Express (v. 4.17.1)
