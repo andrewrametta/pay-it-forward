@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Landing.css";
 import { FaBoxOpen, FaPeopleCarry } from "react-icons/fa";
 
@@ -30,6 +31,9 @@ function Landing() {
             We make it simple and easy for you to find a good home for the
             things that you want to give away.
           </p>
+          <Link to="/register">
+            <button>Sign Up</button>
+          </Link>
         </div>
       </div>
     </div>
