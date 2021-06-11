@@ -47,6 +47,13 @@ exports[`Landing component renders the complete page 1`] = `
       <p>
         We make it simple and easy for you to find a good home for the things that you want to give away.
       </p>
+      <Link
+        to="/register"
+      >
+        <button>
+          Sign Up
+        </button>
+      </Link>
     </div>
   </div>
 </div>
