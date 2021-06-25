@@ -10,7 +10,7 @@
     <a href="https://github.com/andrewrametta/pay-it-forward-api"><strong>Explore the API docs »</strong></a>
     <br />
     <br />
-    <a href="https://pay-it-forward-andrewrametta.vercel.app/">View Demo</a>
+    <a href="https://pay-it-forward.vercel.app/">View Demo</a>
     ·
     <a href="https://github.com/andrewrametta/pay-it-forward/issues">Report Bug</a>
     ·
