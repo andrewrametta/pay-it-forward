@@ -5,12 +5,16 @@
   </a>
 
   <p align="center">
-    A daily gratitude journal
+    A donation based platform
     <br />
     <a href="https://github.com/andrewrametta/pay-it-forward-api"><strong>Explore the API docs »</strong></a>
     <br />
     <br />
+<<<<<<< HEAD
     <a href="https://pay-it-forward.vercel.app">View Demo</a>
+=======
+    <a href="https://pay-it-forward.vercel.app/">View Demo</a>
+>>>>>>> d9061488523e4f442cdef4f55921a1e334b7a0b2
     ·
     <a href="https://github.com/andrewrametta/pay-it-forward/issues">Report Bug</a>
     ·
